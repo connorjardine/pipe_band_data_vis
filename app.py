@@ -1,15 +1,10 @@
-import sys
-
 from flask import Flask, render_template, request, jsonify
 import json
 import plotly
-import plotly.graph_objs as go
 
 from grade1_results import *
 from other_results import *
 from progressive_coc import *
-
-import numpy as np
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba
@@ -18,31 +13,25 @@ helper_collection = db.band_helper_data
 app = Flask(__name__)
 
 
-@app.route('/grade1')
+@app.route('/major_totals')
 def grade():
 
     names, values = zip(*return_g1_data('1'))
     graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template('index.html',
+    return render_template('major_totals.html',
                            graphJSON=graphJSON, graph_title="Total Grade One Majors Won")
 
 
-@app.route('/_get_drumming_coc')
-def drumming_coc():
-    y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
-    data = helper_collection.find({"type": "g1_drumming_coc"})
-    graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON
 
 
-@app.route('/prog_coc')
+@app.route('/champion_of_champions')
 def prog_coc():
     y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
     data = helper_collection.find({"type": "g1_coc"})
     drumming_data = helper_collection.find({"type": "g1_drumming_coc"})
     drumming_graphJSON = json.dumps([jsonpickle.decode(drumming_data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
     graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template('line.html',
+    return render_template('champion_of_champions.html',
                            graphJSON=graphJSON, d_graph_json=drumming_graphJSON,
                            d_graph_title="Grade One Drumming Champion of Champions",
                            graph_title="Grade One Overall Champion of Champions")

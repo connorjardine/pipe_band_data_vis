@@ -1,8 +1,6 @@
 import pymongo
 import jsonpickle
 
-from collections import Counter
-
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba
 competitions_collection = db.competitions

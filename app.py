@@ -63,4 +63,8 @@ def get_new_title():
     return graph_title
 
 
+if __name__ == '__main__':
+    app.run()
+
+
 

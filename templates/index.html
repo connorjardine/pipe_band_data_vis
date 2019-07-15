@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        .chart{
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .col-centered{
+            float: none;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('prog_coc') }}">Grade 1 Champion of Champions</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('grade') }}">Major Wins By Grade<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="dropdown col-sm">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose Grade
+              </button>
+              <div id="ddselect" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button value="1" class="dropdown-item" type="button">1</button>
+                <button value="2" class="dropdown-item" type="button">2</button>
+                <button value="3a" class="dropdown-item" type="button">3a</button>
+                <button value="grade" class="dropdown-item" type="button">3b</button>
+                <button value="grade" class="dropdown-item" type="button">4a</button>
+                <button value="grade" class="dropdown-item" type="button">4b</button>
+                <button value="grade" class="dropdown-item" type="button">Juv</button>
+                <button value="grade" class="dropdown-item" type="button">Nov</button>
+                <button value="grade" class="dropdown-item" type="button">Nov A</button>
+                <button value="grade" class="dropdown-item" type="button">Nov B</button>
+              </div>
+            </div>
+            <div class="col-sm">
+                <button id="piebar" type="button" class="btn btn-primary">Pie Chart</button>
+            </div>
+            <div class="col-sm-8"></div>
+        </div>
+    </div>
+
+
+
+
+    <div class ="container">
+        <div id="myDiv" class="chart" style="height: 500px;"></div>
+    <div>
+
+</body>
+
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script type="text/javascript">
+
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+        var default_grade = '1';
+        var graphs = {{graphJSON | safe}};
+        var graph_title = "{{graph_title | safe}}";
+        var state = true;
+
+        graph_data = [{
+                    x: graphs[0],
+                    y: graphs[1],
+                    type: 'bar'
+                }];
+        var bar_layout = {
+            title: String(graph_title),
+
+            xaxis: {
+                tickfont: {
+                    size: 14,
+                    color: 'rgb(107, 107, 107)'
+                }
+            },
+            yaxis: {
+                title: 'Points Total',
+                titlefont: {
+                    size: 16,
+                    color: 'rgb(107, 107, 107)'
+                },
+                tickfont: {
+                    size: 14,
+                    color: 'rgb(107, 107, 107)'
+                }
+            },
+            legend: {
+                x: 0,
+                y: 1.0,
+                bgcolor: 'rgba(255, 255, 255, 0)',
+                bordercolor: 'rgba(255, 255, 255, 0)'
+            },
+            height: 700,
+            width: 1000,
+            margin: {
+                l: 50,
+                r: 50,
+                b: 250,
+                t: 50,
+                pad: 4
+            },
+
+        };
+
+        var pie_layout = {
+            title: String(graph_title),
+            height: 700,
+            width: 1000,
+            margin: {
+                l: 50,
+                r: 50,
+                b: 250,
+                t: 50,
+                pad: 4
+            },
+        };
+        Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud:true});
+
+        $('#ddselect button').on('click', function() {
+            default_grade = $(this).text();
+
+            $.getJSON($SCRIPT_ROOT + '/_get_new_title', {
+                grade: String(default_grade),
+                place: '1'
+            }, function (data) {
+                graph_title = String(data)
+            });
+
+            $.getJSON($SCRIPT_ROOT + '/_get_grade_total', {
+                grade: String(default_grade),
+                place: '1'
+            }, function (data) {
+                graphs = data;
+
+                if(state){
+                graph_data = [{
+                    x: graphs[0],
+                    y: graphs[1],
+                    type: 'bar'
+                }];
+                bar_layout['title'] = graph_title;
+                pie_layout['title'] = graph_title;
+                Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud:true});
+                }
+                else{
+                graph_data = [{
+                    labels: graphs[0],
+                    values: graphs[1],
+                    type: 'pie'
+                }];
+                bar_layout['title'] = graph_title;
+                pie_layout['title'] = graph_title;
+                Plotly.newPlot('myDiv', graph_data, pie_layout, {showSendToCloud:true});
+            }
+            });
+        });
+
+        $('#piebar').on('click', function() {
+            state = !state;
+            if(state){
+                $("#piebar").text('Pie Chart');
+                graph_data = [{
+                    x: graphs[0],
+                    y: graphs[1],
+                    type: 'bar'
+                }];
+                Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud:true});
+            }
+            else{
+                $("#piebar").text('Bar Chart');
+                graph_data = [{
+                    labels: graphs[0],
+                    values: graphs[1],
+                    type: 'pie'
+                }];
+                Plotly.newPlot('myDiv', graph_data, pie_layout, {showSendToCloud:true});
+            }
+
+        });
+
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

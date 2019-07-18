@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, jsonify
 import json
 import plotly
 
-from grade1_results import *
-from other_results import *
-from progressive_coc import *
+from modules.grade1_results import *
+from modules.other_results import *
+from modules.progressive_coc import *
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba
@@ -13,15 +13,17 @@ helper_collection = db.band_helper_data
 app = Flask(__name__)
 
 
+@app.route('/')
+def dashboard():
+    return render_template('dashboard.html')
+
+
 @app.route('/major_totals')
 def grade():
-
-    names, values = zip(*return_g1_data('1'))
+    names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_overall"})[0]['data']))
     graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('major_totals.html',
                            graphJSON=graphJSON, graph_title="Total Grade One Majors Won")
-
-
 
 
 @app.route('/champion_of_champions')
@@ -33,7 +35,6 @@ def prog_coc():
     graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('champion_of_champions.html',
                            graphJSON=graphJSON, d_graph_json=drumming_graphJSON,
-                           d_graph_title="Grade One Drumming Champion of Champions",
                            graph_title="Grade One Overall Champion of Champions")
 
 
@@ -42,7 +43,7 @@ def get_grade_total():
     upd_grade = request.args.get('grade', '1', type=str)
     place = request.args.get('place', '1', type=str)
     if upd_grade == '1':
-        names, values = zip(*return_g1_data(place))
+        names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_overall"})[0]['data']))
     else:
         if upd_grade == 'Juv':
             upd_grade = 'juv'
@@ -63,8 +64,73 @@ def get_new_title():
     return graph_title
 
 
+@app.route('/_get_grade_place_total')
+def get_grade_place_total():
+    upd_grade = request.args.get('grade', '1', type=str)
+    place = request.args.get('place', '1', type=str)
+    type = request.args.get('type', 'd', type=str)
+    print(type)
+    if upd_grade == '1':
+        if type == 'd':
+            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_drumming"})[0]['data']))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
+        if type == 'e':
+            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_ensemble"})[0]['data']))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
+        else:
+            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_piping"})[0]['data']))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
+    else:
+        if upd_grade == 'Juv':
+            grade = 'juv'
+            if type == 'd':
+                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            if type == 'e':
+                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            else:
+                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+        if upd_grade == 'Nov A':
+            grade = 'Nov%20A'
+            if type == 'd':
+                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            if type == 'e':
+                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            else:
+                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+        if upd_grade == 'Nov B':
+            grade = 'Nov%20B'
+            if type == 'd':
+                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            if type == 'e':
+                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            else:
+                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+        else:
+            grade = upd_grade
+            if type == 'd':
+                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            if type == 'e':
+                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            else:
+                print(return_other_piping_data(place, grade))
+                names, values = zip(*return_other_piping_data(place, grade))
+                graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+                return graph_json
+
+
+@app.route('/_get_new_place_title')
+def get_new_place_title():
+    grade = request.args.get('grade', '1', type=str)
+    graph_title = jsonify("Total Grade " + grade + " Majors Won")
+    return graph_title
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run()
+    #app.run(host="0.0.0.0", port=80)
 
 
 

@@ -1,39 +1,6 @@
-<!doctype html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style type="text/css">
-        .chart{
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        #ovdr {
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('prog_coc') }}">Grade 1 Champion of Champions<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('grade') }}">Major Wins By Grade</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+{% block content %}
     <div class = "container">
     <button id="ovdr" type="button" class="btn btn-primary">Drumming Champion of Champions</button>
     </div>
@@ -42,63 +9,13 @@
         <div id="myDiv" class="chart" style="height: 500px;"></div>
     </div>
 
-</body>
+{% endblock %}
+{% block pgjs %}
 
-    <!-- D3.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-    <script type="text/javascript">
-
-        var graphs = {{graphJSON | safe}}
-        var drumming_graphs = {{d_graph_json | safe}}
-        var graph_title = "{{graph_title | safe}}";
-        var d_graph_title = "{{d_graph_title | safe}}";
-        var data = [];
-        var drumming_data = [];
-        var state = false;
-
-        for(let i=0; i<Object.keys(graphs[0]).length; i++) {
-            data.push({
-                x: graphs[1],
-                y: graphs[0][Object.keys(graphs[0])[i]][1],
-                type: 'scatter',
-                name: graphs[0][Object.keys(graphs[0])[i]][0]
-            });
-        }
-
-        for(let i=0; i<Object.keys(drumming_graphs[0]).length; i++) {
-            drumming_data.push({
-                x: drumming_graphs[1],
-                y: drumming_graphs[0][Object.keys(drumming_graphs[0])[i]][1],
-                type: 'scatter',
-                name: drumming_graphs[0][Object.keys(drumming_graphs[0])[i]][0]
-            });
-        }
-
-        var layout = {
-          title: String(graph_title),
-        };
-
-        Plotly.newPlot('myDiv', data, layout);
-
-        $('#ovdr').on('click', function() {
-            state = !state;
-            if(state){
-                $("#ovdr").text('Overall Champion of Champions');
-                layout['title'] = d_graph_title;
-                Plotly.newPlot('myDiv', drumming_data, layout);
-            }
-            else{
-                $("#ovdr").text('Drumming Champion of Champions');
-                layout['title'] = graph_title;
-                Plotly.newPlot('myDiv', data, layout);
-            }
-
-        });
-
+    <script type="text/javascript" src="static/js/coc.js"></script>
+    <script>
+        create_coc_graph({{graphJSON | safe}}, {{d_graph_json | safe}});
     </script>
 
-</html>
+{% endblock %}
+

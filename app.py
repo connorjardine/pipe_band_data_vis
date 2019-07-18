@@ -60,7 +60,7 @@ def get_grade_total():
 @app.route('/_get_new_title')
 def get_new_title():
     grade = request.args.get('grade', '1', type=str)
-    graph_title = jsonify("Total Grade " + grade + " Majors Won")
+    graph_title = ("Total Number of Overall Wins in Grade " + grade + " (2003-2018)")
     return graph_title
 
 
@@ -85,46 +85,28 @@ def get_grade_place_total():
             return graph_json
     else:
         if upd_grade == 'Juv':
-            grade = 'juv'
-            if type == 'd':
-                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            if type == 'e':
-                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            else:
-                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            names, values = zip(*return_other_placings_data(place, 'juv', type))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
         if upd_grade == 'Nov A':
-            grade = 'Nov%20A'
-            if type == 'd':
-                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            if type == 'e':
-                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            else:
-                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            names, values = zip(*return_other_placings_data(place, 'Nov%20A', type))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
         if upd_grade == 'Nov B':
-            grade = 'Nov%20B'
-            if type == 'd':
-                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            if type == 'e':
-                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            else:
-                return json.dumps([zip(*return_other_piping_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
+            names, values = zip(*return_other_placings_data(place, 'Nov%20B', type))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
         else:
-            grade = upd_grade
-            if type == 'd':
-                return json.dumps([zip(*return_other_drumming_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            if type == 'e':
-                return json.dumps([zip(*return_other_ensemble_data(place, grade))], cls=plotly.utils.PlotlyJSONEncoder)
-            else:
-                print(return_other_piping_data(place, grade))
-                names, values = zip(*return_other_piping_data(place, grade))
-                graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
-                return graph_json
+            names, values = zip(*return_other_placings_data(place, upd_grade, type))
+            graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+            return graph_json
 
 
 @app.route('/_get_new_place_title')
 def get_new_place_title():
     grade = request.args.get('grade', '1', type=str)
-    graph_title = jsonify("Total Grade " + grade + " Majors Won")
+    new_type = request.args.get('type', '1', type=str)
+    graph_title = jsonify("Total Number of " + new_type + " Wins in Grade " + grade + " (2003-2018)")
     return graph_title
 
 

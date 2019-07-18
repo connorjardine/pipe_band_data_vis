@@ -1,7 +1,9 @@
 var default_grade = '1';
 var default_title = 'Grade One';
-var default_type = 'w';
+var default_type = 'Wins';
+var graph_title;
 var state = true;
+var graphs;
 
 var graph_data = [{
         x: "",
@@ -60,19 +62,20 @@ var bar_layout = {
 
     };
 
-function create_totals_graph(graphs, graph_title) {
-
+function create_totals_graph(new_graphs, graph_title) {
+    graphs = new_graphs;
+    default_title = graph_title;
     bar_layout['title'] = graph_title;
-    graph_data[0]['x'] = graphs[0];
-    graph_data[0]['y'] = graphs[1];
+    graph_data[0]['x'] = new_graphs[0];
+    graph_data[0]['y'] = new_graphs[1];
+    graph_data[0]['marker'] = {
+                color: 'rgb(255,0,0)'
+            };
     Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud: true});
 }
 
 $('#ddselect button').on('click', function() {
     default_grade = $(this).text();
-
-    console.log(default_type);
-
     if(default_type === 'w'){
         $.getJSON($SCRIPT_ROOT + '/_get_new_title', {
             grade: String(default_grade),
@@ -112,7 +115,7 @@ $('#ddselect button').on('click', function() {
         $.getJSON($SCRIPT_ROOT + '/_get_new_place_title', {
             grade: String(default_grade),
             place: '1',
-            type: default_type,
+            type: String(default_type),
         }, function (data) {
             graph_title = String(data)
         });
@@ -120,10 +123,10 @@ $('#ddselect button').on('click', function() {
         $.getJSON($SCRIPT_ROOT + '/_get_grade_place_total', {
             grade: String(default_grade),
             place: '1',
-            type: default_type
+            type: default_type.charAt(0).toLowerCase()
         }, function (data) {
             graphs = data;
-            if(!state){
+            if(state){
             graph_data = [{
                 x: graphs[0],
                 y: graphs[1],
@@ -149,10 +152,14 @@ $('#ddselect button').on('click', function() {
 
 $('#wins_tog').on('click', function() {
     default_type = 'w';
+    $("#piping_tog, #drumming_tog, #ensemble_tog").removeClass("btn-success").addClass("btn-primary");
+    $("#wins_tog").addClass("btn-success");
     $.getJSON($SCRIPT_ROOT + '/_get_new_title', {
         grade: String(default_grade),
-        place: '1'
+        place: '1',
+        type: 'Wins'
     }, function (data) {
+        default_type = 'Wins';
         graph_title = String(data)
     });
 
@@ -165,7 +172,10 @@ $('#wins_tog').on('click', function() {
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
-            type: 'bar'
+            type: 'bar',
+            marker: {
+                color: 'rgb(255,0,0)'
+            }
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -186,11 +196,14 @@ $('#wins_tog').on('click', function() {
 
 $('#piping_tog').on('click', function() {
     default_type = 'p';
+    $("#wins_tog, #drumming_tog, #ensemble_tog").removeClass("btn-success").addClass("btn-primary");
+    $("#piping_tog").addClass("btn-success");
     $.getJSON($SCRIPT_ROOT + '/_get_new_place_title', {
         grade: String(default_grade),
         place: '1',
-        type: 'p'
+        type: 'Piping'
     }, function (data) {
+        default_type = 'Piping';
         graph_title = String(data)
     });
 
@@ -205,7 +218,10 @@ $('#piping_tog').on('click', function() {
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
-            type: 'bar'
+            type: 'bar',
+            marker: {
+                color: 'rgb(255,0,255)'
+            }
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -226,11 +242,14 @@ $('#piping_tog').on('click', function() {
 
 $('#ensemble_tog').on('click', function() {
     default_type = 'e';
+    $("#piping_tog, #drumming_tog, #wins_tog").removeClass("btn-success").addClass("btn-primary");
+    $("#ensemble_tog").addClass("btn-success");
     $.getJSON($SCRIPT_ROOT + '/_get_new_place_title', {
         grade: String(default_grade),
         place: '1',
-        type: 'e'
+        type: 'Ensemble'
     }, function (data) {
+        default_type = 'Ensemble';
         graph_title = String(data)
     });
 
@@ -265,11 +284,14 @@ $('#ensemble_tog').on('click', function() {
 });
 
 $('#drumming_tog').on('click', function() {
+    $("#piping_tog, #wins_tog, #ensemble_tog").removeClass("btn-success").addClass("btn-primary");
+    $("#drumming_tog").addClass("btn-success");
     $.getJSON($SCRIPT_ROOT + '/_get_new_place_title', {
         grade: String(default_grade),
         place: '1',
-        type: 'd'
+        type: 'Drumming'
     }, function (data) {
+        default_type = 'Drumming';
         graph_title = String(data)
     });
 
@@ -284,7 +306,10 @@ $('#drumming_tog').on('click', function() {
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
-            type: 'bar'
+            type: 'bar',
+            marker: {
+                color: 'rgb(255,255,51)'
+            }
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -306,7 +331,7 @@ $('#drumming_tog').on('click', function() {
 $('#piebar').on('click', function() {
     state = !state;
     if(state){
-        $("#piebar").text('Pie Chart');
+        $("#piebar").text('Pie Chart').removeClass("btn-info").addClass("btn-primary");
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
@@ -315,7 +340,7 @@ $('#piebar').on('click', function() {
         Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud:true});
     }
     else{
-        $("#piebar").text('Bar Chart');
+        $("#piebar").text('Bar Chart').removeClass("btn-primary").addClass("btn-info");
         graph_data = [{
             labels: graphs[0],
             values: graphs[1],

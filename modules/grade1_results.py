@@ -1,5 +1,3 @@
-import sys
-
 import pymongo
 import jsonpickle
 

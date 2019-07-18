@@ -90,85 +90,22 @@ def return_other_data(place, grade, contest=None):
     return final_results
 
 
-def return_other_drumming_data(place, grade, contest=None):
-
+def return_other_placings_data(place, grade, place_type, contest=None):
+    if place_type == 'w':
+        return return_other_data(place, grade)
     if contest is not None:
         results = competitions_collection.find({'Grade': grade, 'contest': contest})
     else:
         results = competitions_collection.find({'Grade': grade})
 
     output = {}
-    for i in results:
-        collate_data(jsonpickle.decode(i['results']), output, 'd')
-
-    new_output = []
-    for key, value in output.items():
-        new_output.append([key, value])
-
-    for i in new_output:
-        for k in placings_list:
-            if k not in i[1]:
-                i[1].update({k: 0})
-
-    firsts = []
-    for i in new_output:
-        if i[1][place] > 0:
-            firsts += [i]
-
-    quick_sort(firsts, 0, len(firsts)-1, place)
-
-    final_results = []
-    for k in firsts[::-1]:
-        final_results += [[k[0], k[1][place]]]
-
-    return final_results
-
-
-def return_other_ensemble_data(place, grade, contest=None):
-
-    if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
+    if place_type == 'p':
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, 'p1')
+            collate_data(jsonpickle.decode(i['results']), output, 'p2')
     else:
-        results = competitions_collection.find({'Grade': grade})
-
-    output = {}
-    for i in results:
-        collate_data(jsonpickle.decode(i['results']), output, 'e')
-
-    new_output = []
-    for key, value in output.items():
-        new_output.append([key, value])
-
-    for i in new_output:
-        for k in placings_list:
-            if k not in i[1]:
-                i[1].update({k: 0})
-
-    firsts = []
-    for i in new_output:
-        if i[1][place] > 0:
-            firsts += [i]
-
-    quick_sort(firsts, 0, len(firsts)-1, place)
-
-    final_results = []
-    for k in firsts[::-1]:
-        final_results += [[k[0], k[1][place]]]
-
-    return final_results
-
-
-def return_other_piping_data(place, grade, contest=None):
-
-    if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
-    else:
-        results = competitions_collection.find({'Grade': grade})
-
-    output = {}
-    for i in results:
-        collate_data(jsonpickle.decode(i['results']), output, 'p1')
-        collate_data(jsonpickle.decode(i['results']), output, 'p2')
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, place_type)
 
     new_output = []
     for key, value in output.items():

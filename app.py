@@ -36,6 +36,11 @@ def worlds():
                            graphJSON=graphJSON, graph_title="Total Number of Worlds Wins in Grade One (2003-2018)", worlds_list=data[1])
 
 
+@app.route('/slams')
+def slams():
+    return render_template('slams.html', data=jsonpickle.decode(helper_collection.find({"type": "slams"})[0]['data']))
+
+
 @app.route('/champion_of_champions')
 def prog_coc():
     y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]

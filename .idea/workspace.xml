@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68fa0cca-74ae-44db-a726-ea109f70e6d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/sort.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/worlds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/worlds.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/worlds.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/grade1_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/grade1_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/other_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/other_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/major_totals.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/major_totals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/major_totals.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/major_totals.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +25,11 @@
     <SUITE FILE_PATH="coverage/rspba$vis.coverage" NAME="vis Coverage Results" MODIFIED="1562256855181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$other_results.coverage" NAME="other_results Coverage Results" MODIFIED="1563380228199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/betfair_parser$main.coverage" NAME="main Coverage Results" MODIFIED="1559325224355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rspba$worlds.coverage" NAME="worlds Coverage Results" MODIFIED="1563586518639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
     <SUITE FILE_PATH="coverage/betfair_parser$db.coverage" NAME="db Coverage Results" MODIFIED="1559327163757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/betfair_parser$scrape.coverage" NAME="scrape Coverage Results" MODIFIED="1561993607136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$coc.coverage" NAME="coc Coverage Results" MODIFIED="1562871986417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rspba$other_results__1_.coverage" NAME="other_results (1) Coverage Results" MODIFIED="1563456814525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
+    <SUITE FILE_PATH="coverage/rspba$other_results__1_.coverage" NAME="other_results (1) Coverage Results" MODIFIED="1563493864845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
     <SUITE FILE_PATH="coverage/betfair_parser$pytest_in_test_matches_py.coverage" NAME="pytest in test_matches.py Coverage Results" MODIFIED="1559398591769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$grade1_results.coverage" NAME="grade1_results Coverage Results" MODIFIED="1563403397159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$progressive_coc.coverage" NAME="progressive_coc Coverage Results" MODIFIED="1562878766373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -58,31 +60,32 @@
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="4" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.9" value="4" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="HTML" value="11" />
-          <entry key="JavaScript" value="3" />
+          <entry key="HTML" value="14" />
+          <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="26" />
+          <entry key="Python" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="4577" />
-          <entry key="JavaScript" value="1347" />
+          <entry key="HTML" value="5134" />
+          <entry key="JavaScript" value="1914" />
           <entry key="PLAIN_TEXT" value="50" />
-          <entry key="Python" value="19433" />
+          <entry key="Python" value="21508" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -90,9 +93,9 @@
           <entry key="Procfile" value="18" />
           <entry key="css" value="6" />
           <entry key="dummy" value="28" />
-          <entry key="html" value="4577" />
-          <entry key="js" value="1347" />
-          <entry key="py" value="19413" />
+          <entry key="html" value="5129" />
+          <entry key="js" value="1919" />
+          <entry key="py" value="21488" />
           <entry key="wsgi" value="4" />
         </counts>
       </usages-collector>
@@ -100,9 +103,9 @@
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="css" value="2" />
-          <entry key="html" value="11" />
-          <entry key="js" value="3" />
-          <entry key="py" value="25" />
+          <entry key="html" value="14" />
+          <entry key="js" value="5" />
+          <entry key="py" value="29" />
           <entry key="wsgi" value="2" />
         </counts>
       </usages-collector>
@@ -111,68 +114,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/grade1_results.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3181">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/other_results.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1315">
-              <caret line="95" column="27" lean-forward="true" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+            <state relative-caret-position="119">
+              <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="100" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <marker date="1563495319835" expanded="true" signature="964:1570" ph="..." />
+                <marker date="1563495319835" expanded="true" signature="1825:1827" ph="..." />
+                <marker date="1563495319835" expanded="true" signature="3662:3663" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/scrape.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="65" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/worlds.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="587">
+              <caret line="175" selection-start-line="175" selection-end-line="175" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1563463463425" expanded="true" signature="499:1350" ph="..." />
-                <marker date="1563463463425" expanded="true" signature="1605:1607" ph="..." />
-                <marker date="1563463463425" expanded="true" signature="2904:2905" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-574">
-              <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#58#0" expanded="true" />
-                <marker date="1563464378436" expanded="true" signature="433:481" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/styles/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -180,11 +155,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+            <state relative-caret-position="340">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/worlds.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2363">
+              <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+              <folding>
+                <marker date="1563622838382" expanded="true" signature="462:510" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1938">
+              <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -194,9 +208,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -227,6 +241,7 @@
       <find>console</find>
       <find>default_type =</find>
       <find>'Wins</find>
+      <find>collate_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,13 +271,17 @@
         <option value="$PROJECT_DIR$/other_results.py" />
         <option value="$PROJECT_DIR$/grade1_results.py" />
         <option value="$PROJECT_DIR$/modules/__init__.py" />
-        <option value="$PROJECT_DIR$/modules/grade1_results.py" />
         <option value="$PROJECT_DIR$/templates/major_totals.html" />
-        <option value="$PROJECT_DIR$/modules/other_results.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/js/major_totals.js" />
         <option value="$PROJECT_DIR$/static/styles/style.css" />
+        <option value="$PROJECT_DIR$/modules/other_results.py" />
+        <option value="$PROJECT_DIR$/modules/sort.py" />
+        <option value="$PROJECT_DIR$/modules/grade1_results.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/js/worlds.js" />
+        <option value="$PROJECT_DIR$/templates/worlds.html" />
+        <option value="$PROJECT_DIR$/modules/worlds.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -273,10 +292,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="696" />
-    <option name="height" value="878" />
+    <option name="x" value="2922" />
+    <option name="y" value="101" />
+    <option name="width" value="1381" />
+    <option name="height" value="885" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -284,6 +303,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +320,12 @@
               <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
               <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -311,7 +337,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,7 +364,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.other_results (1)">
+  <component name="RunManager" selected="Python.worlds">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -450,7 +475,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="progressive_coc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="worlds" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -458,12 +483,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Connor\Desktop\betfair-parser\modules\progressive_coc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/worlds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -475,18 +500,18 @@
     <list>
       <item itemvalue="Python.Unnamed" />
       <item itemvalue="Python.other_results" />
-      <item itemvalue="Python.progressive_coc" />
       <item itemvalue="Python.grade1_results" />
       <item itemvalue="Python.grade1_results (1)" />
       <item itemvalue="Python.other_results (1)" />
+      <item itemvalue="Python.worlds" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.worlds" />
         <item itemvalue="Python.other_results (1)" />
         <item itemvalue="Python.grade1_results (1)" />
         <item itemvalue="Python.grade1_results" />
         <item itemvalue="Python.other_results" />
-        <item itemvalue="Python.progressive_coc" />
       </list>
     </recent_temporary>
   </component>
@@ -513,15 +538,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <frame x="2728" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4888889" visible="true" weight="0.16250944" />
-      <window_info id="Structure" order="1" sideWeight="0.51111114" side_tool="true" visible="true" weight="0.16250944" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48541114" visible="true" weight="0.11940298" />
+      <window_info id="Structure" order="1" sideWeight="0.51458883" side_tool="true" weight="0.1670446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891247" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988662" visible="true" weight="0.46286473" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4988662" visible="true" weight="0.27718833" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -536,30 +561,30 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32942432" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32879817" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15495087" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48541114" visible="true" weight="0.1670446" />
+      <window_info id="Structure" order="1" sideWeight="0.51458883" side_tool="true" visible="true" weight="0.1670446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49962208" visible="true" weight="0.49336872" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32891247" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4988662" visible="true" weight="0.46286473" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50037795" side_tool="true" weight="0.31564987" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5011338" side_tool="true" weight="0.37931034" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32891247" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891247" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891247" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32955405" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32879817" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/scrape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="119" selection-start-line="5" selection-start-column="119" selection-end-line="5" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -629,44 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/grade1_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3181">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-574">
-          <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-            <marker date="1563464378436" expanded="true" signature="433:481" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/styles/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -674,23 +654,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/other_results.py">
+    <entry file="file://$PROJECT_DIR$/modules/grade1_results.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1315">
-          <caret line="95" column="27" lean-forward="true" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+        <state relative-caret-position="1428">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="97" selection-end-column="66" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1563463463425" expanded="true" signature="499:1350" ph="..." />
-            <marker date="1563463463425" expanded="true" signature="1605:1607" ph="..." />
-            <marker date="1563463463425" expanded="true" signature="2904:2905" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+        <state relative-caret-position="510">
+          <caret line="30" column="60" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/sort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/other_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="100" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1563495319835" expanded="true" signature="964:1570" ph="..." />
+            <marker date="1563495319835" expanded="true" signature="1825:1827" ph="..." />
+            <marker date="1563495319835" expanded="true" signature="3662:3663" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/worlds.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2363">
+          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/worlds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding>
+            <marker date="1563622838382" expanded="true" signature="462:510" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

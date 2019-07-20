@@ -2,6 +2,7 @@ import pymongo
 import jsonpickle
 
 from collections import Counter
+from modules.sort import *
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba
@@ -47,26 +48,6 @@ def comb_bands(b_comb, dct):
     if '1' not in upd_one:
         upd_one.update({'1': 0})
     return b_comb[0], upd_one
-
-
-def partition(arr, low, high, index):
-    i = (low - 1)
-    pivot = arr[high][1][index]
-
-    for j in range(low, high):
-        if arr[j][1][index] <= pivot:
-            i = i + 1
-            arr[i], arr[j] = arr[j], arr[i]
-
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return i + 1
-
-
-def quick_sort(arr, low, high, index):
-    if low < high:
-        pi = partition(arr, low, high, index)
-        quick_sort(arr, low, pi - 1, index)
-        quick_sort(arr, pi + 1, high, index)
 
 
 def collate_overall(comp, dct):

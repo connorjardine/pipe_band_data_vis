@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="dropdown col-sm">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose Grade
+              </button>
+              <div id="ddselect" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button value="1" class="dropdown-item" type="button">1</button>
+                <button value="2" class="dropdown-item" type="button">2</button>
+                <button value="3a" class="dropdown-item" type="button">3a</button>
+                <button value="grade" class="dropdown-item" type="button">3b</button>
+                <button value="grade" class="dropdown-item" type="button">4a</button>
+                <button value="grade" class="dropdown-item" type="button">4b</button>
+                <button value="grade" class="dropdown-item" type="button">Juv</button>
+                <button value="grade" class="dropdown-item" type="button">Nov</button>
+                <button value="grade" class="dropdown-item" type="button">Nov A</button>
+                <button value="grade" class="dropdown-item" type="button">Nov B</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class ="row">
+            <div class ="col-sm">
+                <div id="myDiv" class="chart" style="height: 710px;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <table id="worlds_table" class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Year</th>
+                            <th scope="col">Grade</th>
+                            <th scope="col">Competition</th>
+                            <th scope="col">Winning Band</th>
+                            <th scope="col">Medley Total</th>
+                            <th scope="col">MSR Total</th>
+                            <th scope="col">Overall Total</th>
+                        </tr>
+                    </thead>
+                {% for i in worlds_list %}
+                    <tr>
+                    {% for k in i%}
+                        <td>
+                            {{ k }}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pgjs %}
+    <script type="text/javascript" src="static/js/worlds.js"></script>
+    <script>
+        create_worlds_graph({{graphJSON | safe}}, "{{graph_title | safe}}");
+    </script>
+{% endblock %}

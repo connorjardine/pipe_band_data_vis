@@ -5,6 +5,7 @@ import plotly
 from modules.grade1_results import *
 from modules.other_results import *
 from modules.progressive_coc import *
+from modules.worlds import *
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba
@@ -24,6 +25,15 @@ def grade():
     graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('major_totals.html',
                            graphJSON=graphJSON, graph_title="Total Grade One Majors Won")
+
+
+@app.route('/worlds')
+def worlds():
+    data = get_grade1_worlds_totals('1')
+    names, values = zip(*data[0])
+    graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('worlds.html',
+                           graphJSON=graphJSON, graph_title="Total Number of Worlds Wins in Grade One (2003-2018)", worlds_list=data[1])
 
 
 @app.route('/champion_of_champions')
@@ -108,6 +118,29 @@ def get_new_place_title():
     new_type = request.args.get('type', '1', type=str)
     graph_title = jsonify("Total Number of " + new_type + " Wins in Grade " + grade + " (2003-2018)")
     return graph_title
+
+
+@app.route('/_get_worlds_total')
+def get_worlds_total():
+    grade = request.args.get('grade', '1', type=str)
+    place = request.args.get('place', '1', type=str)
+    if grade == '1':
+        names, values = zip(*get_grade1_worlds_totals('1')[0])
+        graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+        return graph_json
+    else:
+        names, values = zip(*return_other_worlds_data('1', grade, 'World Championships')[0])
+        graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
+        return graph_json
+
+
+@app.route('/_get_worlds_data')
+def get_worlds_data():
+    grade = request.args.get('grade', '1', type=str)
+    graph_title = "Total Number of Worlds Wins in Grade " + grade + " (2003-2018)"
+    if grade == '1':
+        return jsonify([graph_title, get_grade1_worlds_totals('1')[1]])
+    return jsonify([graph_title, return_other_worlds_data('1', grade, 'World Championships')[1]])
 
 
 if __name__ == "__main__":

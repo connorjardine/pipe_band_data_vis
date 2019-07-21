@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import json
 import plotly
 
+from modules.band_results import *
 from modules.grade1_results import *
 from modules.other_results import *
 from modules.progressive_coc import *
@@ -39,6 +40,11 @@ def worlds():
 @app.route('/slams')
 def slams():
     return render_template('slams.html', data=jsonpickle.decode(helper_collection.find({"type": "slams"})[0]['data']))
+
+
+@app.route('/band_results')
+def band_results():
+    return render_template('band_results.html', data="data")
 
 
 @app.route('/champion_of_champions')
@@ -84,7 +90,6 @@ def get_grade_place_total():
     upd_grade = request.args.get('grade', '1', type=str)
     place = request.args.get('place', '1', type=str)
     type = request.args.get('type', 'd', type=str)
-    print(type)
     if upd_grade == '1':
         if type == 'd':
             names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_drumming"})[0]['data']))
@@ -146,6 +151,24 @@ def get_worlds_data():
     if grade == '1':
         return jsonify([graph_title, get_grade1_worlds_totals('1')[1]])
     return jsonify([graph_title, return_other_worlds_data('1', grade, 'World Championships')[1]])
+
+
+@app.route('/_update_band_data')
+def update_band_data():
+    grade = request.args.get('grade', '1', type=str)
+    band = request.args.get('band', '1', type=str)
+    graph_title = "Results Summary for " + band + "<br> in Grade " + grade + " (2003-2018)"
+    if grade == '1':
+        names, values = zip(*get_grade1_band_totals(band)[1].items())
+        return jsonify([graph_title, [names, values]])
+    keys, values = zip(*return_other_band_data(grade, band)[1].items())
+    return jsonify([graph_title, [keys, values]])
+
+
+@app.route('/_get_band_list')
+def get_band_list():
+    grade = request.args.get('grade', '1', type=str)
+    return jsonify(get_bands_list(grade))
 
 
 if __name__ == "__main__":

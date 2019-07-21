@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="dropdown col-sm">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose Grade
+              </button>
+              <div id="ddselect" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button value="1" class="dropdown-item" type="button">1</button>
+                <button value="2" class="dropdown-item" type="button">2</button>
+                <button value="3a" class="dropdown-item" type="button">3a</button>
+                <button value="grade" class="dropdown-item" type="button">3b</button>
+                <button value="grade" class="dropdown-item" type="button">4a</button>
+                <button value="grade" class="dropdown-item" type="button">4b</button>
+                <button value="grade" class="dropdown-item" type="button">Juv</button>
+                <button value="grade" class="dropdown-item" type="button">Nov</button>
+                <button value="grade" class="dropdown-item" type="button">Nov A</button>
+                <button value="grade" class="dropdown-item" type="button">Nov B</button>
+              </div>
+            </div>
+            <div class="dropdown col-sm">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-band" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose Band
+              </button>
+              <div id="band-select" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
+                <input type="text" class="form-control" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+              </div>
+            </div>
+            <div class="dropdown col-sm"></div>
+            <div class="dropdown col-sm"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class ="row band-row">
+            <div class ="col-sm">
+                <div id="myDiv" class="chart" style="height: 710px;"></div>
+            </div>
+            <div class ="col-sm">
+                <div id="myDiv1" class="chart" style="height: 710px;"></div>
+            </div>
+        </div>
+        <div class ="row band-row">
+            <div class ="col-sm">
+                <div id="myDiv2" class="chart" style="height: 710px;"></div>
+            </div>
+            <div class ="col-sm">
+                <div id="myDiv3" class="chart" style="height: 710px;"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pgjs %}
+    <script type="text/javascript" src="static/js/band_results.js"></script>
+{% endblock %}

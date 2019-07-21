@@ -7,3 +7,25 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    max-width: 300px;
+    overflow-x: hidden;
+}
+
+input, input:active {
+    max-width: 300px;
+    border: none;
+    outline: none;
+    padding: .25rem 1.5rem;
+}
+
+.band-row {
+    max-height: 450px;
+}
+
+.page-footer {
+    margin-top: 20px;
+}

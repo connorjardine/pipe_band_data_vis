@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', data=jsonpickle.decode(helper_collection.find({"type": "slams"})[0]['data']))
 
 
 @app.route('/major_totals')
@@ -35,11 +35,6 @@ def worlds():
     graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('worlds.html',
                            graphJSON=graphJSON, graph_title="Total Number of Worlds Wins in Grade One (2003-2018)", worlds_list=data[1])
-
-
-@app.route('/slams')
-def slams():
-    return render_template('slams.html', data=jsonpickle.decode(helper_collection.find({"type": "slams"})[0]['data']))
 
 
 @app.route('/band_results')
@@ -66,12 +61,7 @@ def get_grade_total():
     if upd_grade == '1':
         names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_overall"})[0]['data']))
     else:
-        if upd_grade == 'Juv':
-            upd_grade = 'juv'
-        if upd_grade == 'Nov A':
-            upd_grade = 'Nov%20A'
-        if upd_grade == 'Nov B':
-            upd_grade = 'Nov%20B'
+        upd_grade = convert_grade(upd_grade)
         names, values = zip(*return_other_data(place, upd_grade))
     graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
 
@@ -158,9 +148,13 @@ def update_band_data():
     grade = request.args.get('grade', '1', type=str)
     band = request.args.get('band', '1', type=str)
     graph_title = "Results Summary for " + band + "<br> in Grade " + grade + " (2003-2018)"
+    data = []
     if grade == '1':
-        names, values = zip(*get_grade1_band_totals(band)[1].items())
-        return jsonify([graph_title, [names, values]])
+        band_data = get_bands_data(grade, band)
+        for k in band_data:
+            names, values = zip(*conv_key_to_str(k[1]).items())
+            data.append([graph_title, [names, values]])
+        return jsonify(data)
     keys, values = zip(*return_other_band_data(grade, band)[1].items())
     return jsonify([graph_title, [keys, values]])
 
@@ -172,8 +166,7 @@ def get_band_list():
 
 
 if __name__ == "__main__":
-    #app.run()
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0")
 
 
 

@@ -1,5 +1,6 @@
 import pymongo
 import jsonpickle
+import copy
 
 from collections import Counter
 from modules.sort import *
@@ -15,6 +16,8 @@ worlds_med_results = competitions_collection.find({'Grade': '1MED'})
 helper_collection = db.band_helper_data
 
 grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
+
+index_list = ['t', 'p', 'd', 'e']
 
 placings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
 gpol_comb = ['Strathclyde Police', 'Greater Glasgow Police Pipe Band', 'Glasgow Police']
@@ -51,6 +54,19 @@ def comb_bands(b_comb, dct):
     return b_comb[0], upd_one
 
 
+def conv_key_to_str(dct):
+    for k in list(dct.keys()):
+        if k == '1':
+            dct['1st'] = dct.pop(k)
+        elif k == '2':
+            dct['2nd'] = dct.pop(k)
+        elif k == '3':
+            dct['3rd'] = dct.pop(k)
+        else:
+            dct[k + 'th'] = dct.pop(k)
+    return dct
+
+
 def collate_overall(comp, dct):
     for k in comp:
         if k['band'] not in dct:
@@ -68,23 +84,64 @@ def collate_overall(comp, dct):
                 dct[k['band']].update({k['place']: 1})
 
 
-def get_grade1_band_totals(req_band=None):
+def collate_data(comp, dct, index):
+    for k in comp:
+        if k['band'] not in dct:
+            dct[k['band']] = {k[index]: 1}
+            if '1' not in dct[k['band']]:
+                dct[k['band']].update({'1': 0})
+        else:
+            if k[index] in dct[k['band']]:
+                dct[k['band']][k[index]] += 1
+            else:
+                dct[k['band']].update({k[index]: 1})
+
+
+def convert_grade(grade):
+    if grade == 'Juv':
+        grade = 'juv'
+    if grade == 'Nov A':
+        grade = 'Nov%20A'
+    if grade == 'Nov B':
+        grade = 'Nov%20B'
+    return grade
+
+
+def get_grade1_band_totals(index, req_band=None):
     results = competitions_collection.find({'Grade': '1'})
     output = {}
-    for i in results:
-        collate_overall(jsonpickle.decode(i['results']), output)
-    for i in worlds_results:
-        comp = jsonpickle.decode(i['results'])
-        for k in comp:
-            if k['band'] not in output:
-                output[k['band']] = {str(k['place']): 1}
-                if '1' not in output[k['band']]:
-                    output[k['band']].update({'1': 0})
-            else:
-                if str(k['place']) in output[k['band']]:
-                    output[k['band']][str(k['place'])] += 1
+    if index == 't':
+        for i in results:
+            collate_overall(jsonpickle.decode(i['results']), output)
+        for i in worlds_results:
+            comp = jsonpickle.decode(i['results'])
+            for k in comp:
+                if k['band'] not in output:
+                    output[k['band']] = {str(k['place']): 1}
+                    if '1' not in output[k['band']]:
+                        output[k['band']].update({'1': 0})
                 else:
-                    output[k['band']].update({str(k['place']): 1})
+                    if str(k['place']) in output[k['band']]:
+                        output[k['band']][str(k['place'])] += 1
+                    else:
+                        output[k['band']].update({str(k['place']): 1})
+    elif index == 'd' or index == 'e':
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, index)
+        for i in worlds_med_results:
+            collate_data(jsonpickle.decode(i['results']), output, index)
+        for i in worlds_msr_results:
+            collate_data(jsonpickle.decode(i['results']), output, index)
+    elif index == 'p':
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, 'p1')
+            collate_data(jsonpickle.decode(i['results']), output, 'p2')
+        for i in worlds_med_results:
+            collate_data(jsonpickle.decode(i['results']), output, 'p1')
+            collate_data(jsonpickle.decode(i['results']), output, 'p2')
+        for i in worlds_msr_results:
+            collate_data(jsonpickle.decode(i['results']), output, 'p1')
+            collate_data(jsonpickle.decode(i['results']), output, 'p2')
 
     combined_results = []
     for band in comb_list:
@@ -103,29 +160,24 @@ def get_grade1_band_totals(req_band=None):
     return combined_results
 
 
-def return_other_band_data(grade, req_band=None, contest=None):
-
+def return_other_band_data(grade, index, req_band=None, contest=None):
+    grade = convert_grade(grade)
     if contest is not None:
         results = competitions_collection.find({'Grade': grade, 'contest': contest})
     else:
         results = competitions_collection.find({'Grade': grade})
     output = {}
 
-    for i in results:
-        comp = jsonpickle.decode(i['results'])
-        for k in comp:
-            if k['band'] not in output:
-                if ' EP' in k['place']:
-                    k['place'] = k['place'].replace(' EP', '')
-                output[k['band']] = {k['place']: 1}
-                if '1' not in output[k['band']]:
-                    output[k['band']].update({'1': 0})
-            else:
-                k['place'] = k['place'].replace(' EP', '')
-                if k['place'] in output[k['band']]:
-                    output[k['band']][k['place']] += 1
-                else:
-                    output[k['band']].update({k['place']: 1})
+    if index == 't':
+        for i in results:
+            collate_overall(jsonpickle.decode(i['results']), output)
+    elif index == 'd' or index == 'e':
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, index)
+    elif index == 'p':
+        for i in results:
+            collate_data(jsonpickle.decode(i['results']), output, 'p1')
+            collate_data(jsonpickle.decode(i['results']), output, 'p2')
 
     new_output = []
     for key, value in output.items():
@@ -158,16 +210,27 @@ def return_other_band_data(grade, req_band=None, contest=None):
 
 
 def get_bands_list(grade):
-    if grade == 'Nov A':
-        grade = 'Nov%20A'
-    if grade == 'Nov B':
-        grade = 'Nov%20B'
+    grade = convert_grade(grade)
     output_list = []
     if grade == '1':
-        for k in get_grade1_band_totals():
+        for k in get_grade1_band_totals('t'):
             output_list.append(k[0])
     if grade in grades_list:
-        for k in return_other_band_data(grade):
+        for k in return_other_band_data(grade, 't'):
             output_list.append(k[0])
     return output_list
 
+
+def get_bands_data(grade, band):
+    grade = convert_grade(grade)
+    data = []
+    if grade == '1':
+        for i in index_list:
+            data.append(get_grade1_band_totals(i, band))
+        return data
+    for i in index_list:
+        data.append(return_other_band_data(grade, i, band))
+    return data
+
+
+#print(get_bands_data('Juv', 'Dunoon Grammar School'))

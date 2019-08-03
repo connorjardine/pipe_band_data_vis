@@ -2,7 +2,7 @@ import pymongo
 
 competitions_collection = "competitions"
 worlds_collection = "worlds"
-band_helper_data = "band"
+helper_collection = "band"
 
 
 def pull_data(collection, data=None):

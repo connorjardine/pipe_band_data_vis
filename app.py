@@ -5,10 +5,7 @@ import plotly
 from modules.generate_data.band_results import *
 from modules.generate_data.other_results import *
 from modules.generate_data.worlds import *
-
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-helper_collection = db.band_helper_data
+from modules.db.db import *
 
 app = Flask(__name__)
 

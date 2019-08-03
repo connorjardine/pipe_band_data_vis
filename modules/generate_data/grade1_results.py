@@ -1,19 +1,14 @@
-import pymongo
 import jsonpickle
 
 from collections import Counter
 from modules.sort import *
+from modules.db.db import *
 
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
-results = competitions_collection.find({'Grade': '1'})
-worlds_results = worlds_collection.find({'Grade': '1'})
-worlds_msr_results = competitions_collection.find({'Grade': '1MSR'})
-worlds_med_results = competitions_collection.find({'Grade': '1MED'})
 
-helper_collection = db.band_helper_data
+results = pull_data(competitions_collection, {'Grade': '1'})
+worlds_results = pull_data(worlds_collection, {'Grade': '1'})
+worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR'})
+worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED'})
 
 placings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
 gpol_comb = ['Strathclyde Police', 'Greater Glasgow Police Pipe Band', 'Glasgow Police']
@@ -137,7 +132,7 @@ def get_grade1_drumming_totals(place):
     for band in comb_list:
         combined_results.append(comb_bands(band, output))
     for band in non_comb_list:
-        combined_results.append((band,output.get(str(band))))
+        combined_results.append((band, output.get(str(band))))
     for i in combined_results:
         for k in placings_list:
             if k not in i[1]:
@@ -226,6 +221,7 @@ def get_grade1_piping_totals(place):
     return final_results
 
 
+#NB CHANGE TO PUSH WHEN NEXT UPDATING DATA
 #helper_collection.insert_one({"type": "g1_overall", "data": jsonpickle.encode(data)})
 #helper_collection.insert_one({"type": "g1_piping", "data": jsonpickle.encode(get_grade1_piping_totals('1'))})
 #helper_collection.insert_one({"type": "g1_drumming", "data": jsonpickle.encode(get_grade1_drumming_totals('1'))})

@@ -1,12 +1,7 @@
-import pymongo
 import jsonpickle
 from collections import Counter
 from modules.sort import *
-
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
+from modules.db.db import *
 
 placings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18',
                  '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32']
@@ -75,9 +70,9 @@ def return_other_worlds_data(place, grade, contest=None):
         grade = 'Nov%20B'
 
     if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
     else:
-        results = competitions_collection.find({'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade})
 
     output = {}
     worlds_roll = []
@@ -138,7 +133,7 @@ def return_other_worlds_data(place, grade, contest=None):
 
 
 def get_grade1_worlds_totals(place):
-    results = worlds_collection.find({'Grade': '1'})
+    results = pull_data(worlds_collection, {'Grade': '1'})
 
     output = {}
     worlds_roll = []
@@ -172,5 +167,8 @@ def get_grade1_worlds_totals(place):
     for k in firsts[::-1]:
         final_results += [[k[0], k[1][place]]]
     return final_results, worlds_roll
+
+
+print(get_grade1_worlds_totals('1'))
 
 

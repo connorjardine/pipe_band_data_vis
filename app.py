@@ -2,11 +2,11 @@ from flask import Flask, render_template, request, jsonify
 import json
 import plotly
 
-from modules.band_results import *
-from modules.grade1_results import *
-from modules.other_results import *
-from modules.progressive_coc import *
-from modules.worlds import *
+from modules.generate_data.band_results import *
+from modules.generate_data.grade1_results import *
+from modules.generate_data.other_results import *
+from modules.generate_data.progressive_coc import *
+from modules.generate_data.worlds import *
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
 db = client.rspba

@@ -1,19 +1,12 @@
-import pymongo
 import jsonpickle
-import copy
 
 from collections import Counter
-from modules.sort import *
+from modules.db.db import *
 
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
-worlds_results = worlds_collection.find({'Grade': '1'})
-worlds_msr_results = competitions_collection.find({'Grade': '1MSR'})
-worlds_med_results = competitions_collection.find({'Grade': '1MED'})
+worlds_results = pull_data(worlds_collection, {'Grade': '1'})
+worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR'})
+worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED'})
 
-helper_collection = db.band_helper_data
 
 grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
 
@@ -108,7 +101,7 @@ def convert_grade(grade):
 
 
 def get_grade1_band_totals(index, req_band=None):
-    results = competitions_collection.find({'Grade': '1'})
+    results = pull_data(competitions_collection, {'Grade': '1'})
     output = {}
     if index == 't':
         for i in results:
@@ -163,9 +156,9 @@ def get_grade1_band_totals(index, req_band=None):
 def return_other_band_data(grade, index, req_band=None, contest=None):
     grade = convert_grade(grade)
     if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
     else:
-        results = competitions_collection.find({'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade})
     output = {}
 
     if index == 't':
@@ -232,5 +225,3 @@ def get_bands_data(grade, band):
         data.append(return_other_band_data(grade, i, band))
     return data
 
-
-#print(get_bands_data('Juv', 'Dunoon Grammar School'))

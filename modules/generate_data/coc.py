@@ -1,7 +1,7 @@
-import pymongo
 import jsonpickle
+from modules.db.db import *
 
-coc_weightings = {'1': 6, '2': 5, '3': 4, '4': 3, '5': 2,'6': 1}
+coc_weightings = {'1': 6, '2': 5, '3': 4, '4': 3, '5': 2, '6': 1}
 
 
 def partition(arr, low, high):
@@ -24,16 +24,10 @@ def quick_sort(arr, low, high):
         quick_sort(arr, pi + 1, high)
 
 
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
-
-
 def get_coc(grade, year):
 
-    results = competitions_collection.find({'Grade': grade, 'year': year})
-    worlds_results = worlds_collection.find({'Grade': grade, 'year': year})
+    results = pull_data(competitions_collection, {'Grade': grade, 'year': year})
+    worlds_results = pull_data(worlds_collection, {'Grade': grade, 'year': year})
     output = {}
 
     for i in results:
@@ -77,9 +71,9 @@ def get_coc(grade, year):
 
 def get_drumming_coc(grade, year):
 
-    results = competitions_collection.find({'Grade': grade, 'year': year})
-    worlds_msr_results = competitions_collection.find({'Grade': '1MSR', 'year': year})
-    worlds_med_results = competitions_collection.find({'Grade': '1MED', 'year': year})
+    results = pull_data(competitions_collection, {'Grade': grade, 'year': year})
+    worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR', 'year': year})
+    worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED', 'year': year})
 
     output = {}
 

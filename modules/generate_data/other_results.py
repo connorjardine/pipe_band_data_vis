@@ -1,13 +1,9 @@
 from collections import Counter
 from modules.sort import *
+from modules.db.db import *
 
-import pymongo
 import jsonpickle
 
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
 
 placings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18',
                  '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32']
@@ -48,9 +44,9 @@ def comb_bands(b_comb, dct):
 def return_other_data(place, grade, contest=None):
 
     if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
     else:
-        results = competitions_collection.find({'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade})
     output = {}
 
     for i in results:
@@ -112,9 +108,9 @@ def return_other_placings_data(place, grade, place_type, contest=None):
     if place_type == 'w':
         return return_other_data(place, grade)
     if contest is not None:
-        results = competitions_collection.find({'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
     else:
-        results = competitions_collection.find({'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade})
 
     output = {}
     if place_type == 'p':

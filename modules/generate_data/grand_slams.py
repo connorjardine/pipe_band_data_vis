@@ -1,11 +1,5 @@
-import pymongo
 import jsonpickle
-
-client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
-db = client.rspba
-competitions_collection = db.competitions
-worlds_collection = db.worlds
-helper_collection = db.band_helper_data
+from modules.db.db import *
 
 grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
 
@@ -13,8 +7,8 @@ grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
 def get_slams():
     slams = []
     for i in range(2003,2019):
-        results = competitions_collection.find({'Grade': '1', 'year': i})
-        worlds_results = worlds_collection.find({'Grade': '1', 'year': i})
+        results = pull_data(competitions_collection, {'Grade': '1', 'year': i})
+        worlds_results = pull_data(worlds_collection, {'Grade': '1', 'year': i})
 
         winning_band = ""
         for k in worlds_results:
@@ -26,7 +20,7 @@ def get_slams():
         if latch:
             slams.append([i, '1', winning_band])
         for k in grades_list:
-            results = competitions_collection.find({'Grade': k, 'year': i})
+            results = pull_data(competitions_collection, {'Grade': k, 'year': i})
             winning_band = ""
             latch = True
             for n in results:

@@ -169,6 +169,4 @@ def get_grade1_worlds_totals(place):
     return final_results, worlds_roll
 
 
-print(get_grade1_worlds_totals('1'))
-
 

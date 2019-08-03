@@ -3,9 +3,7 @@ import json
 import plotly
 
 from modules.generate_data.band_results import *
-from modules.generate_data.grade1_results import *
 from modules.generate_data.other_results import *
-from modules.generate_data.progressive_coc import *
 from modules.generate_data.worlds import *
 
 client = pymongo.MongoClient("mongodb+srv://connor:Connor97@connor-5cmei.mongodb.net/test?retryWrites=true&w=majority")
@@ -17,12 +15,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def dashboard():
-    return render_template('dashboard.html', data=jsonpickle.decode(helper_collection.find({"type": "slams"})[0]['data']))
+    return render_template('dashboard.html',
+                           data=jsonpickle.decode(pull_data(helper_collection, {"type": "slams"})[0]['data']))
 
 
 @app.route('/major_totals')
 def grade():
-    names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_overall"})[0]['data']))
+    names, values = zip(*jsonpickle.decode(pull_data(helper_collection, {"type": "g1_overall"})[0]['data']))
     graphJSON = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('major_totals.html',
                            graphJSON=graphJSON, graph_title="Total Grade One Majors Won")
@@ -45,8 +44,8 @@ def band_results():
 @app.route('/champion_of_champions')
 def prog_coc():
     y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
-    data = helper_collection.find({"type": "g1_coc"})
-    drumming_data = helper_collection.find({"type": "g1_drumming_coc"})
+    data = pull_data(helper_collection,{"type": "g1_coc"})
+    drumming_data = pull_data(helper_collection, {"type": "g1_drumming_coc"})
     drumming_graphJSON = json.dumps([jsonpickle.decode(drumming_data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
     graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('champion_of_champions.html',
@@ -59,7 +58,7 @@ def get_grade_total():
     upd_grade = request.args.get('grade', '1', type=str)
     place = request.args.get('place', '1', type=str)
     if upd_grade == '1':
-        names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_overall"})[0]['data']))
+        names, values = zip(*jsonpickle.decode(pull_data(helper_collection, {"type": "g1_overall"})[0]['data']))
     else:
         upd_grade = convert_grade(upd_grade)
         names, values = zip(*return_other_data(place, upd_grade))
@@ -82,15 +81,15 @@ def get_grade_place_total():
     type = request.args.get('type', 'd', type=str)
     if upd_grade == '1':
         if type == 'd':
-            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_drumming"})[0]['data']))
+            names, values = zip(*jsonpickle.decode(pull_data(helper_collection, {"type": "g1_drumming"})[0]['data']))
             graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
             return graph_json
         if type == 'e':
-            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_ensemble"})[0]['data']))
+            names, values = zip(*jsonpickle.decode(pull_data(helper_collection, {"type": "g1_ensemble"})[0]['data']))
             graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
             return graph_json
         else:
-            names, values = zip(*jsonpickle.decode(helper_collection.find({"type": "g1_piping"})[0]['data']))
+            names, values = zip(*jsonpickle.decode(pull_data(helper_collection, {"type": "g1_piping"})[0]['data']))
             graph_json = json.dumps([names, values], cls=plotly.utils.PlotlyJSONEncoder)
             return graph_json
     else:

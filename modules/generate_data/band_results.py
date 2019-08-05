@@ -1,9 +1,8 @@
 import jsonpickle
 
-from collections import Counter
+from collections import Counter, OrderedDict
 from modules.db.db import *
 
-worlds_results = pull_data(worlds_collection, {'Grade': '1'})
 worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR'})
 worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED'})
 
@@ -48,15 +47,16 @@ def comb_bands(b_comb, dct):
 
 
 def conv_key_to_str(dct):
-    for k in list(dct.keys()):
-        if k == '1':
+    dct = {int(k):int(v) for k,v in dct.items()}
+    for k in list(OrderedDict(sorted(dct.items())).keys()):
+        if k == 1:
             dct['1st'] = dct.pop(k)
-        elif k == '2':
+        elif k == 2:
             dct['2nd'] = dct.pop(k)
-        elif k == '3':
+        elif k == 3:
             dct['3rd'] = dct.pop(k)
         else:
-            dct[k + 'th'] = dct.pop(k)
+            dct[str(k) + 'th'] = dct.pop(k)
     return dct
 
 
@@ -103,10 +103,10 @@ def convert_grade(grade):
 def get_grade1_band_totals(index, req_band=None):
     results = pull_data(competitions_collection, {'Grade': '1'})
     output = {}
+    output_string = ""
     if index == 't':
-        for i in results:
-            collate_overall(jsonpickle.decode(i['results']), output)
-        for i in worlds_results:
+        output_string = "Overall"
+        for i in pull_data(worlds_collection, {'Grade': '1'}):
             comp = jsonpickle.decode(i['results'])
             for k in comp:
                 if k['band'] not in output:
@@ -118,6 +118,9 @@ def get_grade1_band_totals(index, req_band=None):
                         output[k['band']][str(k['place'])] += 1
                     else:
                         output[k['band']].update({str(k['place']): 1})
+        for i in results:
+            collate_overall(jsonpickle.decode(i['results']), output)
+
     elif index == 'd' or index == 'e':
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, index)
@@ -125,7 +128,12 @@ def get_grade1_band_totals(index, req_band=None):
             collate_data(jsonpickle.decode(i['results']), output, index)
         for i in worlds_msr_results:
             collate_data(jsonpickle.decode(i['results']), output, index)
+        if index == 'd':
+            output_string = "Drumming"
+        else:
+            output_string = "Ensemble"
     elif index == 'p':
+        output_string = "Piping"
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, 'p1')
             collate_data(jsonpickle.decode(i['results']), output, 'p2')
@@ -148,8 +156,8 @@ def get_grade1_band_totals(index, req_band=None):
             if i[0] == req_band:
                 if i[1]['1'] == 0:
                     del i[1]['1']
+                i += (output_string,)
                 return i
-
     return combined_results
 
 
@@ -160,14 +168,20 @@ def return_other_band_data(grade, index, req_band=None, contest=None):
     else:
         results = pull_data(competitions_collection, {'Grade': grade})
     output = {}
-
+    output_string = ""
     if index == 't':
+        output_string = "Overall"
         for i in results:
             collate_overall(jsonpickle.decode(i['results']), output)
     elif index == 'd' or index == 'e':
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, index)
+        if index == 'd':
+            output_string = "Drumming"
+        else:
+            output_string = "Piping"
     elif index == 'p':
+        output_string = "Piping"
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, 'p1')
             collate_data(jsonpickle.decode(i['results']), output, 'p2')
@@ -197,6 +211,7 @@ def return_other_band_data(grade, index, req_band=None, contest=None):
             if i[0] == req_band:
                 if i[1]['1'] == 0:
                     del i[1]['1']
+                i += (output_string,)
                 return i
 
     return new_output

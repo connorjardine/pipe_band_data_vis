@@ -8,6 +8,14 @@
     margin-top: 20px;
 }
 
+#mydiv {
+    height: 500px;
+}
+
+#comp-dd {
+    display: none;
+}
+
 .scrollable-menu {
     height: auto;
     max-height: 200px;

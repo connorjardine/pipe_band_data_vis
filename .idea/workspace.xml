@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68fa0cca-74ae-44db-a726-ea109f70e6d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/db/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_data/band_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/band_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/band_results.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/band_results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/coc.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/coc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/worlds.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/worlds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/band_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/band_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/champion_of_champions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/champion_of_champions.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +26,7 @@
     <SUITE FILE_PATH="coverage/rspba$worlds__1_.coverage" NAME="worlds (1) Coverage Results" MODIFIED="1564672720837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
     <SUITE FILE_PATH="coverage/betfair_parser$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1561984887953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$vis.coverage" NAME="vis Coverage Results" MODIFIED="1562256855181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rspba$band_results__1_.coverage" NAME="band_results (1) Coverage Results" MODIFIED="1564673094630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
+    <SUITE FILE_PATH="coverage/rspba$band_results__1_.coverage" NAME="band_results (1) Coverage Results" MODIFIED="1565026739383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
     <SUITE FILE_PATH="coverage/rspba$other_results.coverage" NAME="other_results Coverage Results" MODIFIED="1563380228199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/betfair_parser$main.coverage" NAME="main Coverage Results" MODIFIED="1559325224355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$worlds.coverage" NAME="worlds Coverage Results" MODIFIED="1563623971763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
@@ -70,40 +80,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="4" />
-          <entry key="HTML" value="23" />
-          <entry key="JavaScript" value="10" />
+          <entry key="CSS" value="5" />
+          <entry key="HTML" value="26" />
+          <entry key="JavaScript" value="14" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="59" />
+          <entry key="Python" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="176" />
-          <entry key="HTML" value="5627" />
-          <entry key="JavaScript" value="3876" />
+          <entry key="CSS" value="223" />
+          <entry key="HTML" value="5672" />
+          <entry key="JavaScript" value="4965" />
           <entry key="PLAIN_TEXT" value="50" />
-          <entry key="Python" value="27517" />
+          <entry key="Python" value="28514" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="18" />
-          <entry key="css" value="176" />
+          <entry key="css" value="223" />
           <entry key="dummy" value="28" />
-          <entry key="html" value="5622" />
-          <entry key="js" value="3881" />
-          <entry key="py" value="27497" />
+          <entry key="html" value="5667" />
+          <entry key="js" value="4970" />
+          <entry key="py" value="28494" />
           <entry key="wsgi" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Procfile" value="1" />
-          <entry key="css" value="4" />
-          <entry key="html" value="23" />
-          <entry key="js" value="10" />
-          <entry key="py" value="58" />
+          <entry key="css" value="5" />
+          <entry key="html" value="26" />
+          <entry key="js" value="14" />
+          <entry key="py" value="60" />
           <entry key="wsgi" value="2" />
         </counts>
       </usages-collector>
@@ -111,11 +121,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/db/db.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/champion_of_champions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="92" selection-start-line="13" selection-start-column="92" selection-end-line="13" selection-end-column="92" />
+            <state relative-caret-position="136">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+                <marker date="1565026766324" expanded="true" signature="469:472" ph="..." />
+                <marker date="1565026766324" expanded="true" signature="7856:7954" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/coc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/generate_data/band_results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="242" selection-start-line="242" selection-end-line="242" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/styles/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="358" column="42" selection-start-line="358" selection-start-column="42" selection-end-line="358" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="121" selection-start-line="11" selection-start-column="121" selection-end-line="11" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/band_results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-315">
+              <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,13 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert</find>
-      <find>true</find>
-      <find>def quickSort\(alist\)\:\n   quickSortHelper\(alist\,0\,len\(alist\)\-1\)\n\n\ndef quickSortHelper\(alist\,first\,last\)\:\n   if first\&lt;last\:\n\n       splitpoint \= partition\(alist\,first\,last\)\n\n       quickSortHelper\(alist\,first\,splitpoint\-1\)\n       quickSortHelper\(alist\,splitpoint\+1\,last\)\n\n\ndef partition\(alist\, first\, last\)\:\n   pivotvalue \= alist\[first\]\[1\]\[\'1\'\]\n\n   leftmark \= first\+1\n   rightmark \= last\n\n   done \= False\n   while not done\:\n       temp_lm \= alist\[leftmark\]\[1\]\[\'1\'\]\n       print\(temp_lm\)\n       while leftmark \&lt;\= rightmark and temp_lm \&lt;\= pivotvalue\:\n           leftmark \= leftmark \+ 1\n       temp_rm \= alist\[rightmark\]\[1\]\[\'1\'\]\n       print\(temp_rm\)\n       while temp_rm \&gt;\= pivotvalue and rightmark \&gt;\= leftmark\:\n           rightmark \= rightmark \- 1\n\n       if rightmark \&lt; leftmark\:\n           done \= True\n       else\:\n           temp \= alist\[leftmark\]\n           alist\[leftmark\] \= alist\[rightmark\]\n           alist\[rightmark\] \= temp</find>
-      <find>inve</find>
-      <find>inverara</find>
-      <find>'18'</find>
-      <find>inver</find>
       <find>shotts</find>
       <find>simon</find>
       <find>too</find>
@@ -158,10 +247,18 @@
       <find>'Wins</find>
       <find>collate_</find>
       <find>quick</find>
-      <find>console</find>
       <find>Nov A</find>
       <find>pull_data</find>
+      <find>console.log</find>
+      <find>consol</find>
+      <find>console</find>
+      <find>worlds_res</find>
+      <find>worlds_msr</find>
+      <find>conso</find>
+      <find>conv_key</find>
+      <find>update_band_grap</find>
       <find>print</find>
+      <find>conv</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,8 +282,6 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/flaskapp.wsgi" />
-        <option value="$PROJECT_DIR$/static/js/coc.js" />
-        <option value="$PROJECT_DIR$/templates/champion_of_champions.html" />
         <option value="$PROJECT_DIR$/other_results.py" />
         <option value="$PROJECT_DIR$/grade1_results.py" />
         <option value="$PROJECT_DIR$/modules/__init__.py" />
@@ -195,26 +290,28 @@
         <option value="$PROJECT_DIR$/modules/other_results.py" />
         <option value="$PROJECT_DIR$/modules/sort.py" />
         <option value="$PROJECT_DIR$/modules/grade1_results.py" />
-        <option value="$PROJECT_DIR$/static/js/worlds.js" />
         <option value="$PROJECT_DIR$/templates/worlds.html" />
         <option value="$PROJECT_DIR$/modules/worlds.py" />
         <option value="$PROJECT_DIR$/modules/grand_slams.py" />
         <option value="$PROJECT_DIR$/templates/slams.html" />
-        <option value="$PROJECT_DIR$/static/styles/style.css" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/modules/band_results.py" />
-        <option value="$PROJECT_DIR$/templates/band_results.html" />
-        <option value="$PROJECT_DIR$/static/js/band_results.js" />
         <option value="$PROJECT_DIR$/modules/generate_data/coc.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/grade1_results.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/grand_slams.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/other_results.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/progressive_coc.py" />
-        <option value="$PROJECT_DIR$/modules/generate_data/band_results.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/worlds.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/modules/db/db.py" />
+        <option value="$PROJECT_DIR$/templates/champion_of_champions.html" />
+        <option value="$PROJECT_DIR$/static/js/coc.js" />
+        <option value="$PROJECT_DIR$/static/js/worlds.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/modules/generate_data/band_results.py" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/band_results.html" />
+        <option value="$PROJECT_DIR$/static/styles/style.css" />
+        <option value="$PROJECT_DIR$/static/js/band_results.js" />
       </list>
     </option>
   </component>
@@ -224,7 +321,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-94" />
     <option name="y" value="80" />
     <option name="width" value="2762" />
@@ -243,6 +340,39 @@
             <path>
               <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
               <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="generate_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,7 +407,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.db">
+  <component name="RunManager" selected="Python.band_results (1)">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -420,9 +550,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.band_results (1)" />
         <item itemvalue="Python.db" />
         <item itemvalue="Python.coc" />
-        <item itemvalue="Python.band_results (1)" />
         <item itemvalue="Python.worlds (1)" />
         <item itemvalue="Python.band_results" />
       </list>
@@ -454,19 +584,19 @@
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48351648" visible="true" weight="0.17762661" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48351648" visible="true" weight="0.17762661" />
       <window_info id="Structure" order="1" sideWeight="0.51648355" side_tool="true" weight="0.17762661" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891247" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988662" visible="true" weight="0.27586207" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49811035" visible="true" weight="0.27586207" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39920425" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5011338" side_tool="true" weight="0.37931034" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50188965" side_tool="true" weight="0.27586207" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32891247" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891247" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891247" />
@@ -513,13 +643,6 @@
     <entry file="file://$PROJECT_DIR$/vis.py" />
     <entry file="file://$PROJECT_DIR$/Procfile" />
     <entry file="file://$PROJECT_DIR$/flaskapp.wsgi" />
-    <entry file="file://$PROJECT_DIR$/templates/champion_of_champions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -540,34 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/coc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1989">
-          <caret line="117" column="17" selection-start-line="109" selection-start-column="16" selection-end-line="117" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/slams.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -582,39 +677,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="24" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/band_results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -643,18 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-449">
           <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-            <marker date="1564873209093" expanded="true" signature="469:472" ph="..." />
-            <marker date="1564873209093" expanded="true" signature="6730:6828" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,16 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/band_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/generate_data/worlds.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -723,8 +769,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/db/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="92" selection-start-line="13" selection-start-column="92" selection-end-line="13" selection-end-column="92" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/champion_of_champions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/coc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="121" selection-start-line="11" selection-start-column="121" selection-end-line="11" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/band_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="242" selection-start-line="242" selection-end-line="242" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+            <marker date="1565026766324" expanded="true" signature="469:472" ph="..." />
+            <marker date="1565026766324" expanded="true" signature="7856:7954" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/band_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="358" column="42" selection-start-line="358" selection-start-column="42" selection-end-line="358" selection-end-column="42" />
         </state>
       </provider>
     </entry>

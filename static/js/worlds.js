@@ -71,7 +71,6 @@ $('#ddselect button').on('click', function() {
             place: '1'
         }, function (data) {
             graph_title = String(data[0]);
-            console.log(graph_title);
             $('#worlds_table').removeClass("table-striped table-bordered table-hover");
             if(default_grade !== '1') {
                 $('#worlds_table').html("");
@@ -90,7 +89,6 @@ $('#ddselect button').on('click', function() {
                     for(var k = 0; k < row.length; k++){
                         row_td += "<td>"+ row[k] +"</td>"
                     }
-                    console.log(row_td);
                     $('#worlds_table').append("<tr>" + row_td + "</tr>");
                 }
             }
@@ -113,7 +111,6 @@ $('#ddselect button').on('click', function() {
                     for(var k = 0; k < row.length; k++){
                         row_td += "<td>"+ row[k] +"</td>"
                     }
-                    console.log(row_td);
                     $('#worlds_table').append("<tr>" + row_td + "</tr>");
                 }
             }

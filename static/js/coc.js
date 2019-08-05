@@ -6,10 +6,10 @@ var d_graph_title = "Grade One Drumming Champion of Champions";
 
 var layout = {
         title: String(graph_title),
+        automargin: true
     };
 
 function create_coc_graph(graphs, drumming_graphs) {
-    console.log("here");
     for (let i = 0; i < Object.keys(graphs[0]).length; i++) {
         data.push({
             x: graphs[1],

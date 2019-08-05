@@ -145,7 +145,6 @@ def update_band_data():
     band = request.args.get('band', '1', type=str)
     compare_band = request.args.get('comp_band', 'none', type=str)
     data = [[], []]
-    print(grade, band, compare_band)
     if grade == '1':
         band_data = get_bands_data(grade, band)
         for k in band_data:
@@ -166,7 +165,7 @@ def update_band_data():
             names, values = zip(*conv_key_to_str(k[1]).items())
             data[0].append([graph_title, [names, values], str(k[2])])
         if compare_band != 'none':
-            compare_band_data = return_other_band_data(grade, compare_band)
+            compare_band_data = get_bands_data(grade, compare_band)
             for k in compare_band_data:
                 graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
                 names, values = zip(*conv_key_to_str(k[1]).items())

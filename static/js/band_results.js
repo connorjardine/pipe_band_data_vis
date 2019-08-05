@@ -19,13 +19,13 @@ var pie_layout = {
     },
   ],
   height: 450,
-  width: 450,
+  width: 500,
   showlegend: true,
   grid: {rows: 1, columns: 1}
 };
 
 var bar_layout = {
-
+        autosize: true,
         xaxis: {
             tickfont: {
                 size: 14,
@@ -50,11 +50,11 @@ var bar_layout = {
             bordercolor: 'rgba(255, 255, 255, 0)'
         },
         height: 450,
-        width: 450,
+        width: 500,
         margin: {
             l: 50,
             r: 50,
-            b: 250,
+            b: 50,
             t: 50,
             pad: 4
         },
@@ -72,6 +72,7 @@ var doubled_pie_layout = {
   title: '',
   height: 450,
   width: 500,
+  autosize: true,
   showlegend: true,
   grid: {rows: 1, columns: 2}
 };
@@ -104,6 +105,7 @@ var bar_graph_data = [{
 
 var doubled_bar_layout = {
         barmode: 'group',
+        autosize: true,
         xaxis: {
             tickfont: {
                 size: 14,
@@ -128,11 +130,11 @@ var doubled_bar_layout = {
             bordercolor: 'rgba(255, 255, 255, 0)'
         },
         height: 500,
-        width: 450,
+        width: 500,
         margin: {
             l: 50,
             r: 50,
-            b: 250,
+            b: 50,
             t: 50,
             pad: 4
         },
@@ -204,40 +206,45 @@ function update_band_graph(grade, band, comp_band, compare) {
                     pie_graph_data[0]['labels'] = data[0][i][1][0];
                     pie_layout['title'] = data[0][i][0];
                     pie_layout['annotations'][0]['text'] = data[0][i][2] + " Placings";
-                    console.log(pie_layout);
-                    Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {
                     bar_graph_data[0]['x'] = data[0][i][1][0];
                     bar_graph_data[0]['y'] = data[0][i][1][1];
                     bar_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true, responsive: true});
                 }
 
             }
             else {
-                $('#band-name').text(String(band) + " - " + String(compare_band));
                 if (state) {
                     doubled_pie_graph_data[0]['values'] = data[0][i][1][1];
                     doubled_pie_graph_data[0]['labels'] = data[0][i][1][0];
                     doubled_pie_graph_data[1]['values'] = data[1][i][1][1];
                     doubled_pie_graph_data[1]['labels'] = data[1][i][1][0];
+                    doubled_pie_graph_data[0]['name'] = current_band;
+                    doubled_pie_graph_data[1]['name'] = compare_band;
                     doubled_pie_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {
                     doubled_bar_graph_data[0]['x'] = data[0][i][1][0];
                     doubled_bar_graph_data[0]['y'] = data[0][i][1][1];
                     doubled_bar_graph_data[1]['x'] = data[1][i][1][0];
                     doubled_bar_graph_data[1]['y'] = data[1][i][1][1];
+                    doubled_bar_graph_data[0]['name'] = current_band;
+                    doubled_bar_graph_data[1]['name'] = compare_band;
                     doubled_bar_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true, responsive: true});
                 }
             }
-
-            $('#dropdown-band').text("Chosen Band:   " + String(current_band));
-            $('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
             $.LoadingOverlay("hide");
+            $('#dropdown-band').text("Chosen Band:   " + String(current_band));
+            $("#chart-col").show();
+            if (compare) {
+                $('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
+                $('#band-name').text(String(current_band) + " - " + String(compare_band));
+            }
         }
     });
 }
@@ -257,33 +264,36 @@ function shallow_update_band_graph(grade, band, comp_band, data) {
                     pie_graph_data[0]['labels'] = data[0][i][1][0];
                     pie_layout['title'] = data[0][i][0];
                     pie_layout['annotations'][0]['text'] = data[0][i][2] + " Placings";
-                    Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {
                     bar_graph_data[0]['x'] = data[0][i][1][0];
                     bar_graph_data[0]['y'] = data[0][i][1][1];
                     bar_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true, responsive: true});
                 }
 
             }
             else {
-                $('#band-name').text(String(band) + " - " + String(compare_band));
                 if (state) {
                     doubled_pie_graph_data[0]['values'] = data[0][i][1][1];
                     doubled_pie_graph_data[0]['labels'] = data[0][i][1][0];
                     doubled_pie_graph_data[1]['values'] = data[1][i][1][1];
                     doubled_pie_graph_data[1]['labels'] = data[1][i][1][0];
+                    doubled_pie_graph_data[0]['name'] = current_band;
+                    doubled_pie_graph_data[1]['name'] = compare_band;
                     doubled_pie_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {
                     doubled_bar_graph_data[0]['x'] = data[0][i][1][0];
                     doubled_bar_graph_data[0]['y'] = data[0][i][1][1];
                     doubled_bar_graph_data[1]['x'] = data[1][i][1][0];
                     doubled_bar_graph_data[1]['y'] = data[1][i][1][1];
+                    doubled_bar_graph_data[0]['name'] = current_band;
+                    doubled_bar_graph_data[1]['name'] = compare_band;
                     doubled_bar_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true});
+                    Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true, responsive: true});
                 }
             }
         }
@@ -307,6 +317,8 @@ function get_band_list(grade) {
 
 $.LoadingOverlay("show");
 update_band_graph(current_grade, current_band, compare_band);
+$('#dropdown-band').text("Chosen Band:   " + String(current_band));
+$('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
 
 
 $('#ddselect button').on('click', function() {
@@ -314,6 +326,12 @@ $('#ddselect button').on('click', function() {
         current_grade = $(this).text();
         get_band_list(current_grade);
         $('#dropdownMenu2').text("Chosen Grade:   "+String(current_grade));
+        $('#comp-dropdown-band').text("Choose a Band to Compare");
+        $('#dropdown-band').text("Choose a Band");
+        $('#band-name').text("");
+        $("#chart-col").hide();
+
+
     }
 });
 
@@ -322,14 +340,20 @@ $('#band-select').on('click', '#sel-button', function() {
         current_band = $(this).text();
         $.LoadingOverlay("show");
         update_band_graph(current_grade, current_band, compare_band);
+
     }
 });
 
 $('#comp-band-select').on('click', '#sel-button', function() {
     compare_band = $(this).text();
-    if (current_grade !== $(this).text() && current_band !== compare_band) {
+    console.log(compare, compare_band, current_band);
+    if (current_band !== compare_band && compare) {
         $.LoadingOverlay("show");
+        console.log(compare_band);
         update_band_graph(current_grade, current_band, compare_band);
+    }
+    else{
+        $('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
     }
 });
 
@@ -351,12 +375,10 @@ $('#compare').on('click', function() {
     if(compare){
         $("#compare").text('No Comparison').removeClass("btn-info").addClass("btn-primary");
         shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data);
-        $("#comp-dd").show();
     }
     else{
         $("#compare").text('Comparison').removeClass("btn-primary").addClass("btn-info");
         shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data);
-        $("#comp-dd").css('display', 'none');
     }
 
 });

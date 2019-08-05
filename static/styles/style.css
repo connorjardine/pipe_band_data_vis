@@ -34,3 +34,7 @@ input, input:active {
     position: relative;
     bottom: 0;
 }
+
+.chart-col {
+    padding-bottom: 500px;
+}

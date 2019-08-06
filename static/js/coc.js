@@ -6,7 +6,7 @@ var d_graph_title = "Grade One Drumming Champion of Champions";
 
 var layout = {
         title: String(graph_title),
-        automargin: true
+        autosize: true
     };
 
 function create_coc_graph(graphs, drumming_graphs) {

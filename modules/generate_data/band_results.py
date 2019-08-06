@@ -60,6 +60,13 @@ def conv_key_to_str(dct):
     return dct
 
 
+def add_missing_keys(dct, otr_dct):
+    for k in otr_dct.keys():
+        if k not in dct.keys():
+            dct[k] = 0
+    return dct
+
+
 def collate_overall(comp, dct):
     for k in comp:
         if k['band'] not in dct:

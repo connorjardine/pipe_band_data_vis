@@ -143,17 +143,24 @@ def update_band_data():
     data = [[], []]
     if grade == '1':
         band_data = get_bands_data(grade, band)
-        for k in band_data:
-            graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
-            names, values = zip(*conv_key_to_str(k[1]).items())
-            data[0].append([graph_title, [names, values], str(k[2])])
-
-        if compare_band != 'none':
-            compare_band_data = get_bands_data(grade, compare_band)
-            for k in compare_band_data:
+        if compare_band == 'none':
+            for k in band_data:
                 graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
                 names, values = zip(*conv_key_to_str(k[1]).items())
-                data[1].append([graph_title, [names, values], str(k[2])])
+                data[0].append([graph_title, [names, values], str(k[2])])
+        else:
+            compare_band_data = get_bands_data(grade, compare_band)
+            for k in range(len(band_data)):
+                print(band_data[k][1], compare_band_data[k][1])
+                add_missing_keys(band_data[k][1], compare_band_data[k][1])
+                print(band_data[k][1], compare_band_data[k][1])
+                print('\n\n\n')
+                graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
+                names, values = zip(*conv_key_to_str(band_data[k][1]).items())
+                data[0].append([graph_title, [names, values], str(band_data[k][2])])
+
+                names, values = zip(*conv_key_to_str(compare_band_data[k][1]).items())
+                data[1].append([graph_title, [names, values], str(compare_band_data[k][2])])
     else:
         band_data = get_bands_data(grade, band)
         for k in band_data:

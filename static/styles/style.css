@@ -40,8 +40,6 @@ input, input:active {
 }
 
 .top-bar {
-    margin-left: 0;
-    margin-right: 0;
     padding-right: 0;
     padding-left: 0;
 }
@@ -63,10 +61,6 @@ input, input:active {
 
 .container {
     margin-top: 20px;
-}
-
-.gs-table {
-    width: 90%;
 }
 
 .btn-primary {
@@ -96,6 +90,24 @@ box-shadow: 0 5px 11px 0 rgba(66, 133, 244,.18),
 .btn-primary:not([disabled]):not(.disabled):active:focus {
 box-shadow: 0 5px 11px 0 rgba(66, 133, 244,.18),
 0 4px 15px 0 rgba(66, 133, 244,.15);
+}
+
+.table .thead-dark th {
+    background-color: #F80;
+    border-color: #F80;
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.tl-class {
+    padding-right: 0;
+ }
+
+.tl-row-class {
+    margin-right: 0;
 }
 
 

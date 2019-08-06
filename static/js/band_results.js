@@ -73,7 +73,7 @@ var doubled_pie_layout = {
   height: 450,
   width: 500,
   autosize: true,
-  showlegend: true,
+  showlegend: false,
   grid: {rows: 1, columns: 2}
 };
 
@@ -198,6 +198,7 @@ function update_band_graph(grade, band, comp_band, compare) {
     }, function (data) {
         shallow_data = data;
         for(var i = 0; i < data[0].length; i++) {
+            console.log(data[0][i], data[1][i]);
             var id = 'myDiv' + String(i);
             if (!compare) {
                 $('#band-name').text(String(band));
@@ -218,13 +219,22 @@ function update_band_graph(grade, band, comp_band, compare) {
             }
             else {
                 if (state) {
-                    doubled_pie_graph_data[0]['values'] = data[0][i][1][1];
-                    doubled_pie_graph_data[0]['labels'] = data[0][i][1][0];
-                    doubled_pie_graph_data[1]['values'] = data[1][i][1][1];
-                    doubled_pie_graph_data[1]['labels'] = data[1][i][1][0];
+                    var copy_data = data.slice();
+                    var k = copy_data[0][i][1][0].length;
+                    while(k--){
+                        if (copy_data[0][i][1][1][k] === 0){
+                            console.log(copy_data[0][i][1]);
+                            copy_data[0][i][1][0].splice(k, 1);
+                            copy_data[0][i][1][1].splice(k, 1);
+                        }
+                    }
+                    doubled_pie_graph_data[0]['values'] = copy_data[0][i][1][1];
+                    doubled_pie_graph_data[0]['labels'] = copy_data[0][i][1][0];
+                    doubled_pie_graph_data[1]['values'] = copy_data[1][i][1][1];
+                    doubled_pie_graph_data[1]['labels'] = copy_data[1][i][1][0];
                     doubled_pie_graph_data[0]['name'] = current_band;
                     doubled_pie_graph_data[1]['name'] = compare_band;
-                    doubled_pie_layout['title'] = data[0][i][0];
+                    doubled_pie_layout['title'] = copy_data[0][i][0];
                     Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {
@@ -276,13 +286,22 @@ function shallow_update_band_graph(grade, band, comp_band, data) {
             }
             else {
                 if (state) {
-                    doubled_pie_graph_data[0]['values'] = data[0][i][1][1];
-                    doubled_pie_graph_data[0]['labels'] = data[0][i][1][0];
-                    doubled_pie_graph_data[1]['values'] = data[1][i][1][1];
-                    doubled_pie_graph_data[1]['labels'] = data[1][i][1][0];
+                    var copy_data = data.slice();
+                    var k = copy_data[0][i][1][0].length;
+                    while(k--){
+                        if (copy_data[0][i][1][1][k] === 0){
+                            console.log(copy_data[0][i][1]);
+                            copy_data[0][i][1][0].splice(k, 1);
+                            copy_data[0][i][1][1].splice(k, 1);
+                        }
+                    }
+                    doubled_pie_graph_data[0]['values'] = copy_data[0][i][1][1];
+                    doubled_pie_graph_data[0]['labels'] = copy_data[0][i][1][0];
+                    doubled_pie_graph_data[1]['values'] = copy_data[1][i][1][1];
+                    doubled_pie_graph_data[1]['labels'] = copy_data[1][i][1][0];
                     doubled_pie_graph_data[0]['name'] = current_band;
                     doubled_pie_graph_data[1]['name'] = compare_band;
-                    doubled_pie_layout['title'] = data[0][i][0];
+                    doubled_pie_layout['title'] = copy_data[0][i][0];
                     Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
                 }
                 else {

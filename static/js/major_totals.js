@@ -68,9 +68,6 @@ function create_totals_graph(new_graphs, graph_title) {
     bar_layout['title'] = graph_title;
     graph_data[0]['x'] = new_graphs[0];
     graph_data[0]['y'] = new_graphs[1];
-    graph_data[0]['marker'] = {
-                color: 'rgb(255,0,0)'
-            };
     Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud: true});
 }
 
@@ -173,9 +170,6 @@ $('#wins_tog').on('click', function() {
             x: graphs[0],
             y: graphs[1],
             type: 'bar',
-            marker: {
-                color: 'rgb(255,0,0)'
-            }
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -218,10 +212,7 @@ $('#piping_tog').on('click', function() {
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
-            type: 'bar',
-            marker: {
-                color: 'rgb(255,0,255)'
-            }
+            type: 'bar'
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -307,9 +298,6 @@ $('#drumming_tog').on('click', function() {
             x: graphs[0],
             y: graphs[1],
             type: 'bar',
-            marker: {
-                color: 'rgb(255,255,51)'
-            }
         }];
         bar_layout['title'] = graph_title;
         pie_layout['title'] = graph_title;
@@ -331,7 +319,7 @@ $('#drumming_tog').on('click', function() {
 $('#piebar').on('click', function() {
     state = !state;
     if(state){
-        $("#piebar").text('Pie Chart').removeClass("btn-info").addClass("btn-primary");
+        $("#piebar").text('Pie Chart').removeClass("btn-info").addClass("btn-success");
         graph_data = [{
             x: graphs[0],
             y: graphs[1],
@@ -340,7 +328,7 @@ $('#piebar').on('click', function() {
         Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud:true});
     }
     else{
-        $("#piebar").text('Bar Chart').removeClass("btn-primary").addClass("btn-info");
+        $("#piebar").text('Bar Chart').removeClass("btn-success").addClass("btn-info");
         graph_data = [{
             labels: graphs[0],
             values: graphs[1],

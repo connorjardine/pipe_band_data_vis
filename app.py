@@ -12,8 +12,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def dashboard():
+    y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+    data = pull_data(helper_collection, {"type": "g1_coc"})
+    drumming_data = pull_data(helper_collection, {"type": "g1_drumming_coc"})
+    drumming_graphJSON = json.dumps([jsonpickle.decode(drumming_data[0]['data']), y_list],
+                                    cls=plotly.utils.PlotlyJSONEncoder)
+    graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('dashboard.html',
-                           data=jsonpickle.decode(pull_data(helper_collection, {"type": "slams"})[0]['data']))
+                           data=jsonpickle.decode(pull_data(helper_collection, {"type": "slams"})[0]['data']),
+                           graphJSON=graphJSON, d_graph_json=drumming_graphJSON,
+                           graph_title="Grade One Overall Champion of Champions")
 
 
 @app.route('/major_totals')
@@ -36,18 +44,6 @@ def worlds():
 @app.route('/band_results')
 def band_results():
     return render_template('band_results.html', data="data")
-
-
-@app.route('/champion_of_champions')
-def prog_coc():
-    y_list = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
-    data = pull_data(helper_collection,{"type": "g1_coc"})
-    drumming_data = pull_data(helper_collection, {"type": "g1_drumming_coc"})
-    drumming_graphJSON = json.dumps([jsonpickle.decode(drumming_data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
-    graphJSON = json.dumps([jsonpickle.decode(data[0]['data']), y_list], cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template('champion_of_champions.html',
-                           graphJSON=graphJSON, d_graph_json=drumming_graphJSON,
-                           graph_title="Grade One Overall Champion of Champions")
 
 
 @app.route('/_get_grade_total')

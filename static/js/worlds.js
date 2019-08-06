@@ -56,9 +56,6 @@ function create_worlds_graph(new_graphs, graph_title) {
     bar_layout['title'] = graph_title;
     graph_data[0]['x'] = new_graphs[0];
     graph_data[0]['y'] = new_graphs[1];
-    graph_data[0]['marker'] = {
-                color: 'rgb(255,0,0)'
-            };
     Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud: true});
 }
 

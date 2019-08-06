@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h1>Pipe Band Results</h1>
+                <h3>Pipe Band Results</h3>
             </div>
             <div class="col-sm"></div>
             <div class="col-sm"></div>
@@ -19,15 +19,54 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class = "row">
+
+    <div class ="container">
+        <div class="row">
             <div class="col-sm">
-                <h1>Grand Slam Winning Bands (2003-2018)</h1>
+                <h3>Grade One Champion of Champions</h3>
+            </div>
+            <div class="col-sm">
+                <button id="coc" class="btn btn-primary">Show/Hide</button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="coc-data">
+        <div class="row">
+            <div class="col-sm">
+                Below is a graph of the Grade One Overall and Drumming Champion of Champions table. The graph can be
+                switched by pressing the button below.
+            </div>
+        </div>
+        <div class="row>">
+            <div class = "col-sm">
+                <button id="ovdr" type="button" class="btn btn-primary">Drumming Champion of Champions</button>
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-                <table id="worlds_table" class="table table-bordered">
+                <div id="myDiv" class="chart"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class = "row">
+            <div class="col-sm">
+                <h3>Grand Slam Winning Bands (2003-2018)</h3>
+            </div>
+            <div class="col-sm">
+                <button id="gswb" class="btn btn-primary">Show/Hide</button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="gswb-data">
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    Below is the table of Grand Slam winning bands between 2003-2018
+                </p>
+                <table id="worlds_table" class="table table-bordered gs-table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Year</th>
@@ -48,6 +87,16 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block pgjs %}
+
+    <script type="text/javascript" src="static/js/coc.js"></script>
+    <script type="text/javascript" src="static/js/dashboard.js"></script>
+    <script>
+        create_coc_graph({{graphJSON | safe}}, {{d_graph_json | safe}});
+    </script>
+
 {% endblock %}
 
 

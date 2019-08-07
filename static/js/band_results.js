@@ -261,7 +261,13 @@ function update_band_graph(grade, band, comp_band, compare) {
 
 function shallow_update_band_graph(grade, band, comp_band, data) {
     if ((data[1] === undefined || data[1].length === 0) && compare === true) {
-        $.LoadingOverlay("show");
+        $.LoadingOverlay("show", {
+            image       : "",
+            text        : "Waiting for the pipers..."
+        });
+        setTimeout(function(){
+            $.LoadingOverlay("text", "Yep, still tuning...");
+        }, 2500);
         update_band_graph(grade, band, comp_band, compare)
     }
     else {
@@ -334,7 +340,14 @@ function get_band_list(grade) {
     });
 }
 
-$.LoadingOverlay("show");
+$.LoadingOverlay("show", {
+    image       : "",
+    text        : "Waiting for the pipers..."
+});
+setTimeout(function(){
+    $.LoadingOverlay("text", "Yep, still tuning...");
+}, 2500);
+
 update_band_graph(current_grade, current_band, compare_band);
 $('#dropdown-band').text("Chosen Band:   " + String(current_band));
 $('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
@@ -357,7 +370,13 @@ $('#ddselect button').on('click', function() {
 $('#band-select').on('click', '#sel-button', function() {
     if (current_grade !== $(this).text()) {
         current_band = $(this).text();
-        $.LoadingOverlay("show");
+        $.LoadingOverlay("show", {
+            image       : "",
+            text        : "Waiting for the pipers..."
+        });
+        setTimeout(function(){
+            $.LoadingOverlay("text", "Yep, still tuning...");
+        }, 2500);
         update_band_graph(current_grade, current_band, compare_band);
 
     }
@@ -367,7 +386,13 @@ $('#comp-band-select').on('click', '#sel-button', function() {
     compare_band = $(this).text();
     console.log(compare, compare_band, current_band);
     if (current_band !== compare_band && compare) {
-        $.LoadingOverlay("show");
+        $.LoadingOverlay("show", {
+            image       : "",
+            text        : "Waiting for the pipers..."
+        });
+        setTimeout(function(){
+            $.LoadingOverlay("text", "Yep, still tuning...");
+        }, 2500);
         console.log(compare_band);
         update_band_graph(current_grade, current_band, compare_band);
     }

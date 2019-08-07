@@ -151,10 +151,7 @@ def update_band_data():
         else:
             compare_band_data = get_bands_data(grade, compare_band)
             for k in range(len(band_data)):
-                print(band_data[k][1], compare_band_data[k][1])
                 add_missing_keys(band_data[k][1], compare_band_data[k][1])
-                print(band_data[k][1], compare_band_data[k][1])
-                print('\n\n\n')
                 graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
                 names, values = zip(*conv_key_to_str(band_data[k][1]).items())
                 data[0].append([graph_title, [names, values], str(band_data[k][2])])

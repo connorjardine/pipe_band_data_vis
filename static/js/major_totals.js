@@ -26,7 +26,7 @@ var pie_layout = {
 
 var bar_layout = {
         title: default_title,
-
+        autosize: true,
         xaxis: {
             tickfont: {
                 size: 14,
@@ -51,7 +51,6 @@ var bar_layout = {
             bordercolor: 'rgba(255, 255, 255, 0)'
         },
         height: 700,
-        width: 1000,
         margin: {
             l: 50,
             r: 50,

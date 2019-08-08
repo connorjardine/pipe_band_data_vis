@@ -8,6 +8,7 @@ var shallow_data = [];
 get_band_list('1');
 
 var pie_layout = {
+  autosize: true,
   title: '',
   annotations: [
     {
@@ -19,7 +20,6 @@ var pie_layout = {
     },
   ],
   height: 450,
-  width: 500,
   showlegend: true,
   grid: {rows: 1, columns: 1}
 };
@@ -50,7 +50,6 @@ var bar_layout = {
             bordercolor: 'rgba(255, 255, 255, 0)'
         },
         height: 450,
-        width: 500,
         margin: {
             l: 50,
             r: 50,
@@ -71,7 +70,6 @@ var pie_graph_data = [{
 var doubled_pie_layout = {
   title: '',
   height: 450,
-  width: 500,
   autosize: true,
   showlegend: false,
   grid: {rows: 1, columns: 2}
@@ -130,7 +128,6 @@ var doubled_bar_layout = {
             bordercolor: 'rgba(255, 255, 255, 0)'
         },
         height: 500,
-        width: 500,
         margin: {
             l: 50,
             r: 50,

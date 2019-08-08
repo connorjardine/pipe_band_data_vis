@@ -55,7 +55,7 @@ input, input:active {
     color: #F80;
 }
 
-.body {
+body {
     background-color: #f8f9fa;
 }
 
@@ -110,4 +110,9 @@ box-shadow: 0 5px 11px 0 rgba(66, 133, 244,.18),
     margin-right: 0;
 }
 
+.cl-main {
+    border-top: 1px solid #F80;
+    padding-top: 10px;
+    background-color: white;
+}
 

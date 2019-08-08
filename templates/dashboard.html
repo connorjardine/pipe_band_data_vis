@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
+    <div class="container cl-main">
         <div class="row">
             <div class="col-sm">
                 <h3>Pipe Band Results</h3>
@@ -16,11 +16,14 @@
                 <p>The data for each subsequent year will be added to the application after all of the competitions have concluded.
                 If you have any suggestions, or notice any errors please contact me either using the contact link at the bottom at
                     2188232j@student.gla.ac.uk.</p>
+                <p>Note: The Worlds results are treated as two separate competitions (1MSR/1MED). As such the individual P,D, E results
+                use the results from both.</p>
+                <p><b>If you have pre-2003 result data please get in touch.</b></p>
             </div>
         </div>
     </div>
 
-    <div class ="container">
+    <div class ="container cl-main">
         <div class="row">
             <div class="col-sm">
                 <h3>Grade One Champion of Champions</h3>
@@ -29,28 +32,28 @@
                 <button id="coc" class="btn btn-primary">Show/Hide</button>
             </div>
         </div>
-    </div>
-    <div class="container" id="coc-data">
-        <div class="row">
-            <div class="col-sm">
-                <p>Below is a graph of the Grade One Overall and Drumming Champion of Champions table.</p>
-                <p>The graph can beswitched by pressing the button below.</p>
+        <div class="container" id="coc-data">
+            <div class="row">
+                <div class="col-sm">
+                    <p>Below is a graph of the Grade One Overall and Drumming Champion of Champions table.</p>
+                    <p>The graph can beswitched by pressing the button below.</p>
+                </div>
             </div>
-        </div>
-        <div class="row>">
-            <div class = "col-sm">
-                <button id="ovdr" type="button" class="btn btn-primary">Drumming Champion of Champions</button>
+            <div class="row>">
+                <div class = "col-sm">
+                    <button id="ovdr" type="button" class="btn btn-primary">Drumming Champion of Champions</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <div id="myDiv" class="chart"></div>
+            <div class="row">
+                <div class="col-sm">
+                    <div id="myDiv" class="chart"></div>
+                </div>
             </div>
         </div>
     </div>
 
 
-    <div class="container">
+    <div class="container cl-main">
         <div class = "row">
             <div class="col-sm">
                 <h3>Grand Slam Winning Bands (2003-2018)</h3>
@@ -59,31 +62,116 @@
                 <button id="gswb" class="btn btn-primary">Show/Hide</button>
             </div>
         </div>
-    </div>
-    <div class="container" id="gswb-data">
-        <div class="row">
-            <div class="col-sm">
-                <p>
-                    Below is the table of Grand Slam winning bands between 2003-2018
-                </p>
-                <table id="worlds_table" class="table table-bordered">
-                    <thead class="thead-dark">
+        <div class="container" id="gswb-data">
+            <div class="row">
+                <div class="col-sm">
+                    <p>
+                        Below is the table of Grand Slam winning bands between 2003-2018
+                    </p>
+                    <table id="worlds_table" class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Year</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Grand Slam Winning Band</th>
+                            </tr>
+                        </thead>
+                    {% for i in gs_data %}
                         <tr>
-                            <th scope="col">Year</th>
-                            <th scope="col">Grade</th>
-                            <th scope="col">Grand Slam Winning Band</th>
+                        {% for k in i%}
+                            <td>
+                                {{ k }}
+                            </td>
+                        {% endfor %}
                         </tr>
-                    </thead>
-                {% for i in data %}
-                    <tr>
-                    {% for k in i%}
-                        <td>
-                            {{ k }}
-                        </td>
                     {% endfor %}
-                    </tr>
-                {% endfor %}
-                </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container cl-main">
+        <div class = "row">
+            <div class="col-sm">
+                <h3>Perfect Scores (2003-2018)</h3>
+            </div>
+            <div class="col-sm">
+                <button id="pswb" class="btn btn-primary">Show/Hide</button>
+            </div>
+        </div>
+
+        <div class="container" id="ps1-data">
+            <div class="row">
+                <div class="col-sm">
+                    <h5>Perfect Scores Achieved by Unique Major</h5>
+                </div>
+                <div class="col-sm">
+                    <p>
+                        Below is the table of perfect scores between 2003-2018
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <button id="pswb1" class="btn btn-primary">Show/Hide</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm" id="pswb1-data">
+                    <table id="ps1_table" class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Year</th>
+                                <th scope="col">Competition</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Band</th>
+                            </tr>
+                        </thead>
+                    {% for i in ps_data[0] %}
+                        <tr>
+                        {% for k in i%}
+                            <td>
+                                {{ k }}
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h5>Highest Amount of Achieved Perfect Scores</h5>
+                </div>
+                <div class="col-sm">
+                    <p>
+                        Below is the table of perfect scores between 2003-2018
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <button id="pswb2" class="btn btn-primary">Show/Hide</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm" id="pswb2-data">
+                    <table id="ps2_table" class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Total</th>
+                                <th scope="col">Band</th>
+                            </tr>
+                        </thead>
+                    {% for i in ps_data[1] %}
+                        <tr>
+                            <td>
+                                {{ i['count'] }}
+                            </td>
+                            <td>
+                                {{ i['band_name'] }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>

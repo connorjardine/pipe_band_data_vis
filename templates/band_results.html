@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
+    <div class="container cl-main">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Results For Each Band</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <p>Results(Wins, Piping, Drumming, Ensemble) for each band.</p>
+                <p>Results for each band can be compared with the results of another band in the same grade.</p>
+            </div>
+        </div>
         <div class="row">
             <div class="dropdown col-sm">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,29 +52,29 @@
               </div>
             </div>
         </div>
-    </div>
 
-    <div class="container" id="data-col">
-        <div class="row">
-            <div class = "col-sm">
-                <h1 id="band-name"></h1>
+        <div class="container" id="data-col">
+            <div class="row">
+                <div class = "col-sm">
+                    <h1 id="band-name"></h1>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container chart-col">
-        <div class ="row band-row">
-            <div class ="col-sm">
-                <div id="myDiv0" class="chart"></div>
-            </div>
-            <div class ="col-sm">
-                <div id="myDiv1" class="chart"></div>
-            </div>
-            <div class ="col-sm">
-                <div id="myDiv2" class="chart"></div>
-            </div>
-            <div class ="col-sm">
-                <div id="myDiv3" class="chart"></div>
+        <div class="container chart-col">
+            <div class ="row band-row">
+                <div class ="col-sm">
+                    <div id="myDiv0" class="chart"></div>
+                </div>
+                <div class ="col-sm">
+                    <div id="myDiv1" class="chart"></div>
+                </div>
+                <div class ="col-sm">
+                    <div id="myDiv2" class="chart"></div>
+                </div>
+                <div class ="col-sm">
+                    <div id="myDiv3" class="chart"></div>
+                </div>
             </div>
         </div>
     </div>

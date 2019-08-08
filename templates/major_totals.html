@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
+    <div class="container cl-main">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Total Number of 1st Places in Each Grade</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <p>The data can be represented as either a pie chart or bar graph using the button</p>
+                <p>Furthermore, the results for each grade can be displayed as Wins, Piping Wins, Drumming Wins,
+                    Ensemble Wins</p>
+            </div>
+        </div>
         <div class="row">
             <div class="dropdown col-sm">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,10 +48,9 @@
                 <button id="ensemble_tog" type="button" class="btn btn-primary">Show Ensemble 1st Places</button>
             </div>
         </div>
-    </div>
-
-    <div class ="container">
-        <div id="myDiv" class="chart" style="height: 710px;"></div>
+        <div class ="container">
+            <div id="myDiv" class="chart" style="height: 710px;"></div>
+        </div>
     </div>
 {% endblock %}
 

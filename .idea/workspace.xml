@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68fa0cca-74ae-44db-a726-ea109f70e6d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/generate_data/perfect_scores.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/db/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/band_results.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/band_results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/major_totals.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/major_totals.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/band_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/band_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/major_totals.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/major_totals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/worlds.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/worlds.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +76,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="7" />
+          <entry key="CSS" value="8" />
           <entry key="HTML" value="41" />
           <entry key="Image" value="2" />
           <entry key="JavaScript" value="24" />
@@ -93,9 +86,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="995" />
-          <entry key="HTML" value="8681" />
-          <entry key="JavaScript" value="6232" />
+          <entry key="CSS" value="1212" />
+          <entry key="HTML" value="8945" />
+          <entry key="JavaScript" value="6288" />
           <entry key="PLAIN_TEXT" value="61" />
           <entry key="Python" value="30281" />
         </counts>
@@ -103,11 +96,11 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="18" />
-          <entry key="css" value="995" />
+          <entry key="css" value="1212" />
           <entry key="dummy" value="28" />
           <entry key="gitignore" value="11" />
-          <entry key="html" value="8676" />
-          <entry key="js" value="6237" />
+          <entry key="html" value="8940" />
+          <entry key="js" value="6293" />
           <entry key="py" value="30261" />
           <entry key="wsgi" value="4" />
         </counts>
@@ -115,7 +108,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Procfile" value="1" />
-          <entry key="css" value="7" />
+          <entry key="css" value="8" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="41" />
           <entry key="ico" value="2" />
@@ -131,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+            <state relative-caret-position="100">
+              <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -140,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="127">
+              <caret line="19" column="86" lean-forward="true" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -149,38 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/worlds.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2018">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/band_results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-757">
-              <caret line="12" column="108" selection-start-line="12" selection-start-column="108" selection-end-line="12" selection-end-column="108" />
+            <state relative-caret-position="310">
+              <caret line="43" column="62" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -194,7 +160,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/styles/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/generate_data/perfect_scores.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-19">
@@ -219,8 +194,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>collate_</find>
-      <find>Nov A</find>
       <find>pull_data</find>
       <find>console.log</find>
       <find>console</find>
@@ -249,6 +222,8 @@
       <find>data</find>
       <find>quick</find>
       <find>quick_sort</find>
+      <find>legend</find>
+      <find>band</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -294,19 +269,19 @@
         <option value="$PROJECT_DIR$/static/js/coc.js" />
         <option value="$PROJECT_DIR$/modules/generate_data/band_results.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/static/js/major_totals.js" />
         <option value="$PROJECT_DIR$/static/js/worlds.js" />
         <option value="$PROJECT_DIR$/modules/db/db.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/modules/sort.py" />
         <option value="$PROJECT_DIR$/static/js/dashboard.js" />
-        <option value="$PROJECT_DIR$/static/styles/style.css" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
-        <option value="$PROJECT_DIR$/templates/major_totals.html" />
         <option value="$PROJECT_DIR$/templates/worlds.html" />
         <option value="$PROJECT_DIR$/static/js/band_results.js" />
-        <option value="$PROJECT_DIR$/templates/band_results.html" />
         <option value="$PROJECT_DIR$/modules/generate_data/perfect_scores.py" />
+        <option value="$PROJECT_DIR$/static/js/major_totals.js" />
+        <option value="$PROJECT_DIR$/templates/major_totals.html" />
+        <option value="$PROJECT_DIR$/static/styles/style.css" />
+        <option value="$PROJECT_DIR$/templates/band_results.html" />
       </list>
     </option>
   </component>
@@ -784,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -808,48 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/worlds.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2018">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/band_results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-757">
-          <caret line="12" column="108" selection-start-line="12" selection-start-column="108" selection-end-line="12" selection-end-column="108" />
         </state>
       </provider>
     </entry>
@@ -867,6 +797,51 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/band_results.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-813">
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/major_totals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/major_totals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="19" column="86" lean-forward="true" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/band_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="43" column="62" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
         </state>
       </provider>
     </entry>

@@ -13,12 +13,12 @@ var graph_data = [{
 
 var pie_layout = {
         title: default_title,
-        height: 700,
-        width: 1000,
+        autosize: true,
+        showlegend: false,
         margin: {
             l: 50,
             r: 50,
-            b: 250,
+            b: 50,
             t: 50,
             pad: 4
         },

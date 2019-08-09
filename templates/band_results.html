@@ -14,42 +14,50 @@
             </div>
         </div>
         <div class="row">
-            <div class="dropdown col-sm">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Chosen Grade: 1
-              </button>
-              <div id="ddselect" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button value="1" class="dropdown-item" type="button">1</button>
-                <button value="2" class="dropdown-item" type="button">2</button>
-                <button value="3a" class="dropdown-item" type="button">3a</button>
-                <button value="grade" class="dropdown-item" type="button">3b</button>
-                <button value="grade" class="dropdown-item" type="button">4a</button>
-                <button value="grade" class="dropdown-item" type="button">4b</button>
-                <button value="grade" class="dropdown-item" type="button">Juv</button>
-                <button value="grade" class="dropdown-item" type="button">Nov</button>
-                <button value="grade" class="dropdown-item" type="button">Nov A</button>
-                <button value="grade" class="dropdown-item" type="button">Nov B</button>
-              </div>
+            <div class="btn-toolbar" role="group">
+                <div class="btn-group mr-2 flex-wrap" role="group" aria-label="First group">
+                    <div class="dropdown col-sm band-dd-parent">
+                      <button class="btn btn-secondary dropdown-toggle band-dd" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chosen Grade: 1
+                      </button>
+                      <div id="ddselect" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button value="1" class="dropdown-item" type="button">1</button>
+                        <button value="2" class="dropdown-item" type="button">2</button>
+                        <button value="3a" class="dropdown-item" type="button">3a</button>
+                        <button value="grade" class="dropdown-item" type="button">3b</button>
+                        <button value="grade" class="dropdown-item" type="button">4a</button>
+                        <button value="grade" class="dropdown-item" type="button">4b</button>
+                        <button value="grade" class="dropdown-item" type="button">Juv</button>
+                        <button value="grade" class="dropdown-item" type="button">Nov</button>
+                        <button value="grade" class="dropdown-item" type="button">Nov A</button>
+                        <button value="grade" class="dropdown-item" type="button">Nov B</button>
+                      </div>
+                    </div>
+                    <div class="dropdown col-sm band-dd-parent">
+                      <button class="btn btn-secondary dropdown-toggle band-dd" type="button" id="dropdown-band" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chosen Band: Field Marshall Montgomery
+                      </button>
+                      <div id="band-select" class="dropdown-menu scrollable-menu">
+                        <input type="text" class="form-control" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                      </div>
+                    </div>
+                    <div class="dropdown col-sm band-dd-parent" id="comp-dd">
+                      <button class="btn btn-secondary dropdown-toggle band-dd" type="button" id="comp-dropdown-band" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Comparison Band: Inveraray and District
+                      </button>
+                      <div id="comp-band-select" class="dropdown-menu scrollable-menu">
+                        <input type="text" class="form-control" placeholder="Search.." id="comp-myInput" onkeyup="compfilterFunction()">
+                      </div>
+                    </div>
+                </div>
             </div>
-            <div class="dropdown col-sm">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-band" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Chosen Band: Field Marshall Montgomery
-              </button>
-              <div id="band-select" class="dropdown-menu scrollable-menu">
-                <input type="text" class="form-control" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-              </div>
-            </div>
+        </div>
+        <div class="row band-ctrl">
             <div class="col-sm">
-                <button id="piebar" type="button" class="btn btn-info">Bar Chart</button>
-                <button id="compare" type="button" class="btn btn-info">Comparison</button>
-            </div>
-            <div class="dropdown col-sm" id="comp-dd">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="comp-dropdown-band" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Comparison Band: Inveraray and District
-              </button>
-              <div id="comp-band-select" class="dropdown-menu scrollable-menu">
-                <input type="text" class="form-control" placeholder="Search.." id="comp-myInput" onkeyup="compfilterFunction()">
-              </div>
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button id="piebar" type="button" class="btn btn-info">Bar Chart</button>
+                    <button id="compare" type="button" class="btn btn-info">Comparison</button>
+                </div>
             </div>
         </div>
 

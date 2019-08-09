@@ -6,7 +6,7 @@ var d_graph_title = "Grade One Drumming Champion of Champions";
 
 var layout = {
         title: String(graph_title),
-        autosize: true
+        autosize: true,
     };
 
 function create_coc_graph(graphs, drumming_graphs) {
@@ -27,7 +27,7 @@ function create_coc_graph(graphs, drumming_graphs) {
             name: drumming_graphs[0][Object.keys(drumming_graphs[0])[i]][0]
         });
     }
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data, layout, {showSendToCloud:true});
 }
 
 $('#ovdr').on('click', function() {
@@ -35,12 +35,12 @@ $('#ovdr').on('click', function() {
     if(state){
         $("#ovdr").text(graph_title);
         layout['title'] = d_graph_title;
-        Plotly.newPlot('myDiv', drumming_data, layout);
+        Plotly.newPlot('myDiv', drumming_data, layout, {showSendToCloud:true});
     }
     else{
         $("#ovdr").text(d_graph_title);
         layout['title'] = graph_title;
-        Plotly.newPlot('myDiv', data, layout);
+        Plotly.newPlot('myDiv', data, layout, {showSendToCloud:true});
     }
 
 });

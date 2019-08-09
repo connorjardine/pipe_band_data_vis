@@ -21,6 +21,13 @@ var pie_layout = {
   ],
   height: 450,
   width: 450,
+  margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+        },
   showlegend: true,
   grid: {rows: 1, columns: 1}
 };
@@ -71,6 +78,13 @@ var pie_graph_data = [{
 
 var doubled_pie_layout = {
   title: '',
+  margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+        },
   height: 450,
   width: 500,
   autosize: true,
@@ -341,17 +355,9 @@ function get_band_list(grade) {
     });
 }
 
-$.LoadingOverlay("show", {
-    image       : "",
-    text        : "Waiting for the pipers..."
-});
-setTimeout(function(){
-    $.LoadingOverlay("text", "Yep, still tuning...");
-}, 2500);
 
-update_band_graph(current_grade, current_band, compare_band);
-$('#dropdown-band').text("Chosen Band:   " + String(current_band));
-$('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
+$('#dropdown-band').text("Band");
+$('#comp-dropdown-band').text("Comparison Band");
 
 
 $('#ddselect button').on('click', function() {

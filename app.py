@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-from flask_jsglue import JSGlue
 import json
 import plotly
 
@@ -10,7 +9,6 @@ from modules.generate_data.worlds import *
 from modules.db.db import *
 
 app = Flask(__name__)
-jsglue = JSGlue(app)
 
 
 @app.route('/')

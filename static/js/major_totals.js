@@ -150,20 +150,13 @@ $('#wins_tog').on('click', function() {
     default_type = 'w';
     $("#piping_tog, #drumming_tog, #ensemble_tog").removeClass("btn-success").addClass("btn-primary");
     $("#wins_tog").addClass("btn-success");
-    $.getJSON($SCRIPT_ROOT + '/_get_new_title', {
-        grade: String(default_grade),
-        place: '1',
-        type: 'Wins'
-    }, function (data) {
-        default_type = 'Wins';
-        graph_title = String(data)
-    });
-
     $.getJSON($SCRIPT_ROOT + '/_get_grade_total', {
         grade: String(default_grade),
         place: '1'
     }, function (data) {
         graphs = data;
+        graph_title = String(data);
+        default_type = 'Wins';
         if(state){
         graph_data = [{
             x: graphs[0],

@@ -64,75 +64,83 @@ function create_worlds_graph(new_graphs, graph_title) {
 
 
 $('#worlds-submit').on('click', function() {
-    curr_grade = default_grade;
-    $.getJSON($SCRIPT_ROOT + '/_get_worlds_data', {
-        grade: String(default_grade),
-        place: '1',
-        year_from: default_year_from,
-        year_to: default_year_to
-    }, function (data) {
-        graph_title = String(data[0]);
-        $('#worlds_table').removeClass("table-striped table-bordered table-hover");
-        if(default_grade !== '1') {
-            $('#worlds_table').html("");
-            $('#worlds_table').append("<thead class=\"thead-dark\">\n" +
-                "                        <tr>\n" +
-                "                            <th scope=\"col\">Year</th>\n" +
-                "                            <th scope=\"col\">Grade</th>\n" +
-                "                            <th scope=\"col\">Competition</th>\n" +
-                "                            <th scope=\"col\">Winning Band</th>\n" +
-                "                            <th scope=\"col\">Overall Total</th>\n" +
-                "                        </tr>\n" +
-                "                    </thead>")
-            for (var i = 0; i < data[1].length; i++) {
-                var row = data[1][i];
-                var row_td = "";
-                for(var k = 0; k < row.length; k++){
-                    row_td += "<td>"+ row[k] +"</td>"
+    if (default_year_to >= default_year_from){
+        curr_grade = default_grade;
+        $.getJSON($SCRIPT_ROOT + '/_get_worlds_data', {
+            grade: String(default_grade),
+            place: '1',
+            year_from: default_year_from,
+            year_to: default_year_to
+        }, function (data) {
+            graph_title = String(data[0]);
+            $('#worlds_table').removeClass("table-striped table-bordered table-hover");
+            if (default_grade !== '1') {
+                $('#worlds_table').html("");
+                $('#worlds_table').append("<thead class=\"thead-dark\">\n" +
+                    "                        <tr>\n" +
+                    "                            <th scope=\"col\">Year</th>\n" +
+                    "                            <th scope=\"col\">Grade</th>\n" +
+                    "                            <th scope=\"col\">Competition</th>\n" +
+                    "                            <th scope=\"col\">Winning Band</th>\n" +
+                    "                            <th scope=\"col\">Overall Total</th>\n" +
+                    "                        </tr>\n" +
+                    "                    </thead>")
+                for (var i = 0; i < data[1].length; i++) {
+                    var row = data[1][i];
+                    var row_td = "";
+                    for (var k = 0; k < row.length; k++) {
+                        row_td += "<td>" + row[k] + "</td>"
+                    }
+                    $('#worlds_table').append("<tr>" + row_td + "</tr>");
                 }
-                $('#worlds_table').append("<tr>" + row_td + "</tr>");
             }
-        }
-        else{
-            $('#worlds_table').html("");
-            $('#worlds_table').append("<thead class=\"thead-dark\">\n" +
-                "                        <tr>\n" +
-                "                            <th scope=\"col\">Year</th>\n" +
-                "                            <th scope=\"col\">Grade</th>\n" +
-                "                            <th scope=\"col\">Competition</th>\n" +
-                "                            <th scope=\"col\">Winning Band</th>\n" +
-                "                            <th scope=\"col\">Medley Total</th>\n" +
-                "                            <th scope=\"col\">MSR Total</th>\n" +
-                "                            <th scope=\"col\">Overall Total</th>\n" +
-                "                        </tr>\n" +
-                "                    </thead>")
-            for (var i = 0; i < data[1].length; i++) {
-                var row = data[1][i];
-                var row_td = "";
-                for(var k = 0; k < row.length; k++){
-                    row_td += "<td>"+ row[k] +"</td>"
+            else {
+                $('#worlds_table').html("");
+                $('#worlds_table').append("<thead class=\"thead-dark\">\n" +
+                    "                        <tr>\n" +
+                    "                            <th scope=\"col\">Year</th>\n" +
+                    "                            <th scope=\"col\">Grade</th>\n" +
+                    "                            <th scope=\"col\">Competition</th>\n" +
+                    "                            <th scope=\"col\">Winning Band</th>\n" +
+                    "                            <th scope=\"col\">Medley Total</th>\n" +
+                    "                            <th scope=\"col\">MSR Total</th>\n" +
+                    "                            <th scope=\"col\">Overall Total</th>\n" +
+                    "                        </tr>\n" +
+                    "                    </thead>")
+                for (var i = 0; i < data[1].length; i++) {
+                    var row = data[1][i];
+                    var row_td = "";
+                    for (var k = 0; k < row.length; k++) {
+                        row_td += "<td>" + row[k] + "</td>"
+                    }
+                    $('#worlds_table').append("<tr>" + row_td + "</tr>");
                 }
-                $('#worlds_table').append("<tr>" + row_td + "</tr>");
             }
-        }
-        $('#worlds_table').addClass("table-striped table-bordered table-hover");
-    });
+            $('#worlds_table').addClass("table-striped table-bordered table-hover");
+        });
 
-    $.getJSON($SCRIPT_ROOT + '/_get_worlds_total', {
-        grade: String(default_grade),
-        place: '1',
-        year_from: default_year_from,
-        year_to: default_year_to
-    }, function (data) {
-        graphs = data;
-        graph_data = [{
-            x: graphs[0],
-            y: graphs[1],
-            type: 'bar'
-        }];
-        bar_layout['title'] = graph_title;
-        Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud: true});
-    });
+        $.getJSON($SCRIPT_ROOT + '/_get_worlds_total', {
+            grade: String(default_grade),
+            place: '1',
+            year_from: default_year_from,
+            year_to: default_year_to
+        }, function (data) {
+            graphs = data;
+            graph_data = [{
+                x: graphs[0],
+                y: graphs[1],
+                type: 'bar'
+            }];
+            bar_layout['title'] = graph_title;
+            Plotly.newPlot('myDiv', graph_data, bar_layout, {showSendToCloud: true});
+        });
+    }
+    else{
+        $('#pbAlert').show();
+        setTimeout(function(){
+            $('#pbAlert').hide();
+        }, 3000);
+    }
 });
 
 

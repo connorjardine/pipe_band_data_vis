@@ -64,7 +64,7 @@ function create_worlds_graph(new_graphs, graph_title) {
 
 
 $('#worlds-submit').on('click', function() {
-    if (default_year_to >= default_year_from){
+    if (default_year_from >= default_year_to){
         curr_grade = default_grade;
         $.getJSON($SCRIPT_ROOT + '/_get_worlds_data', {
             grade: String(default_grade),

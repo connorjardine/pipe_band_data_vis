@@ -61,7 +61,7 @@ def comb_bands(b_comb, dct):
     return b_comb[0], upd_one
 
 
-def return_other_worlds_data(place, grade, contest=None):
+def return_other_worlds_data(place, grade, year_from, year_to, contest=None):
     if grade == 'Juv':
         grade = 'juv'
     if grade == 'Nov A':
@@ -78,21 +78,22 @@ def return_other_worlds_data(place, grade, contest=None):
     worlds_roll = []
 
     for i in results:
-        comp = jsonpickle.decode(i['results'])
-        worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['total']])
-        for k in comp:
-            if k['band'] not in output:
-                if ' EP' in k['place']:
-                    k['place'] = k['place'].replace(' EP', '')
-                output[k['band']] = {k['place']: 1}
-                if '1' not in output[k['band']]:
-                    output[k['band']].update({'1': 0})
-            else:
-                k['place'] = k['place'].replace(' EP', '')
-                if k['place'] in output[k['band']]:
-                    output[k['band']][k['place']] += 1
+        if year_from <= i['year'] <= year_to:
+            comp = jsonpickle.decode(i['results'])
+            worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['total']])
+            for k in comp:
+                if k['band'] not in output:
+                    if ' EP' in k['place']:
+                        k['place'] = k['place'].replace(' EP', '')
+                    output[k['band']] = {k['place']: 1}
+                    if '1' not in output[k['band']]:
+                        output[k['band']].update({'1': 0})
                 else:
-                    output[k['band']].update({k['place']: 1})
+                    k['place'] = k['place'].replace(' EP', '')
+                    if k['place'] in output[k['band']]:
+                        output[k['band']][k['place']] += 1
+                    else:
+                        output[k['band']].update({k['place']: 1})
 
     new_output = []
     for key, value in output.items():
@@ -132,16 +133,17 @@ def return_other_worlds_data(place, grade, contest=None):
     return final_results, worlds_roll
 
 
-def get_grade1_worlds_totals(place):
+def get_grade1_worlds_totals(place, year_from, year_to):
     results = pull_data(worlds_collection, {'Grade': '1'})
 
     output = {}
     worlds_roll = []
 
     for i in results:
-        comp = jsonpickle.decode(i['results'])
-        worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['med_t'], comp[0]['msr_t'], comp[0]['final_t']])
-        collate_overall(comp, output)
+        if year_from <= i['year'] <= year_to:
+            comp = jsonpickle.decode(i['results'])
+            worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['med_t'], comp[0]['msr_t'], comp[0]['final_t']])
+            collate_overall(comp, output)
 
     combined_results = []
     for band in comb_list:
@@ -167,6 +169,3 @@ def get_grade1_worlds_totals(place):
     for k in firsts[::-1]:
         final_results += [[k[0], k[1][place]]]
     return final_results, worlds_roll
-
-
-

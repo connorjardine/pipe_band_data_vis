@@ -29,7 +29,7 @@
         <div class ="container-fluid top-bar">
             <div class ="row tl-row-class">
                 <div class="col-md-12 tl-class">
-                    <a class="nav-link top-link" href="{{ url_for('dashboard') }}">Pipe Band Data Analysis</a>
+                    <a class="nav-link top-link" href="{{ url_for('dashboard.get_dashboard') }}">Pipe Band Data Analysis</a>
                 </div>
             </div>
         </div>
@@ -40,16 +40,16 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('dashboard.get_dashboard') }}">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('grade') }}">Total Major Wins</a>
+                <a class="nav-link" href="{{ url_for('major_wins.get_major_wins') }}">Total Major Wins</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('worlds') }}">Worlds Results</a>
+                <a class="nav-link" href="{{ url_for('worlds.get_worlds') }}">Worlds Results</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('band_results') }}">Band Results</a>
+                <a class="nav-link" href="{{ url_for('band_results.get_band_results') }}">Band Results</a>
               </li>
             </ul>
           </div>

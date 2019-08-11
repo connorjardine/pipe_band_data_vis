@@ -98,6 +98,19 @@ box-shadow: 0 5px 11px 0 rgba(66, 133, 244,.18),
     color: white;
 }
 
+.table-div{
+    height: 500px;
+    overflow: auto;
+}
+
+#from-input, #to-input {
+    max-width: 300px;
+    border: none;
+    outline: none;
+    padding: .25rem 1.5rem;
+
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: black;
 }

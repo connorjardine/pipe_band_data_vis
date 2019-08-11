@@ -75,7 +75,9 @@ def collate_data(comp, dct, index):
                 dct[k['band']].update({k[index]: 1})
 
 
-def get_grade1_totals(place):
+def get_grade1_totals(place, year_from, year_to):
+    results = pull_data(competitions_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte':  year_to}})
+    worlds_results = pull_data(worlds_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte':  year_to}})
     output = {}
     for i in results:
         collate_overall(jsonpickle.decode(i['results']), output)
@@ -97,7 +99,10 @@ def get_grade1_totals(place):
         combined_results.append(comb_bands(band, output))
 
     for band in non_comb_list:
-        combined_results.append((band, output.get(str(band))))
+        if output.get(str(band)) is None:
+            combined_results.append((band, {}))
+        else:
+            combined_results.append((band, output.get(str(band))))
 
     for i in combined_results:
         for k in placings_list:
@@ -119,7 +124,10 @@ def get_grade1_totals(place):
     return final_results
 
 
-def get_grade1_drumming_totals(place):
+def get_grade1_drumming_totals(place, year_from, year_to):
+    results = pull_data(competitions_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR', 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
     for i in results:
         collate_data(jsonpickle.decode(i['results']), output, 'd')
@@ -132,7 +140,10 @@ def get_grade1_drumming_totals(place):
     for band in comb_list:
         combined_results.append(comb_bands(band, output))
     for band in non_comb_list:
-        combined_results.append((band, output.get(str(band))))
+        if output.get(str(band)) is None:
+            combined_results.append((band, {}))
+        else:
+            combined_results.append((band, output.get(str(band))))
     for i in combined_results:
         for k in placings_list:
             if k not in i[1]:
@@ -152,7 +163,10 @@ def get_grade1_drumming_totals(place):
     return final_results
 
 
-def get_grade1_ensemble_totals(place):
+def get_grade1_ensemble_totals(place, year_from, year_to):
+    results = pull_data(competitions_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR', 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
     for i in results:
         collate_data(jsonpickle.decode(i['results']), output, 'e')
@@ -165,7 +179,10 @@ def get_grade1_ensemble_totals(place):
     for band in comb_list:
         combined_results.append(comb_bands(band, output))
     for band in non_comb_list:
-        combined_results.append((band, output.get(str(band))))
+        if output.get(str(band)) is None:
+            combined_results.append((band, {}))
+        else:
+            combined_results.append((band, output.get(str(band))))
     for i in combined_results:
         for k in placings_list:
             if k not in i[1]:
@@ -185,7 +202,10 @@ def get_grade1_ensemble_totals(place):
     return final_results
 
 
-def get_grade1_piping_totals(place):
+def get_grade1_piping_totals(place, year_from, year_to):
+    results = pull_data(competitions_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED', 'year': {'$gte': year_from, '$lte': year_to}})
+    worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR', 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
     for i in results:
         collate_data(jsonpickle.decode(i['results']), output, 'p1')
@@ -201,7 +221,10 @@ def get_grade1_piping_totals(place):
     for band in comb_list:
         combined_results.append(comb_bands(band, output))
     for band in non_comb_list:
-        combined_results.append((band, output.get(str(band))))
+        if output.get(str(band)) is None:
+            combined_results.append((band, {}))
+        else:
+            combined_results.append((band, output.get(str(band))))
     for i in combined_results:
         for k in placings_list:
             if k not in i[1]:
@@ -219,6 +242,17 @@ def get_grade1_piping_totals(place):
         final_results += [[k[0], k[1][place]]]
 
     return final_results
+
+
+def get_grade1_results_totals(place, result_type, year_from, year_to):
+    if result_type == 'w':
+        return get_grade1_totals(place, year_from, year_to)
+    elif result_type == 'p':
+        return get_grade1_piping_totals(place, year_from, year_to)
+    if result_type == 'd':
+        return get_grade1_drumming_totals(place, year_from, year_to)
+    if result_type == 'e':
+        return get_grade1_ensemble_totals(place, year_from, year_to)
 
 
 #NB CHANGE TO PUSH WHEN NEXT UPDATING DATA

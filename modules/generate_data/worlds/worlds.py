@@ -70,9 +70,9 @@ def return_other_worlds_data(place, grade, year_from, year_to, contest=None):
         grade = 'Nov%20B'
 
     if contest is not None:
-        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest, 'year': {'$gte': year_from, '$lte': year_to}})
     else:
-        results = pull_data(competitions_collection, {'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade, 'year': {'$gte': year_from, '$lte': year_to}})
 
     output = {}
     worlds_roll = []
@@ -134,16 +134,16 @@ def return_other_worlds_data(place, grade, year_from, year_to, contest=None):
 
 
 def get_grade1_worlds_totals(place, year_from, year_to):
-    results = pull_data(worlds_collection, {'Grade': '1'})
+    results = pull_data(worlds_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}})
+
 
     output = {}
     worlds_roll = []
 
     for i in results:
-        if year_from <= i['year'] <= year_to:
-            comp = jsonpickle.decode(i['results'])
-            worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['med_t'], comp[0]['msr_t'], comp[0]['final_t']])
-            collate_overall(comp, output)
+        comp = jsonpickle.decode(i['results'])
+        worlds_roll.append([i['year'], i['Grade'], i['contest'], comp[0]['band'], comp[0]['med_t'], comp[0]['msr_t'], comp[0]['final_t']])
+        collate_overall(comp, output)
 
     combined_results = []
     for band in comb_list:
@@ -169,3 +169,11 @@ def get_grade1_worlds_totals(place, year_from, year_to):
     for k in firsts[::-1]:
         final_results += [[k[0], k[1][place]]]
     return final_results, worlds_roll
+
+
+def get_worlds_data(grade, year_from, year_to):
+    if grade == '1':
+        return get_grade1_worlds_totals('1', year_from, year_to)
+    else:
+        return return_other_worlds_data('1', grade, year_from, year_to, 'World Championships')
+

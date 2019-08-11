@@ -3,7 +3,7 @@ import json
 import jsonpickle
 import plotly
 
-from modules.generate_data.perfect_scores import get_perfect_scores
+from modules.generate_data.dashboard.perfect_scores import get_perfect_scores
 from modules.db.db import *
 
 dashboard = Blueprint('dashboard', __name__)

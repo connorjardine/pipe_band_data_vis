@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm" id="pswb1-data">
+                <div class="col-sm table-div" id="pswb1-data">
                     <table id="ps1_table" class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm" id="pswb2-data">
+                <div class="col-sm table-div" id="pswb2-data">
                     <table id="ps2_table" class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
@@ -180,7 +180,7 @@
 {% block pgjs %}
 
     <script type="text/javascript" src="static/js/coc.js"></script>
-    <script type="text/javascript" src="static/js/dashboard.js"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/dashboard.js') }}"></script>
     <script>
         create_coc_graph({{graphJSON | safe}}, {{d_graph_json | safe}});
     </script>

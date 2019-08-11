@@ -1,12 +1,5 @@
-from flask import Flask, render_template, request, jsonify
-import json
-import plotly
+from flask import Flask
 
-from modules.generate_data.band_results import *
-from modules.generate_data.other_results import *
-from modules.generate_data.perfect_scores import *
-from modules.generate_data.worlds import *
-from modules.db.db import *
 from blueprints.worlds_blueprint import *
 from blueprints.dashboard_blueprint import *
 from blueprints.major_wins_blueprint import *

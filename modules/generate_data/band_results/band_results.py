@@ -2,6 +2,7 @@ import jsonpickle
 
 from collections import Counter, OrderedDict
 from modules.db.db import *
+from modules.shared.shared_functions import convert_grade
 
 worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR'})
 worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED'})
@@ -47,7 +48,7 @@ def comb_bands(b_comb, dct):
 
 
 def conv_key_to_str(dct):
-    dct = {int(k):int(v) for k,v in dct.items()}
+    dct = {int(k): int(v) for k, v in dct.items()}
     for k in list(OrderedDict(sorted(dct.items())).keys()):
         if k == 1:
             dct['1st'] = dct.pop(k)
@@ -95,16 +96,6 @@ def collate_data(comp, dct, index):
                 dct[k['band']][k[index]] += 1
             else:
                 dct[k['band']].update({k[index]: 1})
-
-
-def convert_grade(grade):
-    if grade == 'Juv':
-        grade = 'juv'
-    if grade == 'Nov A':
-        grade = 'Nov%20A'
-    if grade == 'Nov B':
-        grade = 'Nov%20B'
-    return grade
 
 
 def get_grade1_band_totals(index, req_band=None):
@@ -245,5 +236,39 @@ def get_bands_data(grade, band):
         return data
     for i in index_list:
         data.append(return_other_band_data(grade, i, band))
+    return data
+
+
+def update_band_data(grade, band, compare_band):
+    data = [[], []]
+    if grade == '1':
+        band_data = get_bands_data(grade, band)
+        if compare_band == 'none':
+            for k in band_data:
+                graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
+                names, values = zip(*conv_key_to_str(k[1]).items())
+                data[0].append([graph_title, [names, values], str(k[2])])
+        else:
+            compare_band_data = get_bands_data(grade, compare_band)
+            for k in range(len(band_data)):
+                add_missing_keys(band_data[k][1], compare_band_data[k][1])
+                graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
+                names, values = zip(*conv_key_to_str(band_data[k][1]).items())
+                data[0].append([graph_title, [names, values], str(band_data[k][2])])
+
+                names, values = zip(*conv_key_to_str(compare_band_data[k][1]).items())
+                data[1].append([graph_title, [names, values], str(compare_band_data[k][2])])
+    else:
+        band_data = get_bands_data(grade, band)
+        for k in band_data:
+            graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
+            names, values = zip(*conv_key_to_str(k[1]).items())
+            data[0].append([graph_title, [names, values], str(k[2])])
+        if compare_band != 'none':
+            compare_band_data = get_bands_data(grade, compare_band)
+            for k in compare_band_data:
+                graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
+                names, values = zip(*conv_key_to_str(k[1]).items())
+                data[1].append([graph_title, [names, values], str(k[2])])
     return data
 

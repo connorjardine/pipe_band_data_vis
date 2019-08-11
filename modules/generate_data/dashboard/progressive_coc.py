@@ -1,7 +1,6 @@
 from operator import add
 
-from modules.generate_data.coc import *
-from modules.db.db import *
+from modules.generate_data.dashboard.coc import *
 
 placings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
 gpol_comb = ['Glasgow Police', 'Strathclyde Police', 'Greater Glasgow Police Pipe Band']

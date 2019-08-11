@@ -37,7 +37,7 @@
                     Year From
                   </button>
                   <div id="year-from-select" class="dropdown-menu scrollable-menu">
-                        <input type="text" class="form-control" placeholder="Search.." id="from-input" onkeyup="fromFilterFunction()">
+                        <input type="text" placeholder="Search.." id="from-input" onkeyup="fromFilterFunction()">
                         {% for i in year_list %}
                           <button value="1" id="from-sel-button" class="dropdown-item" type="button">{{ i }}</button>
                         {% endfor %}
@@ -48,7 +48,7 @@
                     Year To
                   </button>
                   <div id="year-to-select" class="dropdown-menu scrollable-menu">
-                        <input type="text" class="form-control" placeholder="Search.." id="to-input" onkeyup="toFilterFunction()">
+                        <input type="text" placeholder="Search.." id="to-input" onkeyup="toFilterFunction()">
                         {% for i in year_list %}
                           <button value="1" id="to-sel-button" class="dropdown-item" type="button">{{ i }}</button>
                         {% endfor %}
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm table-div">
                     <table id="worlds_table" class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>

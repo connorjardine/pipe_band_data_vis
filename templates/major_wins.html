@@ -51,7 +51,7 @@
                             Year From
                           </button>
                           <div id="year-from-select" class="dropdown-menu scrollable-menu">
-                                <input type="text" class="form-control" placeholder="Search.." id="from-input" onkeyup="fromFilterFunction()">
+                                <input type="text" placeholder="Search.." id="from-input" onkeyup="fromFilterFunction()">
                                 {% for i in year_list %}
                                   <button value="1" id="from-sel-button" class="dropdown-item" type="button">{{ i }}</button>
                                 {% endfor %}
@@ -62,7 +62,7 @@
                             Year To
                           </button>
                           <div id="year-to-select" class="dropdown-menu scrollable-menu">
-                                <input type="text" class="form-control" placeholder="Search.." id="to-input" onkeyup="toFilterFunction()">
+                                <input type="text" placeholder="Search.." id="to-input" onkeyup="toFilterFunction()">
                                 {% for i in year_list %}
                                   <button value="1" id="to-sel-button" class="dropdown-item" type="button">{{ i }}</button>
                                 {% endfor %}
@@ -81,8 +81,5 @@
 {% endblock %}
 
 {% block pgjs %}
-    <script type="text/javascript" src="static/js/major_totals.js"></script>
-    <script>
-        create_totals_graph({{graphJSON | safe}}, "{{graph_title | safe}}");
-    </script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/major_wins.js') }}"></script>
 {% endblock %}

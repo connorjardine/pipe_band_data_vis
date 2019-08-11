@@ -26,9 +26,7 @@ input, input:active {
     padding: .25rem 1.5rem;
 }
 
-.band-row {
-    max-height: 450px;
-}
+
 
 .page-footer {
     position: relative;
@@ -149,6 +147,9 @@ box-shadow: 0 5px 11px 0 rgba(66, 133, 244,.18),
     .container {
         margin-left: 0;
         margin-right: 0;
+    }
+    .band-results-col {
+        max-width: 50%;
     }
     @media (min-width: 768px) {
     .container {

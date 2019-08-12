@@ -55,8 +55,6 @@
         <div class="row band-ctrl">
             <div class="col-sm">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <button id="piebar" type="button" class="btn btn-info">Bar Chart</button>
-                    <button id="compare" type="button" class="btn btn-info">Comparison</button>
                     <div class="dropdown col-sm band-dd-parent">
                           <button class="btn btn-secondary dropdown-toggle" type="button" id="y-from" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Year From
@@ -79,6 +77,15 @@
                             {% endfor %}
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row band-ctrl">
+            <div class="col-sm">
+                <div class="btn-group mr-2" role="group" aria-label="Last group">
+                    <button id="piebar" type="button" class="btn btn-info">Pie Chart</button>
+                    <button id="compare" type="button" class="btn btn-info">Comparison</button>
+                    <button class="btn btn-primary" type="button" id="band-results-submit">Submit</button>
                 </div>
             </div>
         </div>

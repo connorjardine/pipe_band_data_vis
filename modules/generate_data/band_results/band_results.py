@@ -1,4 +1,6 @@
 import jsonpickle
+import time
+
 
 from collections import Counter, OrderedDict
 from modules.db.db import *
@@ -104,7 +106,7 @@ def get_grade1_band_totals(index, year_from, year_to, req_band=None):
     output_string = ""
     if index == 't':
         output_string = "Overall"
-        for i in pull_data(worlds_collection, {'Grade': '1'}):
+        for i in pull_data(worlds_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}}):
             comp = jsonpickle.decode(i['results'])
             for k in comp:
                 if k['band'] not in output:
@@ -122,9 +124,9 @@ def get_grade1_band_totals(index, year_from, year_to, req_band=None):
     elif index == 'd' or index == 'e':
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, index)
-        for i in worlds_med_results:
+        for i in pull_data(competitions_collection, {'Grade': '1MED', 'year': {'$gte': year_from, '$lte': year_to}}):
             collate_data(jsonpickle.decode(i['results']), output, index)
-        for i in worlds_msr_results:
+        for i in pull_data(competitions_collection, {'Grade': '1MSR', 'year': {'$gte': year_from, '$lte': year_to}}):
             collate_data(jsonpickle.decode(i['results']), output, index)
         if index == 'd':
             output_string = "Drumming"
@@ -135,10 +137,10 @@ def get_grade1_band_totals(index, year_from, year_to, req_band=None):
         for i in results:
             collate_data(jsonpickle.decode(i['results']), output, 'p1')
             collate_data(jsonpickle.decode(i['results']), output, 'p2')
-        for i in worlds_med_results:
+        for i in pull_data(competitions_collection, {'Grade': '1MED', 'year': {'$gte': year_from, '$lte': year_to}}):
             collate_data(jsonpickle.decode(i['results']), output, 'p1')
             collate_data(jsonpickle.decode(i['results']), output, 'p2')
-        for i in worlds_msr_results:
+        for i in pull_data(competitions_collection, {'Grade': '1MSR', 'year': {'$gte': year_from, '$lte': year_to}}):
             collate_data(jsonpickle.decode(i['results']), output, 'p1')
             collate_data(jsonpickle.decode(i['results']), output, 'p2')
 
@@ -244,19 +246,29 @@ def update_band_data(grade, band, compare_band, year_from, year_to):
     band_data = get_bands_data(grade, band, year_from, year_to)
     if compare_band == 'none':
         for k in band_data:
-            graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
+            graph_title = "{0} Totals in Grade {1} ({2}-{3})".format(str(k[2]), grade, year_from, year_to)
+
             names, values = zip(*conv_key_to_str(k[1]).items())
             data[0].append([graph_title, [names, values], str(k[2])])
     else:
         compare_band_data = get_bands_data(grade, compare_band, year_from, year_to)
         for k in range(len(band_data)):
             add_missing_keys(band_data[k][1], compare_band_data[k][1])
-            graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
+            graph_title = "{0} Totals in Grade {1} ({2}-{3})".format(str(band_data[k][2]), grade, year_from, year_to)
+
             names, values = zip(*conv_key_to_str(band_data[k][1]).items())
             data[0].append([graph_title, [names, values], str(band_data[k][2])])
 
             names, values = zip(*conv_key_to_str(compare_band_data[k][1]).items())
             data[1].append([graph_title, [names, values], str(compare_band_data[k][2])])
     return data
+
+
+start = time.time()
+print(update_band_data('1', 'Field Marshal Montgomery', 'Inveraray and District', 2003, 2018))
+end = time.time()
+
+print(end-start)
+
 
 

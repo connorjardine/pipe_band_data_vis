@@ -98,8 +98,8 @@ def collate_data(comp, dct, index):
                 dct[k['band']].update({k[index]: 1})
 
 
-def get_grade1_band_totals(index, req_band=None):
-    results = pull_data(competitions_collection, {'Grade': '1'})
+def get_grade1_band_totals(index, year_from, year_to, req_band=None):
+    results = pull_data(competitions_collection, {'Grade': '1', 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
     output_string = ""
     if index == 't':
@@ -159,12 +159,13 @@ def get_grade1_band_totals(index, req_band=None):
     return combined_results
 
 
-def return_other_band_data(grade, index, req_band=None, contest=None):
+def return_other_band_data(grade, index, year_from, year_to, req_band=None, contest=None):
     grade = convert_grade(grade)
     if contest is not None:
-        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'year': {'$gte': year_from, '$lte': year_to},
+                                                      'contest': contest})
     else:
-        results = pull_data(competitions_collection, {'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade, 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
     output_string = ""
     if index == 't':
@@ -177,7 +178,7 @@ def return_other_band_data(grade, index, req_band=None, contest=None):
         if index == 'd':
             output_string = "Drumming"
         else:
-            output_string = "Piping"
+            output_string = "Ensemble"
     elif index == 'p':
         output_string = "Piping"
         for i in results:
@@ -211,64 +212,51 @@ def return_other_band_data(grade, index, req_band=None, contest=None):
                     del i[1]['1']
                 i += (output_string,)
                 return i
-
     return new_output
 
 
-def get_bands_list(grade):
+def get_bands_list(grade, year_from, year_to):
     grade = convert_grade(grade)
     output_list = []
     if grade == '1':
-        for k in get_grade1_band_totals('t'):
+        for k in get_grade1_band_totals('t', year_from, year_to):
             output_list.append(k[0])
     if grade in grades_list:
-        for k in return_other_band_data(grade, 't'):
+        for k in return_other_band_data(grade, 't', year_from, year_to):
             output_list.append(k[0])
     return output_list
 
 
-def get_bands_data(grade, band):
+def get_bands_data(grade, band, year_from, year_to):
     grade = convert_grade(grade)
     data = []
     if grade == '1':
         for i in index_list:
-            data.append(get_grade1_band_totals(i, band))
+            data.append(get_grade1_band_totals(i, year_from, year_to, band))
         return data
     for i in index_list:
-        data.append(return_other_band_data(grade, i, band))
+        data.append(return_other_band_data(grade, i, year_from, year_to, band))
     return data
 
 
-def update_band_data(grade, band, compare_band):
+def update_band_data(grade, band, compare_band, year_from, year_to):
     data = [[], []]
-    if grade == '1':
-        band_data = get_bands_data(grade, band)
-        if compare_band == 'none':
-            for k in band_data:
-                graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
-                names, values = zip(*conv_key_to_str(k[1]).items())
-                data[0].append([graph_title, [names, values], str(k[2])])
-        else:
-            compare_band_data = get_bands_data(grade, compare_band)
-            for k in range(len(band_data)):
-                add_missing_keys(band_data[k][1], compare_band_data[k][1])
-                graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
-                names, values = zip(*conv_key_to_str(band_data[k][1]).items())
-                data[0].append([graph_title, [names, values], str(band_data[k][2])])
-
-                names, values = zip(*conv_key_to_str(compare_band_data[k][1]).items())
-                data[1].append([graph_title, [names, values], str(compare_band_data[k][2])])
-    else:
-        band_data = get_bands_data(grade, band)
+    band_data = get_bands_data(grade, band, year_from, year_to)
+    if compare_band == 'none':
         for k in band_data:
             graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
             names, values = zip(*conv_key_to_str(k[1]).items())
             data[0].append([graph_title, [names, values], str(k[2])])
-        if compare_band != 'none':
-            compare_band_data = get_bands_data(grade, compare_band)
-            for k in compare_band_data:
-                graph_title = str(k[2]) + " Totals in Grade " + grade + " (2003-2018)"
-                names, values = zip(*conv_key_to_str(k[1]).items())
-                data[1].append([graph_title, [names, values], str(k[2])])
+    else:
+        compare_band_data = get_bands_data(grade, compare_band, year_from, year_to)
+        for k in range(len(band_data)):
+            add_missing_keys(band_data[k][1], compare_band_data[k][1])
+            graph_title = str(band_data[k][2]) + " Totals in Grade " + grade + " (2003-2018)"
+            names, values = zip(*conv_key_to_str(band_data[k][1]).items())
+            data[0].append([graph_title, [names, values], str(band_data[k][2])])
+
+            names, values = zip(*conv_key_to_str(compare_band_data[k][1]).items())
+            data[1].append([graph_title, [names, values], str(compare_band_data[k][2])])
     return data
+
 

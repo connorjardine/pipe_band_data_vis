@@ -1,6 +1,8 @@
 var current_grade = '1';
 var current_band = 'Field Marshal Montgomery';
 var compare_band = 'Inveraray and District';
+var year_from = 2003;
+var year_to = 2018;
 var state = true;
 var compare = false;
 var shallow_data = [];
@@ -21,13 +23,6 @@ var pie_layout = {
   ],
   height: 450,
   width: 450,
-  margin: {
-            l: 50,
-            r: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-        },
   showlegend: true,
   grid: {rows: 1, columns: 1}
 };
@@ -42,6 +37,7 @@ var bar_layout = {
         },
         yaxis: {
             title: 'Number of Placings',
+            dtick: 5,
             titlefont: {
                 size: 16,
                 color: 'rgb(107, 107, 107)'
@@ -59,14 +55,6 @@ var bar_layout = {
         },
         height: 450,
         width: 500,
-        margin: {
-            l: 50,
-            r: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-        },
-
     };
 
 var pie_graph_data = [{
@@ -78,13 +66,6 @@ var pie_graph_data = [{
 
 var doubled_pie_layout = {
   title: '',
-  margin: {
-            l: 50,
-            r: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-        },
   height: 450,
   width: 500,
   autosize: true,
@@ -129,6 +110,7 @@ var doubled_bar_layout = {
         },
         yaxis: {
             title: 'Number of Placings',
+            dtick: 5,
             titlefont: {
                 size: 16,
                 color: 'rgb(107, 107, 107)'
@@ -146,14 +128,6 @@ var doubled_bar_layout = {
         },
         height: 500,
         width: 500,
-        margin: {
-            l: 50,
-            r: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-        },
-
     };
 
 var doubled_bar_graph_data = [{
@@ -209,7 +183,9 @@ function update_band_graph(grade, band, comp_band, compare) {
     $.getJSON($SCRIPT_ROOT + '/_update_band_data', {
         grade: String(grade),
         band: String(band),
-        comp_band: String(comp_band)
+        comp_band: String(comp_band),
+        year_from: year_from,
+        year_to: year_to,
     }, function (data) {
         shallow_data = data;
         for(var i = 0; i < data[0].length; i++) {
@@ -432,5 +408,13 @@ $('#compare').on('click', function() {
         shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data);
     }
 
+});
+
+$('#year-from-select button').on('click', function() {
+    year_from = $(this).text();
+});
+
+$('#year-to-select button').on('click', function() {
+    year_to = $(this).text();
 });
 

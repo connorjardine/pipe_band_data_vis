@@ -218,7 +218,7 @@ function update_band_graph(grade, band, comp_band, compare) {
         year_to: year_to,
     }, function (data) {
         shallow_data = data;
-        console.log(shallow_data);
+        console.log(data);
         for(var i = 0; i < data[0].length; i++) {
             var id = 'myDiv' + String(i);
             if (!compare) {
@@ -348,7 +348,9 @@ function shallow_update_band_graph(grade, band, comp_band, data) {
 
 function get_band_list(grade) {
     $.getJSON($SCRIPT_ROOT + '/_get_band_list', {
-        grade: String(grade)
+        grade: String(grade),
+        year_from: year_from,
+        year_to: year_to
     }, function (data) {
         $('#band-select').html("").append("<input type=\"text\" placeholder=\"Search..\" id=\"myInput\" onkeyup=\"filterFunction()\">");
         for (var i = 0; i < data.length; i++) {

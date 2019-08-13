@@ -27,6 +27,7 @@ var bar_layout = {
     },
     yaxis: {
         title: 'Number of Wins',
+        dtick: 1,
         titlefont: {
             size: 16,
             color: 'rgb(107, 107, 107)'
@@ -53,6 +54,16 @@ var bar_layout = {
 
 };
 
+function checkValidYear(year_from, year_to) {
+    if (year_from > year_to) {
+        $("#pbAlert").show();
+        setTimeout(function(){
+            $("#pbAlert").hide();
+        }, 3000);
+        return false;
+    }
+    return true;
+}
 
 function fromFilterFunction() {
   var input, filter, a, i;
@@ -166,13 +177,20 @@ $('#worlds-submit').on('click', function() {
 });
 
 $('#year-from-select button').on('click', function() {
-    default_year_from = $(this).text();
+    if (checkValidYear($(this).text(), default_year_to)) {
+        default_year_from = $(this).text();
+        $('#y-from').text("Year From: " + default_year_from);
+    }
 });
 
 $('#year-to-select button').on('click', function() {
-    default_year_to = $(this).text();
+    if (checkValidYear(default_year_from, $(this).text())) {
+        default_year_to = $(this).text();
+        $('#y-to').text("Year To: " + default_year_to);
+    }
 });
 
 $('#ddselect button').on('click', function() {
     default_grade = $(this).text();
+    $('#dropdownMenu2').text("Grade: " + default_grade);
 });

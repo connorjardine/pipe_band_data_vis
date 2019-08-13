@@ -6,9 +6,6 @@ from collections import Counter, OrderedDict
 from modules.db.db import *
 from modules.shared.shared_functions import convert_grade
 
-worlds_msr_results = pull_data(competitions_collection, {'Grade': '1MSR'})
-worlds_med_results = pull_data(competitions_collection, {'Grade': '1MED'})
-
 
 grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
 
@@ -226,6 +223,7 @@ def get_bands_list(grade, year_from, year_to):
     if grade in grades_list:
         for k in return_other_band_data(grade, 't', year_from, year_to):
             output_list.append(k[0])
+    output_list.sort()
     return output_list
 
 
@@ -253,7 +251,10 @@ def update_band_data(grade, band, compare_band, year_from, year_to):
     else:
         compare_band_data = get_bands_data(grade, compare_band, year_from, year_to)
         for k in range(len(band_data)):
-            add_missing_keys(band_data[k][1], compare_band_data[k][1])
+            add_keys = add_missing_keys(band_data[k][1], compare_band_data[k][1])
+            add_keys_list = list(band_data[k])
+            add_keys_list[1] = add_keys
+            band_data[k] = tuple(add_keys_list)
             graph_title = "{0} Totals in Grade {1} ({2}-{3})".format(str(band_data[k][2]), grade, year_from, year_to)
 
             names, values = zip(*conv_key_to_str(band_data[k][1]).items())
@@ -264,11 +265,9 @@ def update_band_data(grade, band, compare_band, year_from, year_to):
     return data
 
 
-start = time.time()
-print(update_band_data('1', 'Field Marshal Montgomery', 'Inveraray and District', 2003, 2018))
-end = time.time()
 
-print(end-start)
+
+
 
 
 

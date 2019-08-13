@@ -24,4 +24,6 @@ def update_band_results():
 @band_results.route('/_get_band_list')
 def get_band_list():
     grade = request.args.get('grade', '1', type=str)
-    return jsonify(get_bands_list(grade, 2003, 2018))
+    year_from = request.args.get('year_from', 2003, type=int)
+    year_to = request.args.get('year_to', 2018, type=int)
+    return jsonify(get_bands_list(grade, year_from, year_to))

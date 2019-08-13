@@ -1,5 +1,5 @@
 var default_grade = '1';
-var default_type = 'Wins';
+var default_type = 'w';
 var year_from = 2003;
 var year_to = 2018;
 var graph_title;
@@ -28,6 +28,7 @@ var bar_layout = {
     },
     yaxis: {
         title: 'Number of Wins',
+        dtick: 5,
         titlefont: {
             size: 16,
             color: 'rgb(107, 107, 107)'
@@ -53,6 +54,18 @@ var bar_layout = {
     },
 
 };
+
+
+function checkValidYear(year_from, year_to) {
+    if (year_from > year_to) {
+        $("#pbAlert").show();
+        setTimeout(function(){
+            $("#pbAlert").hide();
+        }, 3000);
+        return false;
+    }
+    return true;
+}
 
 
 function updateGrade(grade, place, type, year_from, year_to) {
@@ -185,9 +198,17 @@ $('#piebar').on('click', function() {
 });
 
 $('#year-from-select button').on('click', function() {
-    year_from = $(this).text();
+    if (checkValidYear($(this).text(), year_to)) {
+        year_from = $(this).text();
+        $('#y-from').text("Year From: " + year_from);
+        updateGrade(default_grade, '1', default_type, year_from, year_to)
+    }
 });
 
 $('#year-to-select button').on('click', function() {
-    year_to = $(this).text();
+    if (checkValidYear(year_from, $(this).text())) {
+        year_to = $(this).text();
+        $('#y-to').text("Year To: " + year_to);
+        updateGrade(default_grade, '1', default_type, year_from, year_to)
+    }
 });

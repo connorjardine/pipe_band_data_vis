@@ -34,7 +34,7 @@ def get_band_results(grade, place, place_type, year_from, year_to):
     if grade == '1':
         return get_g1_band_results(place_type, year_from, year_to)
     else:
-        names, values = zip(*return_other_placings_data(place, grade, place_type))
+        names, values = zip(*return_other_placings_data(place, grade, place_type, year_from, year_to))
         return names, values
 
 

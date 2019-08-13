@@ -41,12 +41,12 @@ def comb_bands(b_comb, dct):
     return b_comb[0], upd_one
 
 
-def return_other_data(place, grade, contest=None):
+def return_other_data(place, grade, year_from, year_to, contest=None):
 
     if contest is not None:
-        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest, 'year': {'$gte': year_from, '$lte': year_to}})
     else:
-        results = pull_data(competitions_collection, {'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade, 'year': {'$gte': year_from, '$lte': year_to}})
     output = {}
 
     for i in results:
@@ -104,13 +104,14 @@ def return_other_data(place, grade, contest=None):
     return final_results
 
 
-def return_other_placings_data(place, grade, place_type, contest=None):
+def return_other_placings_data(place, grade, place_type, year_from, year_to, contest=None):
     if place_type == 'w':
-        return return_other_data(place, grade)
+        return return_other_data(place, grade, year_from, year_to)
     if contest is not None:
-        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest})
+        results = pull_data(competitions_collection, {'Grade': grade, 'contest': contest, 'year': {'$gte': year_from,
+                                                                                                   '$lte': year_to}})
     else:
-        results = pull_data(competitions_collection, {'Grade': grade})
+        results = pull_data(competitions_collection, {'Grade': grade, 'year': {'$gte': year_from, '$lte': year_to}})
 
     output = {}
     if place_type == 'p':

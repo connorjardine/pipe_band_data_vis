@@ -18,6 +18,7 @@ def get_grade_total():
     year_from = request.args.get('year_from', 2003, type=int)
     year_to = request.args.get('year_to', 2018, type=int)
     result_type = request.args.get('type', '1', type=str)
-    graph_title = "Total Number of {0} Wins in Grade {1} ({2}-{3})".format(convert_result_type(result_type), grade, year_from, year_to)
+    graph_title = "Total Number of {0} Wins in Grade {1} ({2}-{3})".format(convert_result_type(result_type), grade,
+                                                                           year_from, year_to)
     graph_data = get_band_results(str(grade), str(place), result_type, year_from, year_to)
     return {'data': graph_data, 'title': graph_title}

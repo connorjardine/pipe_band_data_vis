@@ -1,6 +1,6 @@
 var current_grade = '1';
-var current_band = 'Field Marshal Montgomery';
-var compare_band = 'Inveraray and District';
+var current_band = '';
+var compare_band = '';
 var year_from = 2003;
 var year_to = 2019;
 var state = false;
@@ -218,7 +218,7 @@ function update_band_graph(grade, band, comp_band, compare) {
         year_to: year_to,
     }, function (data) {
         shallow_data = data;
-        console.log(data);
+        console.log(compare);
         for(var i = 0; i < data[0].length; i++) {
             var id = 'myDiv' + String(i);
             if (!compare) {
@@ -384,6 +384,8 @@ $('#ddselect button').on('click', function() {
 
 $('#band-select').on('click', '#sel-button', function() {
     current_band = $(this).text();
+    console.log("here");
+    $('#band-results-submit').removeAttr("disabled");
     $('#dropdown-band').text("Chosen Band:   " + String(current_band));
 });
 
@@ -428,7 +430,7 @@ $('#year-to-select button').on('click', function() {
 });
 
 $('#band-results-submit').on('click', function() {
-    if (current_band !== compare_band) {
+    if (current_band !== compare_band && current_band !== "") {
         $.LoadingOverlay("show", {
             image       : "",
             text        : "Waiting for the pipers..."

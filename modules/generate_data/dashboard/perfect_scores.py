@@ -38,11 +38,12 @@ def get_perfect_scores():
     perfect = []
     perfect_totals = []
     results = pull_data(competitions_collection)
-
     for k in results:
         winning_band = jsonpickle.decode(k['results'])[0]
         if winning_band['band'] == "George Watson's College":
             winning_band['band'] = "George Watsons College"
+        if winning_band['band'] == "St. Laurence O'Toole":
+            winning_band['band'] = "St Laurence O'Toole - Eire"
         if winning_band['total'] == '4':
             perfect.append([k['year'], k['contest'], convert_grade(k['Grade']), winning_band['band']])
 
@@ -57,4 +58,4 @@ def get_perfect_scores():
     return perfect, perfect_totals
 
 
-#push_data(helper_collection, {"type": "perfect_scores", "data": jsonpickle.encode((get_perfect_scores()))})
+# push_data(helper_collection, {"type": "perfect_scores", "data": jsonpickle.encode((get_perfect_scores()))})

@@ -242,7 +242,7 @@ def get_bands_data(grade, band, year_from, year_to):
 def update_band_data(grade, band, compare_band, year_from, year_to):
     data = [[], []]
     band_data = get_bands_data(grade, band, year_from, year_to)
-    if compare_band == 'none':
+    if compare_band == 'none' or compare_band == "":
         for k in band_data:
             graph_title = "{0} Totals in Grade {1} ({2}-{3})".format(str(k[2]), grade, year_from, year_to)
 

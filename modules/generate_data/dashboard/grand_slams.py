@@ -6,7 +6,7 @@ grades_list = ['2', '3a', '3b', '4a', '4b', 'juv', 'Nov', 'Nov%20A', 'Nov%20B']
 
 def get_slams():
     slams = []
-    for i in range(2003, 2019):
+    for i in range(2003, 2020):
         results = pull_data(competitions_collection, {'Grade': '1', 'year': i})
         worlds_results = pull_data(worlds_collection, {'Grade': '1', 'year': i})
 
@@ -36,4 +36,4 @@ def get_slams():
     return slams
 
 
-#helper_collection.insert_one({"type": "slams", "data": jsonpickle.encode((get_slams()))})
+# push_data(helper_collection, {"type": "slams", "data": jsonpickle.encode((get_slams()))})

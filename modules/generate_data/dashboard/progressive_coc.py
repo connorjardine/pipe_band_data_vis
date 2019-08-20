@@ -40,10 +40,10 @@ def comb_bands(b_comb, dct):
 def line_coc():
     it = 0
     output = {}
-    for i in range(2003, 2019):
+    for i in range(2003, 2020):
         for k in get_coc('1', i)[::-1]:
             if k[0] not in output:
-                output[k[0]] = [0] * 18
+                output[k[0]] = [0] * 19
                 output[k[0]][it] = k[1]
             else:
                 output[k[0]][it] = k[1]
@@ -80,10 +80,10 @@ def line_coc():
 def line_drumming_coc():
     it = 0
     output = {}
-    for i in range(2003, 2019):
+    for i in range(2003, 2020):
         for k in get_drumming_coc('1', i)[::-1]:
             if k[0] not in output:
-                output[k[0]] = [0] * 18
+                output[k[0]] = [0] * 19
                 output[k[0]][it] = k[1]
             else:
                 output[k[0]][it] = k[1]
@@ -117,6 +117,5 @@ def line_drumming_coc():
     return combined_results
 
 
-#helper_collection.insert_one({"type": "g1_drumming_coc", "data": jsonpickle.encode(line_drumming_coc())})
-#helper_collection.insert_one({"type": "g1_coc", "data": jsonpickle.encode(line_coc())})
-print(line_coc())
+# push_data(helper_collection, {"type": "g1_drumming_coc", "data": jsonpickle.encode(line_drumming_coc())})
+# push_data(helper_collection, {"type": "g1_coc", "data": jsonpickle.encode(line_coc())})

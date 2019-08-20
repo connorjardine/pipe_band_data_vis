@@ -119,3 +119,4 @@ def line_drumming_coc():
 
 #helper_collection.insert_one({"type": "g1_drumming_coc", "data": jsonpickle.encode(line_drumming_coc())})
 #helper_collection.insert_one({"type": "g1_coc", "data": jsonpickle.encode(line_coc())})
+print(line_coc())

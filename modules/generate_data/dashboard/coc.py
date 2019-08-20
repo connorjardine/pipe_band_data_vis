@@ -29,7 +29,6 @@ def get_coc(grade, year):
     results = pull_data(competitions_collection, {'Grade': grade, 'year': year})
     worlds_results = pull_data(worlds_collection, {'Grade': grade, 'year': year})
     output = {}
-
     for i in results:
         comp = jsonpickle.decode(i['results'])
         for k in comp:

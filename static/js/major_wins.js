@@ -1,7 +1,7 @@
 var default_grade = '1';
 var default_type = 'w';
 var year_from = 2003;
-var year_to = 2018;
+var year_to = 2019;
 var graph_title;
 var state = true;
 var graphs;
@@ -103,7 +103,7 @@ function updateGrade(grade, place, type, year_from, year_to) {
     });
 }
 
-updateGrade('1', '1', 'w', 2003, 2018);
+updateGrade('1', '1', 'w', year_from, year_to);
 
 function updateSelectedButtonStyle(selector_to, other_selectors) {
     $(other_selectors).removeClass("btn-success").addClass("btn-primary");

@@ -2,19 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68fa0cca-74ae-44db-a726-ea109f70e6d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/generate_data/worlds/insert_new_worlds_format.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/scrape/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/dashboard_tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blueprints/band_results_blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/band_results_blueprint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/dashboard_blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/dashboard_blueprint.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blueprints/major_wins_blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/major_wins_blueprint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/generate_data/band_results/band_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/band_results/band_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/worlds_blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/worlds_blueprint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_data/dashboard/coc.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/dashboard/coc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_data/dashboard/grand_slams.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/dashboard/grand_slams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/generate_data/major_wins/other_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/major_wins/other_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/band_results.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/band_results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/scrape/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/scrape/scrape.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/major_wins.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/major_wins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/worlds.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/worlds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/major_wins.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/major_wins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/worlds.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/worlds.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,30 +27,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/betfair_parser$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1559169732186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/betfair_parser$backtest_matches.coverage" NAME="backtest_matches Coverage Results" MODIFIED="1559511525425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$worlds__1_.coverage" NAME="worlds (1) Coverage Results" MODIFIED="1565480938524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/worlds" />
-    <SUITE FILE_PATH="coverage/betfair_parser$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1561984887953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$vis.coverage" NAME="vis Coverage Results" MODIFIED="1562256855181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rspba$band_results__1_.coverage" NAME="band_results (1) Coverage Results" MODIFIED="1565132321215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
-    <SUITE FILE_PATH="coverage/rspba$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1565043681439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
     <SUITE FILE_PATH="coverage/rspba$other_results.coverage" NAME="other_results Coverage Results" MODIFIED="1565708461191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/major_wins" />
+    <SUITE FILE_PATH="coverage/rspba$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1566225538511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/dashboard" />
     <SUITE FILE_PATH="coverage/betfair_parser$main.coverage" NAME="main Coverage Results" MODIFIED="1559325224355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$grand_slams.coverage" NAME="grand_slams Coverage Results" MODIFIED="1563626719312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
     <SUITE FILE_PATH="coverage/rspba$perfect_scores.coverage" NAME="perfect_scores Coverage Results" MODIFIED="1565301444331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
+    <SUITE FILE_PATH="coverage/rspba$pytest_in_dashboard_tests_py.coverage" NAME="pytest in dashboard_tests.py Coverage Results" MODIFIED="1565885676967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/rspba$other_results__1_.coverage" NAME="other_results (1) Coverage Results" MODIFIED="1563493864845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
+    <SUITE FILE_PATH="coverage/rspba$db.coverage" NAME="db Coverage Results" MODIFIED="1564871719939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/db" />
+    <SUITE FILE_PATH="coverage/rspba$get_results.coverage" NAME="get_results Coverage Results" MODIFIED="1565707846133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/major_wins" />
+    <SUITE FILE_PATH="coverage/rspba$scrape.coverage" NAME="scrape Coverage Results" MODIFIED="1566222137908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/scrape" />
+    <SUITE FILE_PATH="coverage/rspba$grade1_results.coverage" NAME="grade1_results Coverage Results" MODIFIED="1566324760133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/major_wins" />
+    <SUITE FILE_PATH="coverage/rspba$progressive_coc.coverage" NAME="progressive_coc Coverage Results" MODIFIED="1565885740951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/dashboard" />
+    <SUITE FILE_PATH="coverage/rspba$insert_new_worlds_format.coverage" NAME="insert_new_worlds_format Coverage Results" MODIFIED="1566324689176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/worlds" />
+    <SUITE FILE_PATH="coverage/rspba$test.coverage" NAME="test Coverage Results" MODIFIED="1566322629623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
+    <SUITE FILE_PATH="coverage/betfair_parser$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1559169732186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/betfair_parser$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1561984887953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rspba$band_results__1_.coverage" NAME="band_results (1) Coverage Results" MODIFIED="1565132321215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
     <SUITE FILE_PATH="coverage/rspba$worlds.coverage" NAME="worlds Coverage Results" MODIFIED="1565360383213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
     <SUITE FILE_PATH="coverage/betfair_parser$db.coverage" NAME="db Coverage Results" MODIFIED="1559327163757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/betfair_parser$scrape.coverage" NAME="scrape Coverage Results" MODIFIED="1561993607136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rspba$coc.coverage" NAME="coc Coverage Results" MODIFIED="1564673240929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data" />
-    <SUITE FILE_PATH="coverage/rspba$other_results__1_.coverage" NAME="other_results (1) Coverage Results" MODIFIED="1563493864845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
+    <SUITE FILE_PATH="coverage/rspba$coc.coverage" NAME="coc Coverage Results" MODIFIED="1565885134579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/dashboard" />
     <SUITE FILE_PATH="coverage/betfair_parser$pytest_in_test_matches_py.coverage" NAME="pytest in test_matches.py Coverage Results" MODIFIED="1559398591769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rspba$db.coverage" NAME="db Coverage Results" MODIFIED="1564871719939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/db" />
-    <SUITE FILE_PATH="coverage/rspba$grade1_results.coverage" NAME="grade1_results Coverage Results" MODIFIED="1565479031353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/major_wins" />
-    <SUITE FILE_PATH="coverage/rspba$get_results.coverage" NAME="get_results Coverage Results" MODIFIED="1565707846133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/major_wins" />
-    <SUITE FILE_PATH="coverage/rspba$progressive_coc.coverage" NAME="progressive_coc Coverage Results" MODIFIED="1562878766373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rspba$grade1_results__1_.coverage" NAME="grade1_results (1) Coverage Results" MODIFIED="1563408451174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
     <SUITE FILE_PATH="coverage/rspba$band_results.coverage" NAME="band_results Coverage Results" MODIFIED="1565707624161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/generate_data/band_results" />
-    <SUITE FILE_PATH="coverage/rspba$test.coverage" NAME="test Coverage Results" MODIFIED="1561991839688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rspba$major_wins_blueprint.coverage" NAME="major_wins_blueprint Coverage Results" MODIFIED="1566325404004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blueprints" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -66,11 +74,12 @@
     <session id="-1897233603">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="4" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
@@ -83,37 +92,38 @@
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="35" />
+          <entry key="project.opened" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="12" />
-          <entry key="HTML" value="72" />
+          <entry key="Cucumber" value="1" />
+          <entry key="HTML" value="73" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="47" />
+          <entry key="JavaScript" value="48" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="133" />
+          <entry key="Python" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1741" />
-          <entry key="HTML" value="9992" />
-          <entry key="JavaScript" value="8458" />
-          <entry key="PLAIN_TEXT" value="61" />
-          <entry key="Python" value="36316" />
+          <entry key="HTML" value="9993" />
+          <entry key="JavaScript" value="8464" />
+          <entry key="PLAIN_TEXT" value="92" />
+          <entry key="Python" value="39231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="18" />
           <entry key="css" value="1741" />
-          <entry key="dummy" value="28" />
+          <entry key="dummy" value="59" />
           <entry key="gitignore" value="11" />
-          <entry key="html" value="9987" />
-          <entry key="js" value="8463" />
-          <entry key="py" value="36296" />
+          <entry key="html" value="9988" />
+          <entry key="js" value="8469" />
+          <entry key="py" value="39211" />
           <entry key="wsgi" value="4" />
         </counts>
       </usages-collector>
@@ -121,64 +131,19 @@
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="css" value="12" />
+          <entry key="feature" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="72" />
+          <entry key="html" value="73" />
           <entry key="ico" value="2" />
-          <entry key="js" value="47" />
-          <entry key="py" value="132" />
+          <entry key="js" value="48" />
+          <entry key="py" value="157" />
           <entry key="wsgi" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/worlds.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="63" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/major_wins.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="199" column="24" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/major_wins.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="78" column="14" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -191,11 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>quick</find>
-      <find>quick_sort</find>
-      <find>legend</find>
-      <find>endfor</find>
-      <find>curr_grade</find>
       <find>url_for</find>
       <find>return_other_worlds</find>
       <find>default_gr</find>
@@ -217,10 +177,15 @@
       <find>band-sele</find>
       <find>console</find>
       <find>conso</find>
-      <find>print</find>
       <find>band</find>
       <find>Wins</find>
       <find>worlds_msr</find>
+      <find>print</find>
+      <find>quick</find>
+      <find>helper_collection</find>
+      <find>get_band_re</find>
+      <find>get_band_results</find>
+      <find>2018</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -229,13 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/flaskapp.wsgi" />
-        <option value="$PROJECT_DIR$/other_results.py" />
-        <option value="$PROJECT_DIR$/grade1_results.py" />
-        <option value="$PROJECT_DIR$/modules/__init__.py" />
-        <option value="$PROJECT_DIR$/modules/other_results.py" />
-        <option value="$PROJECT_DIR$/modules/grade1_results.py" />
         <option value="$PROJECT_DIR$/modules/worlds.py" />
         <option value="$PROJECT_DIR$/modules/grand_slams.py" />
         <option value="$PROJECT_DIR$/templates/slams.html" />
@@ -250,7 +208,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/modules/generate_data/dashboard.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/band_results.py" />
-        <option value="$PROJECT_DIR$/modules/db/db.py" />
         <option value="$PROJECT_DIR$/modules/sort.py" />
         <option value="$PROJECT_DIR$/static/js/dashboard.js" />
         <option value="$PROJECT_DIR$/modules/generate_data/perfect_scores.py" />
@@ -258,28 +215,36 @@
         <option value="$PROJECT_DIR$/templates/major_totals.html" />
         <option value="$PROJECT_DIR$/static/js/major_totals.js" />
         <option value="$PROJECT_DIR$/blueprints/__init__.py" />
-        <option value="$PROJECT_DIR$/blueprints/dashboard_blueprint.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/worlds.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/shared/shared_functions.py" />
-        <option value="$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py" />
-        <option value="$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/worlds/worlds.py" />
-        <option value="$PROJECT_DIR$/blueprints/worlds_blueprint.py" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/static/styles/style.css" />
         <option value="$PROJECT_DIR$/templates/band_results.html" />
-        <option value="$PROJECT_DIR$/blueprints/band_results_blueprint.py" />
         <option value="$PROJECT_DIR$/static/js/band_results.js" />
-        <option value="$PROJECT_DIR$/blueprints/major_wins_blueprint.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/band_results/band_results.py" />
-        <option value="$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py" />
         <option value="$PROJECT_DIR$/modules/generate_data/major_wins/other_results.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/worlds.html" />
         <option value="$PROJECT_DIR$/static/js/worlds.js" />
+        <option value="$PROJECT_DIR$/modules/generate_data/dashboard/grand_slams.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py" />
+        <option value="$PROJECT_DIR$/tests/dashboard_tests.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/dashboard/coc.py" />
+        <option value="$PROJECT_DIR$/modules/scrape/scrape.py" />
+        <option value="$PROJECT_DIR$/blueprints/band_results_blueprint.py" />
+        <option value="$PROJECT_DIR$/blueprints/dashboard_blueprint.py" />
+        <option value="$PROJECT_DIR$/blueprints/worlds_blueprint.py" />
+        <option value="$PROJECT_DIR$/modules/db/db.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/test.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/worlds/test.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/worlds/insert_new_worlds_format.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py" />
         <option value="$PROJECT_DIR$/static/js/major_wins.js" />
         <option value="$PROJECT_DIR$/templates/major_wins.html" />
+        <option value="$PROJECT_DIR$/blueprints/major_wins_blueprint.py" />
+        <option value="$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py" />
       </list>
     </option>
   </component>
@@ -290,8 +255,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-94" />
-    <option name="y" value="80" />
+    <option name="x" value="70" />
+    <option name="y" value="438" />
     <option name="width" value="2762" />
     <option name="height" value="1770" />
   </component>
@@ -301,7 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,24 +281,6 @@
             <path>
               <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
               <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="generate_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="generate_data" type="462c0819:PsiDirectoryNode" />
-              <item name="major_wins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -346,35 +292,33 @@
             <path>
               <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
               <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rspba" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betfair-parser" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fire-find" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\generate_data\worlds" />
       <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\shared" />
       <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\generate_data\band_results" />
-      <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\generate_data\worlds" />
       <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\generate_data\dashboard" />
       <recent name="C:\Users\Connor\Desktop\betfair-parser\modules" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor\Desktop\betfair-parser\modules\scrape" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,7 +333,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.other_results">
+  <component name="RunManager" selected="Python.major_wins_blueprint">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -412,7 +356,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="band_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -420,34 +364,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/generate_data/band_results" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/generate_data/dashboard" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/band_results/band_results.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="get_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="rspba" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/generate_data/major_wins" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/dashboard/dashboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -478,29 +400,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="other_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="rspba" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/generate_data/major_wins" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/major_wins/other_results.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="worlds (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="insert_new_worlds_format" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rspba" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -513,7 +413,51 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/worlds/worlds.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/generate_data/worlds/insert_new_worlds_format.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="major_wins_blueprint" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="rspba" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/blueprints" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blueprints/major_wins_blueprint.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="rspba" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/generate_data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Connor\Desktop\betfair-parser\modules\generate_data\worlds\insert_new_worlds_format.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -524,19 +468,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python.band_results" />
-      <item itemvalue="Python.get_results" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.dashboard" />
       <item itemvalue="Python.grade1_results" />
-      <item itemvalue="Python.worlds (1)" />
-      <item itemvalue="Python.other_results" />
+      <item itemvalue="Python.insert_new_worlds_format" />
+      <item itemvalue="Python.major_wins_blueprint" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.other_results" />
-        <item itemvalue="Python.get_results" />
-        <item itemvalue="Python.band_results" />
-        <item itemvalue="Python.worlds (1)" />
+        <item itemvalue="Python.major_wins_blueprint" />
         <item itemvalue="Python.grade1_results" />
+        <item itemvalue="Python.insert_new_worlds_format" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.dashboard" />
       </list>
     </recent_temporary>
   </component>
@@ -553,6 +497,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 06m 10s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 06m 57s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 08m 34s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 11m 42s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 12m 14s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 12m 47s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 13m 21s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 13m 56s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 14m 23s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_dashboard_tests_py - 2019.08.15 at 17h 14m 52s.xml">
+      <configuration name="pytest in dashboard_tests.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -566,12 +542,12 @@
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48351648" visible="true" weight="0.1904762" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48351648" visible="true" weight="0.19652306" />
       <window_info id="Structure" order="1" sideWeight="0.51648355" side_tool="true" weight="0.17762661" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891247" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49811035" visible="true" weight="0.33023873" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49811035" visible="true" weight="0.33023873" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39920425" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -631,13 +607,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/slams.html" />
-    <entry file="file://$PROJECT_DIR$/modules/scrape/scrape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/db/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -660,13 +629,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/champion_of_champions.html" />
-    <entry file="file://$PROJECT_DIR$/modules/sort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -675,76 +637,13 @@
         <state relative-caret-position="-239" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/db/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blueprints/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blueprints/dashboard_blueprint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="44" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/shared_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/grand_slams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="38" selection-start-line="38" selection-end-line="38" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/perfect_scores.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/coc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/dashboard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blueprints/worlds_blueprint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -790,66 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blueprints/band_results_blueprint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="59" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/worlds/worlds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="136" column="102" selection-start-line="136" selection-start-column="58" selection-end-line="136" selection-end-column="102" />
-          <folding>
-            <marker date="1565480965382" expanded="true" signature="6870:6875" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blueprints/major_wins_blueprint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="75" selection-start-line="21" selection-start-column="75" selection-end-line="21" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="206" column="121" lean-forward="true" selection-start-line="206" selection-start-column="78" selection-end-line="206" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/generate_data/major_wins/other_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="111" column="99" selection-start-line="111" selection-start-column="99" selection-end-line="111" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="36" column="100" selection-start-line="36" selection-start-column="100" selection-end-line="36" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#85#0" expanded="true" />
-            <marker date="1565708424828" expanded="true" signature="244:462" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/generate_data/band_results/band_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="72" selection-start-line="72" selection-end-line="73" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <marker date="1565708248585" expanded="true" signature="2891:2993" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -860,31 +703,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
+    <entry file="file://$PROJECT_DIR$/tests/dashboard.feature" />
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/progressive_coc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="60" />
+        <state relative-caret-position="1470">
+          <caret line="121" column="5" selection-start-line="121" selection-end-line="121" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/major_wins.js">
+    <entry file="file://$PROJECT_DIR$/static/js/worlds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="199" column="24" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
+        <state relative-caret-position="3162">
+          <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/worlds.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="1003">
           <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="63" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/scrape/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="167" column="37" lean-forward="true" selection-start-line="167" selection-start-column="37" selection-end-line="167" selection-end-column="37" />
+          <folding>
+            <marker date="1566222137861" expanded="true" signature="8093:8094" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/dashboard_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-326">
+          <caret line="4" column="73" selection-start-line="4" selection-start-column="73" selection-end-line="4" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1565886029013" expanded="true" signature="218:219" ph="..." />
+            <marker date="1565886029013" expanded="true" signature="378:380" ph="..." />
+            <marker date="1565886029013" expanded="true" signature="406:411" ph="..." />
+            <marker date="1565886029013" expanded="true" signature="588:1199" ph="..." />
+            <marker date="1565886029013" expanded="true" signature="1223:1224" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blueprints/dashboard_blueprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="114" selection-start-line="13" selection-start-column="114" selection-end-line="13" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/perfect_scores.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blueprints/worlds_blueprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/band_results/band_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1565708248585" expanded="true" signature="2891:2993" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/coc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/dashboard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/sort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/worlds/insert_new_worlds_format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="37" column="68" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/major_wins/grade1_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/major_wins.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="78" column="14" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+        <state relative-caret-position="142">
+          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blueprints/band_results_blueprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/major_wins/get_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/worlds/worlds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2243">
+          <caret line="136" column="102" selection-start-line="136" selection-start-column="58" selection-end-line="136" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/major_wins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blueprints/major_wins_blueprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/generate_data/dashboard/grand_slams.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/db/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>

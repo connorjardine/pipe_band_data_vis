@@ -255,8 +255,15 @@ def get_grade1_results_totals(place, result_type, year_from, year_to):
         return get_grade1_ensemble_totals(place, year_from, year_to)
 
 
-#NB CHANGE TO PUSH WHEN NEXT UPDATING DATA
-#helper_collection.insert_one({"type": "g1_overall", "data": jsonpickle.encode(data)})
-#helper_collection.insert_one({"type": "g1_piping", "data": jsonpickle.encode(get_grade1_piping_totals('1'))})
-#helper_collection.insert_one({"type": "g1_drumming", "data": jsonpickle.encode(get_grade1_drumming_totals('1'))})
-#helper_collection.insert_one({"type": "g1_ensemble", "data": jsonpickle.encode( get_grade1_ensemble_totals('1'))})
+# find_and_mod(helper_collection, {"type": "g1_piping"}, {"type": "g1_piping",
+# "data": jsonpickle.encode(get_grade1_piping_totals('1', 2003, 2019))})
+
+# find_and_mod(helper_collection, {"type": "g1_drumming"}, {"type": "g1_drumming",
+# "data": jsonpickle.encode(get_grade1_drumming_totals('1', 2003, 2019))})
+
+# find_and_mod(helper_collection, {"type": "g1_totals"}, {"type": "g1_totals",
+#    "data": jsonpickle.encode(get_grade1_totals('1', 2003, 2019))})
+
+# find_and_mod(helper_collection, {"type": "g1_ensemble"}, {"type": "g1_ensemble",
+#    "data": jsonpickle.encode(get_grade1_ensemble_totals('1', 2003, 2019))})
+

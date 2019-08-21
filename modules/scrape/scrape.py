@@ -59,7 +59,6 @@ def get_grade_data(year, grade, contest):
         comp_details = comp_raw.text.splitlines()
         if len(comp_details) == 13:
             comp_details += ['']
-        print(comp_details)
 
         bands = driver.find_element_by_xpath('//*[@id="Table1"]/tbody/tr[3]/td[2]/table/tbody/tr/td/font/table/tbody')
         comp = []

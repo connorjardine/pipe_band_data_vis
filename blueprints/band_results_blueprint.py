@@ -27,3 +27,6 @@ def get_band_list():
     year_from = request.args.get('year_from', 2003, type=int)
     year_to = request.args.get('year_to', 2019, type=int)
     return jsonify(get_bands_list(grade, year_from, year_to))
+
+
+#print(update_band_data('1', 'Field Marshal Montgomery', 'Inveraray and District', 2003, 2019))

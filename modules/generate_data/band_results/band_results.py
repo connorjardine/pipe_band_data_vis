@@ -215,8 +215,5 @@ def update_band_data(grade, band, compare_band, year_from, year_to):
 
 
 
-print(update_band_data('1', 'Field Marshal Montgomery', 'Inveraray and District', 2003, 2019))
-
-
 
 

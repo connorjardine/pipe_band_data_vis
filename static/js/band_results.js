@@ -7,6 +7,9 @@ var state = false;
 var compare = false;
 var shallow_data = [];
 
+var controller = {'current_grade': '1', 'current_band': '', 'compare_band': '', 'year_from': 2003,
+    'year_to': 2019, state: false, compare: false};
+
 get_band_list('1');
 
 var pie_layout = {
@@ -59,7 +62,6 @@ var bar_layout = {
 
 var pie_graph_data = [{
   domain: {column: 0},
-  name: current_band,
   hole: .4,
   type: 'pie'
 }];
@@ -78,7 +80,6 @@ var doubled_pie_graph_data = [{
             row: 0,
             column: 0
           },
-        name: current_band,
         hole: .4,
         type: 'pie'
     },
@@ -87,15 +88,12 @@ var doubled_pie_graph_data = [{
             row: 0,
             column: 1
           },
-        name: compare_band,
         hole: .4,
         type: 'pie'
     }
     ];
 
 var bar_graph_data = [{
-    x: "",
-    y: "",
     type: 'bar'
 }];
 
@@ -131,13 +129,11 @@ var doubled_bar_layout = {
     };
 
 var doubled_bar_graph_data = [{
-        name: current_band,
         x: "",
         y: "",
         type: 'bar'
     },
     {
-        name: compare_band,
         x: "",
         y: "",
         type: 'bar'
@@ -208,8 +204,46 @@ function toFilterFunction() {
   }
 }
 
+function updateSingleGraph(data, id, state){
+    if (state) {
+        pie_graph_data[0]['values'] = data['values'];
+        pie_graph_data[0]['labels'] = data['labels'];
+        pie_layout['title'] = data['title'];
+        pie_layout['annotations'][0]['text'] = data['annotation'] + " Placings";
+        Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true, responsive: true});
+    }
+    else {
+        bar_graph_data[0]['x'] = data['labels'];
+        bar_graph_data[0]['y'] = data['values'];
+        bar_layout['title'] = data['title'];
+        Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true, responsive: true});
+    }
+}
 
-function update_band_graph(grade, band, comp_band, compare) {
+function updateDoubleGraph(data, id, state, current_band, compare_band, i) {
+    if (state) {
+        doubled_pie_graph_data[0]['values'] = data[0][i][1][1];
+        doubled_pie_graph_data[0]['labels'] = data[0][i][1][0];
+        doubled_pie_graph_data[1]['values'] = data[1][i][1][1];
+        doubled_pie_graph_data[1]['labels'] = data[1][i][1][0];
+        doubled_pie_graph_data[0]['name'] = current_band;
+        doubled_pie_graph_data[1]['name'] = compare_band;
+        doubled_pie_layout['title'] = data[0][i][0];
+        Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
+    }
+    else {
+        doubled_bar_graph_data[0]['x'] = data[0][i][1][0];
+        doubled_bar_graph_data[0]['y'] = data[0][i][1][1];
+        doubled_bar_graph_data[1]['x'] = data[1][i][1][0];
+        doubled_bar_graph_data[1]['y'] = data[1][i][1][1];
+        doubled_bar_graph_data[0]['name'] = current_band;
+        doubled_bar_graph_data[1]['name'] = compare_band;
+        doubled_bar_layout['title'] = data[0][i][0];
+        Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true, responsive: true});
+    }
+}
+
+function update_band_graph(grade, band, comp_band, compare, state) {
     $.getJSON($SCRIPT_ROOT + '/_update_band_data', {
         grade: String(grade),
         band: String(band),
@@ -218,130 +252,31 @@ function update_band_graph(grade, band, comp_band, compare) {
         year_to: year_to,
     }, function (data) {
         shallow_data = data;
-        console.log(compare);
-        for(var i = 0; i < data[0].length; i++) {
-            var id = 'myDiv' + String(i);
-            if (!compare) {
-                var single_copy_data = data.slice();
-                var sk = single_copy_data[0][i][1][0].length;
-                while(sk--){
-                    if (single_copy_data[0][i][1][1][sk] === 0){
-                        single_copy_data[0][i][1][0].splice(sk, 1);
-                        single_copy_data[0][i][1][1].splice(sk, 1);
-                    }
-                }
-                $('#band-name').text(String(band));
-                if (state) {
-                    pie_graph_data[0]['values'] = single_copy_data[0][i][1][1];
-                    pie_graph_data[0]['labels'] = single_copy_data[0][i][1][0];
-                    pie_layout['title'] = single_copy_data[0][i][0];
-                    pie_layout['annotations'][0]['text'] = single_copy_data[0][i][2] + " Placings";
-                    Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true, responsive: true});
-                }
-                else {
-                    bar_graph_data[0]['x'] = single_copy_data[0][i][1][0];
-                    bar_graph_data[0]['y'] = single_copy_data[0][i][1][1];
-                    bar_layout['title'] = single_copy_data[0][i][0];
-                    Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true, responsive: true});
-                }
-
-            }
-            else {
-                if (state) {
-                    var copy_data = data.slice();
-                    var k = copy_data[0][i][1][0].length;
-                    while(k--){
-                        if (copy_data[0][i][1][1][k] === 0){
-                            copy_data[0][i][1][0].splice(k, 1);
-                            copy_data[0][i][1][1].splice(k, 1);
-                        }
-                    }
-                    doubled_pie_graph_data[0]['values'] = copy_data[0][i][1][1];
-                    doubled_pie_graph_data[0]['labels'] = copy_data[0][i][1][0];
-                    doubled_pie_graph_data[1]['values'] = copy_data[1][i][1][1];
-                    doubled_pie_graph_data[1]['labels'] = copy_data[1][i][1][0];
-                    doubled_pie_graph_data[0]['name'] = current_band;
-                    doubled_pie_graph_data[1]['name'] = compare_band;
-                    doubled_pie_layout['title'] = copy_data[0][i][0];
-                    Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
-                }
-                else {
-                    doubled_bar_graph_data[0]['x'] = data[0][i][1][0];
-                    doubled_bar_graph_data[0]['y'] = data[0][i][1][1];
-                    doubled_bar_graph_data[1]['x'] = data[1][i][1][0];
-                    doubled_bar_graph_data[1]['y'] = data[1][i][1][1];
-                    doubled_bar_graph_data[0]['name'] = current_band;
-                    doubled_bar_graph_data[1]['name'] = compare_band;
-                    doubled_bar_layout['title'] = data[0][i][0];
-                    Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true, responsive: true});
-                }
-            }
-            $.LoadingOverlay("hide");
-            $("#chart-col").show();
-            if (compare) {
-                $('#band-name').text(String(current_band) + " - " + String(compare_band));
-            }
-        }
+        shallow_update_band_graph(grade, band, comp_band, data, compare, state);
+        $.LoadingOverlay("hide");
+        $('#band-name').text(String(controller['current_band']));
+        $("#chart-col").show();
     });
 }
 
-function shallow_update_band_graph(grade, band, comp_band, data) {
+function shallow_update_band_graph(grade, band, comp_band, data, compare, state) {
     for (var i = 0; i < data[0].length; i++) {
         var id = 'myDiv' + String(i);
         if (!compare) {
-            $('#band-name').text(String(band));
-            var single_copy_data = data.slice();
-                var sk = single_copy_data[0][i][1][0].length;
-                while(sk--){
-                    if (single_copy_data[0][i][1][1][sk] === 0){
-                        single_copy_data[0][i][1][0].splice(sk, 1);
-                        single_copy_data[0][i][1][1].splice(sk, 1);
-                    }
+            var copy_values = data[0][i][1][1].slice();
+            var copy_labels = data[0][i][1][0].slice();
+            var k = copy_labels.length;
+            while(k--){
+                if (copy_values[k] === 0){
+                    copy_values.splice(k, 1);
+                    copy_labels.splice(k, 1);
                 }
-            if (state) {
-                pie_graph_data[0]['values'] = single_copy_data[0][i][1][1];
-                pie_graph_data[0]['labels'] = single_copy_data[0][i][1][0];
-                pie_layout['title'] = single_copy_data[0][i][0];
-                pie_layout['annotations'][0]['text'] = single_copy_data[0][i][2] + " Placings";
-                Plotly.newPlot(id, pie_graph_data, pie_layout, {showSendToCloud: true, responsive: true});
             }
-            else {
-                bar_graph_data[0]['x'] = single_copy_data[0][i][1][0];
-                bar_graph_data[0]['y'] = single_copy_data[0][i][1][1];
-                bar_layout['title'] = single_copy_data[0][i][0];
-                Plotly.newPlot(id, bar_graph_data, bar_layout, {showSendToCloud: true, responsive: true});
-            }
-
+            var send_data = {'annotation': data[0][i][2], 'title': data[0][i][0], 'labels': copy_labels, 'values': copy_values};
+            updateSingleGraph(send_data, id, state, i)
         }
         else {
-            if (state) {
-                var copy_data = data.slice();
-                var k = copy_data[0][i][1][0].length;
-                while(k--){
-                    if (copy_data[0][i][1][1][k] === 0){
-                        copy_data[0][i][1][0].splice(k, 1);
-                        copy_data[0][i][1][1].splice(k, 1);
-                    }
-                }
-                doubled_pie_graph_data[0]['values'] = copy_data[0][i][1][1];
-                doubled_pie_graph_data[0]['labels'] = copy_data[0][i][1][0];
-                doubled_pie_graph_data[1]['values'] = copy_data[1][i][1][1];
-                doubled_pie_graph_data[1]['labels'] = copy_data[1][i][1][0];
-                doubled_pie_graph_data[0]['name'] = current_band;
-                doubled_pie_graph_data[1]['name'] = compare_band;
-                doubled_pie_layout['title'] = copy_data[0][i][0];
-                Plotly.newPlot(id, doubled_pie_graph_data, doubled_pie_layout, {showSendToCloud: true, responsive: true});
-            }
-            else {
-                doubled_bar_graph_data[0]['x'] = data[0][i][1][0];
-                doubled_bar_graph_data[0]['y'] = data[0][i][1][1];
-                doubled_bar_graph_data[1]['x'] = data[1][i][1][0];
-                doubled_bar_graph_data[1]['y'] = data[1][i][1][1];
-                doubled_bar_graph_data[0]['name'] = current_band;
-                doubled_bar_graph_data[1]['name'] = compare_band;
-                doubled_bar_layout['title'] = data[0][i][0];
-                Plotly.newPlot(id, doubled_bar_graph_data, doubled_bar_layout, {showSendToCloud: true, responsive: true});
-            }
+            updateDoubleGraph(data, id, state, controller['current_band'], controller['compare_band'], i)
         }
     }
 }
@@ -369,10 +304,10 @@ $('#comp-dropdown-band').text("Comparison Band");
 
 
 $('#ddselect button').on('click', function() {
-    if (current_grade !== $(this).text()) {
-        current_grade = $(this).text();
-        get_band_list(current_grade);
-        $('#dropdownMenu2').text("Chosen Grade:   "+String(current_grade));
+    if (controller['current_grade'] !== $(this).text()) {
+        controller['current_grade'] = $(this).text();
+        get_band_list($(this).text());
+        $('#dropdownMenu2').text("Chosen Grade:   "+String(controller['current_grade']));
         $('#comp-dropdown-band').text("Choose a Band to Compare");
         $('#dropdown-band').text("Choose a Band");
         $('#band-name').text("");
@@ -383,54 +318,60 @@ $('#ddselect button').on('click', function() {
 });
 
 $('#band-select').on('click', '#sel-button', function() {
-    current_band = $(this).text();
-    console.log("here");
+    controller['current_band'] = $(this).text();
     $('#band-results-submit').removeAttr("disabled");
-    $('#dropdown-band').text("Chosen Band:   " + String(current_band));
+    $('#dropdown-band').text("Chosen Band:   " + String(controller['current_band']));
 });
 
 $('#comp-band-select').on('click', '#sel-button', function() {
-    compare_band = $(this).text();
-    $('#comp-dropdown-band').text("Comparison Band:   " + String(compare_band));
+    controller['compare_band'] = $(this).text();
+    $('#comp-dropdown-band').text("Comparison Band:   " + String(controller['compare_band']));
 
 });
 
 $('#piebar').on('click', function() {
-    state = !state;
-    if(!state){
+    controller['state'] = !controller['state'];
+    if(!controller['state']){
         $("#piebar").text('Pie Chart').removeClass("btn-info").addClass("btn-primary");
-        shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data)
+        shallow_update_band_graph(controller['current_grade'], controller['current_band'],
+            controller['compare_band'], shallow_data, controller['compare'], controller['state']);
     }
     else{
         $("#piebar").text('Bar Chart').removeClass("btn-primary").addClass("btn-info");
-        shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data)
+        shallow_update_band_graph(controller['current_grade'], controller['current_band'],
+            controller['compare_band'], shallow_data, controller['compare'], controller['state']);
     }
 
 });
 
 $('#compare').on('click', function() {
-    compare = !compare;
-    if(compare){
+    controller['compare'] = !controller['compare'];
+    console.log(controller);
+    if(controller['compare']){
         $("#compare").text('No Comparison').removeClass("btn-info").addClass("btn-primary");
-        shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data)
+        shallow_update_band_graph(controller['current_grade'], controller['current_band'],
+            controller['compare_band'], shallow_data, controller['compare'], controller['state']);
+        $('#band-name').text(String(controller['current_band']) + " - " + String(controller['compare_band']));
     }
     else{
         $("#compare").text('Comparison').removeClass("btn-primary").addClass("btn-info");
-        shallow_update_band_graph(current_grade, current_band, compare_band, shallow_data)
+        shallow_update_band_graph(controller['current_grade'], controller['current_band'],
+            controller['compare_band'], shallow_data, controller['compare'], controller['state']);
+        $('#band-name').text(String(controller['current_band']));
     }
 
 });
 
 $('#year-from-select button').on('click', function() {
-    year_from = $(this).text();
+    controller['year_from'] = $(this).text();
 });
 
 $('#year-to-select button').on('click', function() {
-    year_to = $(this).text();
+    controller['year_to'] = $(this).text();
 });
 
 $('#band-results-submit').on('click', function() {
-    if (current_band !== compare_band && current_band !== "") {
+    if (controller['current_band'] !== controller['compare_band'] && controller['current_band'] !== "") {
         $.LoadingOverlay("show", {
             image       : "",
             text        : "Waiting for the pipers..."
@@ -438,7 +379,7 @@ $('#band-results-submit').on('click', function() {
         setTimeout(function(){
             $.LoadingOverlay("text", "Yep, still tuning...");
         }, 2500);
-        update_band_graph(current_grade, current_band, compare_band);
+        update_band_graph(controller['current_grade'], controller['current_band'], controller['compare_band']);
     }
     else {
         console.log("show error for this.")

@@ -5,6 +5,10 @@ current state of the application can be found at www.pipebanddata.uk
 
 Please note that it is currently in a work in progress state. Some bugs may persist.
 
+# Technology
+
+The project is built around a NoSQL Cloud MongoDB Database. Flask and Python is used as middleware.
+
 # Installation
 
 1. Clone the app.
